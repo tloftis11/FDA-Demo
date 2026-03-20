@@ -49,7 +49,9 @@
     .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--text-sidebar); cursor: pointer; transition: var(--transition); font-size: 13px; border-left: 3px solid transparent; }
     .nav-item:hover { background: var(--bg-sidebar-hover); color: #fff; }
     .nav-item.active { background: var(--bg-sidebar-hover); color: #fff; border-left-color: var(--primary-light); }
-    .nav-item .icon { width: 20px; text-align: center; font-size: 15px; }
+    .nav-item .icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-item .icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .card-header h3 svg, .btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; vertical-align: -2px; }
     .nav-item .badge { margin-left: auto; background: var(--danger); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 10px; font-weight: 600; }
     .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 10px; }
     .sidebar-footer .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; }
@@ -86,7 +88,7 @@
     /* Content Area */
     .content { flex: 1; display: flex; overflow: hidden; }
     .content-main { flex: 1; overflow-y: auto; padding: 24px 28px; position: relative; }
-    .content-panel { width: 380px; border-left: 1px solid var(--border); background: var(--bg-card); display: flex; flex-direction: column; flex-shrink: 0; }
+    .content-panel { display: none; }
 
     /* Cards */
     .card { background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 20px; }
@@ -125,27 +127,7 @@
     .progress-fill.yellow { background: var(--warning); }
     .progress-fill.red { background: var(--danger); }
 
-    /* Panel */
-    .panel-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 16px; flex-shrink: 0; }
-    .panel-tab { padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition); }
-    .panel-tab:hover { color: var(--text); }
-    .panel-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
-    .panel-content { flex: 1; overflow-y: auto; padding: 16px; }
-    .panel-tab-content { display: none; }
-    .panel-tab-content.active { display: block; }
-
-    /* Chat */
-    .agent-message { margin-bottom: 16px; display: flex; gap: 10px; }
-    .msg-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700; }
-    .msg-avatar.agent { background: var(--primary-light); color: #fff; }
-    .msg-avatar.system { background: var(--warning); color: #fff; }
-    .msg-avatar.user { background: #8e44ad; color: #fff; }
-    .msg-content { flex: 1; }
-    .msg-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-    .msg-header .name { font-size: 12px; font-weight: 600; }
-    .msg-header .time { font-size: 10px; color: var(--text-light); }
-    .msg-body { font-size: 13px; line-height: 1.6; color: var(--text); background: var(--bg); padding: 10px 14px; border-radius: 0 var(--radius) var(--radius) var(--radius); }
-    .msg-body code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 12px; }
+    /* (Chat panel removed) */
 
     /* Forms */
     .form-group { margin-bottom: 14px; }
@@ -154,9 +136,6 @@
     .form-control:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(41,128,185,0.1); }
     select.form-control { cursor: pointer; }
     textarea.form-control { resize: vertical; min-height: 80px; }
-    .chat-input-wrap { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; flex-shrink: 0; }
-    .chat-input-wrap input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: var(--font); }
-    .chat-input-wrap input:focus { outline: none; border-color: var(--primary-light); }
 
     /* Modal */
     .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 100; }
@@ -326,12 +305,6 @@
     .demo-welcome .scenario-item.selected { border-color: var(--primary-light); background: #ebf5fb; }
     .demo-welcome .scenario-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
 
-    /* Inline mini chart in chat */
-    .mini-chart { display: inline-block; margin: 8px 0; padding: 8px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
-    .mini-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 11px; }
-    .mini-bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; position: relative; overflow: visible; }
-    .mini-bar-fill { height: 100%; border-radius: 4px; }
-    .mini-bar-limits { position: absolute; top: -2px; bottom: -2px; border-left: 2px dashed var(--accent); border-right: 2px dashed var(--accent); background: rgba(39,174,96,0.08); }
   </style>
 </head>
 <body>
@@ -363,21 +336,21 @@
     <p class="subtitle">Interactive Demo - Choose a scenario to explore</p>
     <div class="scenario-list">
       <div class="scenario-item" onclick="startDemo('full-review')" id="scenario-full">
-        <div class="scenario-icon" style="background:#ebf5fb;color:var(--primary-light)">&#128202;</div>
+        <div class="scenario-icon" style="background:#ebf5fb;color:var(--primary-light)"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg></div>
         <div>
           <strong style="font-size:13px">Full BE Review Walkthrough</strong>
           <div style="font-size:12px;color:var(--text-light);margin-top:2px">Follow a complete ANDA submission through agent analysis, PK evaluation, and approval recommendation</div>
         </div>
       </div>
       <div class="scenario-item" onclick="startDemo('failure-detection')" id="scenario-fail">
-        <div class="scenario-icon" style="background:#fde8e8;color:var(--danger)">&#9888;</div>
+        <div class="scenario-icon" style="background:#fde8e8;color:var(--danger)"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
         <div>
           <strong style="font-size:13px">Failure Detection & Deficiency</strong>
           <div style="font-size:12px;color:var(--text-light);margin-top:2px">See how the agent identifies BE failures, flags issues, and generates deficiency letters</div>
         </div>
       </div>
       <div class="scenario-item" onclick="startDemo('data-deep-dive')" id="scenario-data">
-        <div class="scenario-icon" style="background:#f3e8ff;color:#6b21a8">&#128300;</div>
+        <div class="scenario-icon" style="background:#f3e8ff;color:#6b21a8"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6m-3-3v6"/></svg></div>
         <div>
           <strong style="font-size:13px">Data Analysis Deep Dive</strong>
           <div style="font-size:12px;color:var(--text-light);margin-top:2px">Explore interactive charts, dissolution profiles, scatter plots, and power analysis tools</div>
@@ -398,18 +371,18 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section">Main</div>
-      <div class="nav-item active" data-view="dashboard"><span class="icon">&#9776;</span> Dashboard</div>
-      <div class="nav-item" data-view="submissions"><span class="icon">&#128196;</span> Submissions <span class="badge">3</span></div>
-      <div class="nav-item" data-view="analysis"><span class="icon">&#128202;</span> BE Analysis</div>
+      <div class="nav-item active" data-view="dashboard"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="11" width="7" height="10" rx="1"/></svg></span> Dashboard</div>
+      <div class="nav-item" data-view="submissions"><span class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span> Submissions <span class="badge">3</span></div>
+      <div class="nav-item" data-view="analysis"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg></span> BE Analysis</div>
       <div class="nav-section">Agent Tools</div>
-      <div class="nav-item" data-view="agent"><span class="icon">&#9881;</span> Agent Console</div>
-      <div class="nav-item" data-view="dissolution"><span class="icon">&#128300;</span> Dissolution</div>
-      <div class="nav-item" data-view="power"><span class="icon">&#128200;</span> Power Analysis</div>
-      <div class="nav-item" data-view="trending"><span class="icon">&#128201;</span> Trending</div>
+      <div class="nav-item" data-view="agent"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg></span> Agent Console</div>
+      <div class="nav-item" data-view="dissolution"><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 2v4l-2 8a5 5 0 0012 0L16 6V2"/><line x1="8" y1="2" x2="16" y2="2"/><path d="M7 10.5c2 0 3 1.5 5 1.5s3-1.5 5-1.5"/></svg></span> Dissolution</div>
+      <div class="nav-item" data-view="power"><span class="icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Power Analysis</div>
+      <div class="nav-item" data-view="trending"><span class="icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span> Trending</div>
       <div class="nav-section">Reference</div>
-      <div class="nav-item" data-view="regulations"><span class="icon">&#128214;</span> Regulations</div>
-      <div class="nav-item" data-view="reports"><span class="icon">&#128203;</span> Reports</div>
-      <div class="nav-item" data-view="settings"><span class="icon">&#9881;</span> Settings</div>
+      <div class="nav-item" data-view="regulations"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="14" y2="11"/></svg></span> Regulations</div>
+      <div class="nav-item" data-view="reports"><span class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></span> Reports</div>
+      <div class="nav-item" data-view="settings"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span> Settings</div>
     </nav>
     <div class="sidebar-footer">
       <div class="avatar">SR</div>
@@ -425,7 +398,7 @@
         <div class="status-pill active" id="agent-status"><div class="dot"></div><span>Agent Active</span></div>
       </div>
       <div class="header-actions">
-        <button class="btn btn-demo btn-sm" onclick="openDemoWelcome()">&#127916; Demo Mode</button>
+        <button class="btn btn-demo btn-sm" onclick="openDemoWelcome()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="vertical-align:-2px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Demo Mode</button>
         <button class="btn btn-outline btn-sm" onclick="openModal('new-submission')">+ New Submission</button>
         <button class="btn btn-primary btn-sm" onclick="runAgent()">Run Agent Analysis</button>
       </div>
@@ -438,11 +411,11 @@
           <div class="stats-grid" id="stats-grid"></div>
           <div class="two-col">
             <div class="card">
-              <div class="card-header"><h3>&#128202; Recent Submissions</h3></div>
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg> Recent Submissions</h3></div>
               <div class="card-body"><div class="table-wrap"><table><thead><tr><th>ANDA #</th><th>Drug Product</th><th>Status</th><th>BE Result</th></tr></thead><tbody id="dashboard-table"></tbody></table></div></div>
             </div>
             <div class="card">
-              <div class="card-header"><h3>&#9881; Agent Activity</h3></div>
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg> Agent Activity</h3></div>
               <div class="card-body" id="agent-activity-feed"></div>
             </div>
           </div>
@@ -452,7 +425,7 @@
         <div class="view-section" id="view-submissions">
           <div class="card">
             <div class="card-header">
-              <h3>&#128196; ANDA Submissions Queue</h3>
+              <h3><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> ANDA Submissions Queue</h3>
               <div style="display:flex;gap:8px">
                 <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="filter-status">
                   <option value="all">All Statuses</option><option value="pending">Pending</option><option value="in-review">In Review</option><option value="approved">Approved</option><option value="deficient">Deficient</option>
@@ -467,7 +440,7 @@
         <div class="view-section" id="view-analysis">
           <div class="card">
             <div class="card-header">
-              <h3>&#128202; Bioequivalence Analysis</h3>
+              <h3><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg> Bioequivalence Analysis</h3>
               <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="analysis-select"><option value="">Select ANDA...</option></select>
             </div>
             <div class="card-body" id="analysis-content"><p style="color:var(--text-light);text-align:center;padding:40px">Select an ANDA submission to view bioequivalence analysis</p></div>
@@ -479,7 +452,7 @@
           <div class="two-col">
             <div class="card">
               <div class="card-header">
-                <h3>&#9881; Agent Workflow</h3>
+                <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg> Agent Workflow</h3>
                 <div style="display:flex;gap:6px">
                   <button class="btn btn-primary btn-sm" id="agent-run-btn" onclick="runAgent()">Execute</button>
                   <button class="btn btn-warning btn-sm" id="agent-pause-btn" onclick="pauseAgent()" style="display:none">Pause</button>
@@ -489,13 +462,13 @@
               <div class="card-body"><div class="flow-steps" id="agent-steps"></div></div>
             </div>
             <div class="card">
-              <div class="card-header"><h3>&#128203; Compliance Checklist</h3></div>
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg> Compliance Checklist</h3></div>
               <div class="card-body" id="compliance-checklist"></div>
             </div>
           </div>
           <div class="card">
             <div class="card-header">
-              <h3>&#128172; Agent Log</h3>
+              <h3><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> Agent Log</h3>
               <button class="btn btn-outline btn-sm" onclick="clearAgentLog()">Clear</button>
             </div>
             <div class="card-body" id="agent-log" style="max-height:300px;overflow-y:auto;font-family:var(--font-mono);font-size:12px"></div>
@@ -506,7 +479,7 @@
         <div class="view-section" id="view-dissolution">
           <div class="card">
             <div class="card-header">
-              <h3>&#128300; Dissolution Profile Comparison</h3>
+              <h3><svg viewBox="0 0 24 24"><path d="M8 2v4l-2 8a5 5 0 0012 0L16 6V2"/><line x1="8" y1="2" x2="16" y2="2"/><path d="M7 10.5c2 0 3 1.5 5 1.5s3-1.5 5-1.5"/></svg> Dissolution Profile Comparison</h3>
               <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="dissolution-select"><option value="">Select ANDA...</option></select>
             </div>
             <div class="card-body">
@@ -518,7 +491,7 @@
         <!-- Power Analysis -->
         <div class="view-section" id="view-power">
           <div class="card">
-            <div class="card-header"><h3>&#128200; Sample Size & Power Calculator</h3></div>
+            <div class="card-header"><h3><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Sample Size & Power Calculator</h3></div>
             <div class="card-body">
               <div class="two-col">
                 <div>
@@ -544,7 +517,7 @@
         <!-- Trending -->
         <div class="view-section" id="view-trending">
           <div class="card">
-            <div class="card-header"><h3>&#128201; Historical Submission Trending</h3></div>
+            <div class="card-header"><h3><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Historical Submission Trending</h3></div>
             <div class="card-body">
               <canvas id="trending-chart" class="chart-canvas" height="280"></canvas>
               <div id="trending-legend" style="display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:12px"></div>
@@ -564,18 +537,18 @@
 
         <!-- Regulations -->
         <div class="view-section" id="view-regulations">
-          <div class="card"><div class="card-header"><h3>&#128214; Regulatory Reference</h3></div><div class="card-body" id="regulations-content"></div></div>
+          <div class="card"><div class="card-header"><h3><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="14" y2="11"/></svg> Regulatory Reference</h3></div><div class="card-body" id="regulations-content"></div></div>
         </div>
 
         <!-- Reports -->
         <div class="view-section" id="view-reports">
-          <div class="card"><div class="card-header"><h3>&#128203; Generated Reports</h3><button class="btn btn-primary btn-sm" onclick="generateReport()">Generate New Report</button></div><div class="card-body" id="reports-content"></div></div>
+          <div class="card"><div class="card-header"><h3><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg> Generated Reports</h3><button class="btn btn-primary btn-sm" onclick="generateReport()">Generate New Report</button></div><div class="card-body" id="reports-content"></div></div>
         </div>
 
         <!-- Settings -->
         <div class="view-section" id="view-settings">
           <div class="card">
-            <div class="card-header"><h3>&#9881; Agent Configuration</h3></div>
+            <div class="card-header"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Agent Configuration</h3></div>
             <div class="card-body">
               <div class="two-col">
                 <div>
@@ -595,23 +568,6 @@
         </div>
       </div>
 
-      <!-- Right Panel -->
-      <div class="content-panel" id="right-panel">
-        <div class="panel-tabs">
-          <div class="panel-tab active" data-panel="chat">Agent Chat</div>
-          <div class="panel-tab" data-panel="details">Details</div>
-          <div class="panel-tab" data-panel="history">History</div>
-        </div>
-        <div class="panel-content">
-          <div class="panel-tab-content active" id="panel-chat"></div>
-          <div class="panel-tab-content" id="panel-details"></div>
-          <div class="panel-tab-content" id="panel-history"></div>
-        </div>
-        <div class="chat-input-wrap">
-          <input type="text" placeholder="Ask the agent..." id="chat-input" onkeydown="if(event.key==='Enter')sendChat()">
-          <button class="btn btn-primary btn-sm" onclick="sendChat()">Send</button>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -835,7 +791,6 @@
     let agentPaused = false;
     let agentStopped = false;
     let currentStep = -1;
-    let chatMessages = [];
     let reports = [];
     let showingSkeleton = false;
     let demoActive = false;
@@ -1255,7 +1210,7 @@
         document.querySelectorAll('.ci-hover').forEach(el => {
           el.addEventListener('mouseenter', e => {
             const tt = document.getElementById('ci-tooltip');
-            tt.innerHTML = `<strong>${el.dataset.param}</strong><br>GMR: ${parseFloat(el.dataset.gmr).toFixed(1)}%<br>90% CI: [${parseFloat(el.dataset.lower).toFixed(1)}%, ${parseFloat(el.dataset.upper).toFixed(1)}%]<br>${el.dataset.pass==='true'?'&#10003; Within range':'&#10007; Outside range'}`;
+            tt.innerHTML = `<strong>${el.dataset.param}</strong><br>GMR: ${parseFloat(el.dataset.gmr).toFixed(1)}%<br>90% CI: [${parseFloat(el.dataset.lower).toFixed(1)}%, ${parseFloat(el.dataset.upper).toFixed(1)}%]<br>${el.dataset.pass==='true'?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><polyline points="20 6 9 17 4 12"/></svg> Within range':'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Outside range'}`;
             tt.style.display = 'block';
           });
           el.addEventListener('mousemove', e => {
@@ -1543,7 +1498,7 @@
         if (i < currentStep) cls = 'complete';
         else if (i === currentStep) cls = agentPaused ? 'active' : 'active';
         return `<div class="flow-step ${cls}">
-          <div class="step-num">${i < currentStep ? '&#10003;' : i + 1}</div>
+          <div class="step-num">${i < currentStep ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : i + 1}</div>
           <div class="step-info">
             <div class="step-title">${step.title} ${i < currentStep ? getConfidenceBadge(85 + Math.floor(Math.random()*15)) : ''}</div>
             <div class="step-desc">${step.desc}</div>
@@ -1565,7 +1520,7 @@
         { title: 'Statistical Analysis', desc: 'ANOVA on log-transformed data, 90% CI approach', status: currentStep>3?'pass':'pending' },
         { title: 'BE Criteria Met', desc: '90% CI for AUC and Cmax within 80.00-125.00%', status: currentStep>=7?'pass':'pending' }
       ];
-      const icons = { pass:'&#10003;', fail:'&#10007;', pending:'&#8230;', warn:'!' };
+      const icons = { pass:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>', fail:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>', pending:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/></svg>', warn:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01"/></svg>' };
       document.getElementById('compliance-checklist').innerHTML = items.map(item =>
         `<div class="checklist-item"><div class="check-icon ${item.status}">${icons[item.status]}</div><div class="check-text"><div class="title">${item.title}</div><div class="desc">${item.desc}</div></div></div>`
       ).join('');
@@ -1580,23 +1535,14 @@
     }
 
     function showThinking(text) {
-      const chat = document.getElementById('panel-chat');
+      const log = document.getElementById('agent-log');
       const existing = document.getElementById('thinking-msg');
       if (existing) existing.remove();
       const div = document.createElement('div');
       div.id = 'thinking-msg';
-      div.className = 'agent-message animate-in';
-      div.innerHTML = `
-        <div class="msg-avatar agent">AI</div>
-        <div class="msg-content">
-          <div class="thinking-indicator">
-            <div class="thinking-dots"><span></span><span></span><span></span></div>
-            <span>${text}</span>
-          </div>
-        </div>
-      `;
-      chat.appendChild(div);
-      chat.scrollTop = chat.scrollHeight;
+      div.innerHTML = `<div class="thinking-indicator"><div class="thinking-dots"><span></span><span></span><span></span></div><span>${text}</span></div>`;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
     }
 
     function hideThinking() {
@@ -1698,7 +1644,7 @@
         currentStep = agentSteps.length;
         renderAgentSteps();
         renderComplianceChecklist();
-        addChatMessage('agent', 'BE Agent', `Analysis complete for <strong>ANDA-217845</strong> (Metformin HCl ER). ${getConfidenceBadge(96)}<br><br>All PK parameters within 80.00-125.00% acceptance range.<br><strong>Bioequivalence is established.</strong><br><br>` + renderMiniChart(submissions[0].pkData) + `<br>Recommendation: Approve pending supervisory review.`);
+        addAgentLog('COMPLETE: Bioequivalence ESTABLISHED for ANDA-217845. Recommend approval.', 'success');
       }
 
       statusPill.className = 'status-pill active';
@@ -1734,38 +1680,14 @@
         const confidence = allPass ? 85 + Math.floor(Math.random()*13) : 90 + Math.floor(Math.random()*8);
         addAgentLog(`CONCLUSION: Bioequivalence ${allPass?'ESTABLISHED':'NOT ESTABLISHED'} for ${s.id}`, allPass?'success':'error');
 
-        addChatMessage('agent', 'BE Agent', `Analysis for <strong>${s.id}</strong> (${s.drug}) complete. ${getConfidenceBadge(confidence)}<br><br>BE ${allPass?'<span class="tag tag-green">Established</span>':'<span class="tag tag-red">Not Established</span>'}<br><br>${renderMiniChart(pk)}<br>${s.notes}`);
+        addAgentLog(`COMPLETE: BE ${allPass?'ESTABLISHED':'NOT ESTABLISHED'} for ${s.id}. ${s.notes}`, allPass?'success':'error');
       } else {
         hideThinking();
         addAgentLog('No PK data available. Submission pending data from applicant.', 'warning');
-        addChatMessage('agent', 'BE Agent', `<strong>${s.id}</strong> (${s.drug}): No BE study data available yet. ${getConfidenceBadge(45)}<br><br>Status: Pending. ${s.notes}`);
+        addAgentLog(`${s.id}: No BE data available. Status: Pending. ${s.notes}`, 'warning');
       }
     }
 
-    function renderMiniChart(pk) {
-      const params = [
-        { name: 'AUC₀₋ₜ', d: pk.auc0t },
-        { name: 'AUC₀₋∞', d: pk.auc0inf },
-        { name: 'Cmax', d: pk.cmax }
-      ];
-      return `<div class="mini-chart">${params.map(p => {
-        const pass = ciCheck(p.d.ci90Lower, p.d.ci90Upper);
-        const color = pass ? 'var(--accent)' : 'var(--danger)';
-        const min = 60, max = 150, range = max - min;
-        const lPct = ((p.d.ci90Lower - min) / range * 100);
-        const wPct = ((p.d.ci90Upper - p.d.ci90Lower) / range * 100);
-        const limLPct = ((80 - min) / range * 100);
-        const limWPct = ((125 - 80) / range * 100);
-        return `<div class="mini-bar">
-          <span style="width:55px;font-weight:600">${p.name}</span>
-          <div class="mini-bar-track">
-            <div class="mini-bar-limits" style="left:${limLPct}%;width:${limWPct}%"></div>
-            <div class="mini-bar-fill" style="left:${lPct}%;width:${wPct}%;position:absolute;background:${color};border-radius:4px;top:1px;height:6px"></div>
-          </div>
-          <span style="width:50px;text-align:right;color:${color}">${p.d.geoMeanRatio.toFixed(1)}%</span>
-        </div>`;
-      }).join('')}</div>`;
-    }
 
     // ==========================================
     // DEMO MODE
@@ -1776,62 +1698,48 @@
         steps: [
           {
             title: 'Welcome to the Dashboard',
-            desc: 'This is the ANDA Bioequivalence Review Agent dashboard. It shows an overview of active reviews, pending analyses, approval stats, and recent agent activity. The agent monitors all submissions in real-time.',
-            target: '#view-dashboard',
-            view: 'dashboard',
-            position: 'bottom-right'
+            desc: 'This is the ANDA Bioequivalence Review Agent dashboard. It shows active reviews, pending analyses, approval stats, and recent agent activity. The stats grid summarizes your current workload at a glance.',
+            target: '#stats-grid',
+            view: 'dashboard'
           },
           {
             title: 'Submission Queue',
-            desc: 'The submissions view shows all ANDA applications in the review pipeline. Each submission includes the applicant, drug product, reference listed drug (RLD), current status, and BE study results. You can filter by status and click "Analyze" to run the agent on any submission.',
-            target: '#view-submissions',
-            view: 'submissions',
-            position: 'bottom-right'
+            desc: 'The submissions table shows all ANDA applications in the review pipeline. Each row includes the applicant, drug product, reference listed drug (RLD), current status, and BE study results. Click "Analyze" on any row to run the AI agent.',
+            target: '#view-submissions .card',
+            view: 'submissions'
           },
           {
             title: 'Agent Console - Workflow Engine',
-            desc: 'The Agent Console shows the 8-step review workflow. When you click "Execute", the agent processes each step sequentially: document intake, study design validation, PK extraction, statistical analysis, outlier detection, dissolution comparison, regulatory cross-check, and report generation. You can PAUSE or STOP the agent at any step.',
-            target: '#view-agent',
-            view: 'agent',
-            position: 'bottom-right'
+            desc: 'The Agent Console shows the 8-step automated review workflow: document intake, study design validation, PK extraction, statistical analysis, outlier detection, dissolution comparison, regulatory cross-check, and report generation. Use Pause/Stop to intervene at any step.',
+            target: '#agent-steps',
+            view: 'agent'
           },
           {
             title: 'Running the Agent',
-            desc: 'Watch the agent process ANDA-217845 (Metformin HCl ER). It will show "thinking" indicators as it reasons through each step, then report confidence scores on its assessments. The compliance checklist updates in real-time as criteria are verified.',
-            target: '#view-agent',
+            desc: 'The agent is now processing ANDA-217845 (Metformin HCl ER). Observe the "thinking" indicators in the log as it reasons through each step. Confidence scores appear on completed steps. The compliance checklist updates in real-time.',
+            target: '#agent-log',
             view: 'agent',
-            action: 'runAgent',
-            position: 'bottom-right'
+            action: 'runAgent'
           },
           {
             title: 'Bioequivalence Analysis',
-            desc: 'The BE Analysis view shows detailed pharmacokinetic results. The interactive CI chart visualizes the 90% confidence intervals for AUC and Cmax against the 80-125% acceptance range. Hover over the bars for exact values. Below, subject-level scatter plots show individual Test vs Reference data points.',
-            target: '#view-analysis',
+            desc: 'The BE Analysis view shows PK parameters in a table plus an interactive SVG chart. The green zone marks the 80-125% acceptance range. Hover CI bars for exact values. Scroll down for subject-level scatter plots showing individual Test vs Reference data.',
+            target: '#analysis-content',
             view: 'analysis',
-            action: 'showAnalysis',
-            position: 'bottom-right'
-          },
-          {
-            title: 'Agent Chat - Natural Language Interaction',
-            desc: 'The Agent Chat panel lets you ask questions in natural language. Try asking about "BE criteria", "failed studies", "NTI drugs", "BCS waivers", or "ANDA status". The agent responds with context-aware answers and inline mini-charts. It can also navigate you to relevant views.',
-            target: '#right-panel',
-            view: 'dashboard',
-            position: 'left'
+            action: 'showAnalysis'
           },
           {
             title: 'Dissolution Profiles',
-            desc: 'The dissolution comparison view shows test vs reference drug release profiles over time. The f2 similarity factor quantifies how similar the profiles are (must be >= 50). The chart shows individual timepoints with the 85% dissolved reference line.',
-            target: '#view-dissolution',
+            desc: 'Compare how test and reference drugs dissolve over time. The f2 similarity factor must be >= 50 for acceptable similarity. The chart plots both profiles with the 85% dissolved reference line. Data table below shows each timepoint.',
+            target: '#dissolution-content',
             view: 'dissolution',
-            action: 'showDissolution',
-            position: 'bottom-right'
+            action: 'showDissolution'
           },
           {
             title: 'Power Analysis Calculator',
-            desc: 'Plan future BE studies with the power calculator. Input the expected GMR, within-subject CV, target power, study design, and BE limits to compute the required sample size. The power curve shows how statistical power changes with sample size.',
-            target: '#view-power',
-            view: 'power',
-            position: 'bottom-right'
+            desc: 'Plan future BE studies: input expected GMR, within-subject CV, target power, study design, and BE limits. The calculator outputs the required sample size and renders a power curve showing how statistical power scales with enrollment.',
+            target: '#view-power .card',
+            view: 'power'
           }
         ]
       },
@@ -1840,41 +1748,36 @@
         steps: [
           {
             title: 'Identifying BE Failures',
-            desc: 'The agent automatically flags submissions where PK parameters fall outside the 80-125% acceptance range. Let\'s examine ANDA-217861 (Omeprazole) which has a Cmax upper CI of 153.3% - well above the 125% limit.',
-            target: '#view-submissions',
-            view: 'submissions',
-            position: 'bottom-right'
+            desc: 'The agent flags submissions where PK parameters fall outside the 80-125% acceptance range. The submissions table highlights ANDA-217861 (Omeprazole) with a Cmax upper CI of 153.3% - well above the 125% limit.',
+            target: '#view-submissions .card',
+            view: 'submissions'
           },
           {
             title: 'Failure Analysis - Omeprazole',
-            desc: 'The BE analysis clearly shows the failure: Cmax CI extends to 153.3%, far exceeding 125%. The interactive CI chart highlights failing parameters in red. High variability in the study design led to wide confidence intervals.',
-            target: '#view-analysis',
+            desc: 'The CI chart shows the failure clearly: the red Cmax bar extends to 153.3%, far past the green 125% boundary. High within-subject variability produced wide confidence intervals. All three parameters show the issue.',
+            target: '#analysis-content',
             view: 'analysis',
-            action: 'showFailure',
-            position: 'bottom-right'
+            action: 'showFailure'
           },
           {
             title: 'Agent Flags the Issue',
-            desc: 'The agent runs analysis on the failed submission, identifies the specific parameters that fail, and provides detailed reasoning. It suggests potential causes (high variability, insufficient subjects) and recommends next steps.',
-            target: '#view-agent',
+            desc: 'The agent log identifies the specific failing parameters, quantifies how far they deviate from acceptance limits, and recommends a replicate crossover design for this highly variable drug.',
+            target: '#agent-log',
             view: 'agent',
-            action: 'analyzeFailure',
-            position: 'bottom-right'
+            action: 'analyzeFailure'
           },
           {
             title: 'Deficiency Case - Pantoprazole',
-            desc: 'ANDA-217892 (Pantoprazole) is even more concerning: Cmax GMR is only 78.5% with a CI of 65.8-93.6%. Both the point estimate and lower CI fall below the acceptance range. A deficiency letter has been issued recommending a new study with more subjects.',
-            target: '#view-analysis',
+            desc: 'ANDA-217892 is more severe: Cmax GMR of only 78.5% with a CI of 65.8-93.6%. Both the point estimate and lower CI fall below 80%. A deficiency letter was issued recommending a new study with more subjects.',
+            target: '#analysis-content',
             view: 'analysis',
-            action: 'showDeficiency',
-            position: 'bottom-right'
+            action: 'showDeficiency'
           },
           {
             title: 'Subject-Level Scatter Analysis',
-            desc: 'The scatter plots reveal individual subject variability. In failure cases, points scatter widely away from the unity line, indicating poor correlation between test and reference formulations. This visual helps reviewers understand the source of failure.',
-            target: '#view-analysis',
-            view: 'analysis',
-            position: 'bottom-right'
+            desc: 'Scroll down to see the scatter plots. In failure cases, data points spread widely from the unity line, indicating poor test-reference correlation. This visualization helps reviewers pinpoint the source of variability.',
+            target: '#analysis-content',
+            view: 'analysis'
           }
         ]
       },
@@ -1883,40 +1786,35 @@
         steps: [
           {
             title: 'Interactive CI Visualization',
-            desc: 'The confidence interval chart uses SVG for crisp rendering at any zoom level. The green shaded region marks the 80-125% acceptance range. Hover over any CI bar to see exact GMR, lower bound, upper bound, and pass/fail status.',
-            target: '#view-analysis',
+            desc: 'The SVG confidence interval chart renders crisply at any zoom. The green shaded region marks 80-125%. Hover over any CI bar to see exact GMR, lower bound, upper bound, and pass/fail status in a tooltip.',
+            target: '#analysis-content',
             view: 'analysis',
-            action: 'showAnalysis',
-            position: 'bottom-right'
+            action: 'showAnalysis'
           },
           {
             title: 'Subject-Level Scatter Plots',
-            desc: 'Canvas-rendered scatter plots show individual subject PK ratios. Each point represents one subject\'s test vs reference value. The dashed diagonal is the unity line (perfect agreement). Tight clustering near this line indicates good bioequivalence.',
-            target: '#view-analysis',
-            view: 'analysis',
-            position: 'bottom-right'
+            desc: 'Canvas-rendered scatter plots show individual subject PK ratios. Each point is one subject\'s test vs reference value. The dashed diagonal is the unity line (perfect agreement). Tight clustering near this line indicates good bioequivalence.',
+            target: '#analysis-content',
+            view: 'analysis'
           },
           {
             title: 'Dissolution Profile Comparison',
-            desc: 'Compare how test and reference drugs dissolve over time. The f2 similarity factor summarizes profile similarity in a single number. Values >= 50 indicate acceptable similarity. The chart shows both profiles with individual timepoints and the data table below.',
-            target: '#view-dissolution',
+            desc: 'Compare how test and reference drugs dissolve over time. The f2 similarity factor must be >= 50 for acceptable similarity. The canvas chart plots both profiles with individual timepoints. Data table below shows the exact values.',
+            target: '#dissolution-content',
             view: 'dissolution',
-            action: 'showDissolution',
-            position: 'bottom-right'
+            action: 'showDissolution'
           },
           {
             title: 'Power Analysis & Sample Size',
-            desc: 'The power calculator helps plan studies. Adjust the expected GMR, CV, and design to see how many subjects you need. The power curve visualization shows the relationship between sample size and statistical power. Try changing the CV to see how variability affects requirements.',
-            target: '#view-power',
-            view: 'power',
-            position: 'bottom-right'
+            desc: 'Adjust GMR, CV, and study design to calculate required sample size. The power curve shows how statistical power scales with enrollment. Try changing the CV slider to see how variability affects study requirements.',
+            target: '#view-power .card',
+            view: 'power'
           },
           {
             title: 'Historical Trending',
-            desc: 'Track submission volumes, approval rates, and deficiency patterns over time. The bar chart shows monthly trends, the pie chart shows current status distribution, and the timeline provides a chronological view of all submissions.',
-            target: '#view-trending',
-            view: 'trending',
-            position: 'bottom-right'
+            desc: 'Monthly bar charts track submission volumes, approvals, and deficiencies. The pie chart shows current status distribution. The timeline view provides a chronological record of all submissions with their outcomes.',
+            target: '#view-trending .card',
+            view: 'trending'
           }
         ]
       }
@@ -1973,26 +1871,27 @@
       // Show bar
       bar.classList.add('show');
 
-      // Position spotlight around target element
+      // Scroll target into view, then position spotlight
       setTimeout(() => {
         const target = step.target ? document.querySelector(step.target) : null;
         if (target) {
-          const rect = target.getBoundingClientRect();
-          const pad = 6;
-          spotlight.style.display = 'block';
-          spotlight.style.top = (rect.top - pad) + 'px';
-          spotlight.style.left = (rect.left - pad) + 'px';
-          spotlight.style.width = (rect.width + pad * 2) + 'px';
-          spotlight.style.height = (Math.min(rect.height, window.innerHeight * 0.65) + pad * 2) + 'px';
+          // Scroll parent .content-main so target is visible
+          const scrollParent = document.querySelector('.content-main');
+          if (scrollParent) scrollParent.scrollTop = 0;
+          target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-          // Scroll the spotlight target into view if needed (above the bottom bar)
-          const barHeight = bar.offsetHeight || 120;
-          if (rect.bottom > window.innerHeight - barHeight) {
-            const scrollTarget = target.closest('.content-main');
-            if (scrollTarget) {
-              scrollTarget.scrollBy({ top: rect.bottom - (window.innerHeight - barHeight) + 20, behavior: 'smooth' });
-            }
-          }
+          // Wait for scroll to settle, then spotlight
+          setTimeout(() => {
+            const rect = target.getBoundingClientRect();
+            const p = 6;
+            const barH = bar.offsetHeight || 120;
+            const maxH = window.innerHeight - rect.top - barH - p * 2 - 10;
+            spotlight.style.display = 'block';
+            spotlight.style.top = (rect.top - p) + 'px';
+            spotlight.style.left = (rect.left - p) + 'px';
+            spotlight.style.width = (rect.width + p * 2) + 'px';
+            spotlight.style.height = (Math.min(rect.height, maxH, window.innerHeight * 0.55) + p * 2) + 'px';
+          }, 350);
         } else {
           spotlight.style.display = 'none';
         }
@@ -2050,97 +1949,6 @@
       document.getElementById('demo-welcome-overlay').classList.remove('show');
     }
 
-    // ==========================================
-    // CHAT & NAVIGATION FROM CHAT
-    // ==========================================
-    function addChatMessage(type, name, text) {
-      chatMessages.push({ type, name, text, time: new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) });
-      renderChat();
-    }
-
-    function renderChat() {
-      const container = document.getElementById('panel-chat');
-      container.innerHTML = chatMessages.map(m => `
-        <div class="agent-message animate-in">
-          <div class="msg-avatar ${m.type}">${m.type==='agent'?'AI':m.type==='user'?'SR':'SY'}</div>
-          <div class="msg-content">
-            <div class="msg-header"><span class="name">${m.name}</span><span class="time">${m.time}</span></div>
-            <div class="msg-body">${m.text}</div>
-          </div>
-        </div>
-      `).join('');
-      container.scrollTop = container.scrollHeight;
-    }
-
-    function sendChat() {
-      const input = document.getElementById('chat-input');
-      const text = input.value.trim();
-      if (!text) return;
-      input.value = '';
-      addChatMessage('user', 'Dr. Reynolds', text);
-      showThinking('Processing your question...');
-
-      setTimeout(() => {
-        hideThinking();
-        const response = getAgentResponse(text);
-        addChatMessage('agent', 'BE Agent', response);
-      }, 1000);
-    }
-
-    function getAgentResponse(query) {
-      const q = query.toLowerCase();
-
-      // Navigation triggers
-      if (q.includes('show') && q.includes('anda-')) {
-        const match = q.match(/anda-\d+/i);
-        if (match) {
-          const id = match[0].toUpperCase();
-          const s = submissions.find(x => x.id === id);
-          if (s) {
-            setTimeout(() => { switchView('analysis'); document.getElementById('analysis-select').value = id; renderAnalysis(id); }, 500);
-            return `Navigating to analysis view for <strong>${id}</strong> (${s.drug}). ${getConfidenceBadge(92)}`;
-          }
-        }
-      }
-      if (q.includes('dissolution') || q.includes('f2')) {
-        const s = submissions.find(x => x.dissolution);
-        if (s) {
-          setTimeout(() => { switchView('dissolution'); document.getElementById('dissolution-select').value = s.id; renderDissolutionView(s.id); }, 500);
-          return `Opening dissolution profile comparison. The <strong>f2 similarity factor</strong> measures profile similarity between test and reference. Values &ge;50 indicate acceptable similarity per FDA guidance.`;
-        }
-      }
-      if (q.includes('power') || q.includes('sample size')) {
-        setTimeout(() => switchView('power'), 500);
-        return `Opening the <strong>Power Analysis Calculator</strong>. You can estimate the required sample size based on expected GMR, within-subject CV, study design, and target power. For standard BE studies with CV &le;30%, a 2x2 crossover with 24-36 subjects typically provides &gt;80% power.`;
-      }
-      if (q.includes('trend') || q.includes('historical')) {
-        setTimeout(() => switchView('trending'), 500);
-        return `Opening the <strong>Historical Trending</strong> view. You can see submission volumes, approval rates, and deficiency patterns over the past 6 months.`;
-      }
-
-      // Knowledge responses
-      if (q.includes('bioequi') || q.includes(' be ') || q.includes('criteria')) {
-        return `Bioequivalence is established when the 90% CI for the GMR of key PK parameters falls within <strong>80.00-125.00%</strong> (log-transformed). ${getConfidenceBadge(98)}<br><br>Parameters evaluated:<br>&bull; AUC<sub>0-t</sub> (truncated area under curve)<br>&bull; AUC<sub>0-&infin;</sub> (extrapolated total exposure)<br>&bull; C<sub>max</sub> (peak concentration)<br><br>Based on TOST procedure per 21 CFR 320.`;
-      }
-      if (q.includes('status') || q.includes('how many') || q.includes('queue')) {
-        const counts = { pending: submissions.filter(s=>s.status==='pending').length, review: submissions.filter(s=>s.status==='in-review').length, approved: submissions.filter(s=>s.status==='approved').length, deficient: submissions.filter(s=>s.status==='deficient').length };
-        return `Current queue: <strong>${counts.pending}</strong> pending, <strong>${counts.review}</strong> in review, <strong>${counts.approved}</strong> approved, <strong>${counts.deficient}</strong> deficient. Total: ${submissions.length} submissions. ${getConfidenceBadge(99)}`;
-      }
-      if (q.includes('fail') || q.includes('deficien')) {
-        const failed = submissions.filter(s => s.beResult === 'fail');
-        return `${getConfidenceBadge(95)} There are <strong>${failed.length}</strong> submissions with BE failures:${failed.map(s => `<br>&bull; <strong>${s.id}</strong> (${s.drug}) - ${s.notes}`).join('')}<br><br>Type "show ${failed[0]?.id}" to view detailed analysis.`;
-      }
-      if (q.includes('nti') || q.includes('narrow therapeutic')) {
-        return `${getConfidenceBadge(97)} For <strong>Narrow Therapeutic Index (NTI)</strong> drugs, FDA applies tighter limits:<br>&bull; 95% CI within <strong>90.00-111.11%</strong><br>&bull; Both AUC and Cmax evaluated<br>&bull; Within-subject variability comparison required<br>&bull; Replicate crossover design mandatory`;
-      }
-      if (q.includes('waiver') || q.includes('bcs')) {
-        return `${getConfidenceBadge(96)} <strong>BCS-based biowaivers</strong> may be granted for:<br>&bull; BCS Class I (high solubility, high permeability)<br>&bull; BCS Class III (high solubility, low permeability)<br>&bull; IR solid oral dosage forms only<br><br>Requirements: Rapid dissolution (&ge;85% in 30 min) in pH 1.2, 4.5, and 6.8 media.`;
-      }
-      if (q.includes('highly variable') || q.includes('hvd') || q.includes('rsabe')) {
-        return `${getConfidenceBadge(94)} For <strong>Highly Variable Drugs</strong> (CV &gt;30%):<br>&bull; Reference-Scaled ABE (RSABE) allowed for C<sub>max</sub><br>&bull; Replicate crossover design required<br>&bull; Point estimate 80-125% still applies<br>&bull; Scaled criterion uses reference within-subject variability<br><br>Try the <strong>Power Calculator</strong> to estimate sample size for HVD studies.`;
-      }
-      return `${getConfidenceBadge(85)} I can help with:<br>&bull; <strong>BE criteria</strong> - acceptance ranges and statistical methods<br>&bull; <strong>ANDA status</strong> - queue overview and individual submissions<br>&bull; <strong>Failed studies</strong> - identify and analyze failures<br>&bull; <strong>NTI drugs</strong> - narrow therapeutic index requirements<br>&bull; <strong>BCS waivers</strong> - biowaiver eligibility<br>&bull; <strong>HVD/RSABE</strong> - highly variable drug approaches<br><br>I can also navigate: try "show ANDA-217845", "dissolution", "power", or "trending".`;
-    }
 
     // ==========================================
     // REMAINING UI FUNCTIONS
@@ -2195,18 +2003,12 @@
       });
       closeModal('new-submission');
       renderAll();
-      addChatMessage('system', 'System', `New submission <strong>${num}</strong> added to queue.`);
     }
 
     function openModal(name) { document.getElementById('modal-' + name).classList.add('show'); }
     function closeModal(name) { document.getElementById('modal-' + name).classList.remove('show'); }
-    function switchPanel(panel) {
-      document.querySelectorAll('.panel-tab').forEach(el => el.classList.toggle('active', el.dataset.panel === panel));
-      document.querySelectorAll('.panel-tab-content').forEach(el => el.classList.remove('active'));
-      document.getElementById('panel-' + panel).classList.add('active');
-    }
     function clearAgentLog() { document.getElementById('agent-log').innerHTML = ''; addAgentLog('Log cleared.', 'info'); }
-    function saveSettings() { addChatMessage('system', 'System', 'Agent configuration saved.'); }
+    function saveSettings() { addAgentLog('Agent configuration saved.', 'success'); }
 
     function renderRegulations() {
       document.getElementById('regulations-content').innerHTML = regulations.map(reg => `
@@ -2229,7 +2031,6 @@
       if (!s) return;
       reports.unshift({ title: `BE Review - ${s.id} (${s.drug})`, date: new Date().toLocaleDateString(), type: 'Bioequivalence Assessment' });
       renderReports();
-      addChatMessage('agent', 'BE Agent', `Report generated: <strong>${reports[0].title}</strong>. Includes PK analysis, CI visualization, compliance checklist, and recommendation.`);
     }
 
     // ==========================================
@@ -2250,9 +2051,6 @@
     // Event Listeners
     document.querySelectorAll('.nav-item').forEach(el => {
       el.addEventListener('click', () => { if (el.dataset.view) switchView(el.dataset.view); });
-    });
-    document.querySelectorAll('.panel-tab').forEach(el => {
-      el.addEventListener('click', () => { if (el.dataset.panel) switchPanel(el.dataset.panel); });
     });
     document.getElementById('filter-status').addEventListener('change', renderSubmissionsTable);
     document.getElementById('analysis-select').addEventListener('change', function() { if (this.value) renderAnalysis(this.value); });
@@ -2277,37 +2075,6 @@
         document.getElementById('view-dashboard').classList.add('visible');
       });
 
-      // Welcome chat
-      addChatMessage('agent', 'BE Agent', `Welcome, Dr. Reynolds. ${getConfidenceBadge(99)}<br><br>I am the ANDA Bioequivalence Review Agent. I can analyze submissions, evaluate PK parameters, check regulatory compliance, and generate reports.<br><br>There are <strong>${submissions.filter(s=>s.status==='pending'||s.status==='in-review').length} submissions</strong> requiring attention.<br><br>Try the <strong style="background:linear-gradient(135deg,#8e44ad,#3498db);color:#fff;padding:2px 8px;border-radius:4px;font-size:11px">Demo Mode</strong> button above for a guided walkthrough.`);
-
-      // Panel details
-      document.getElementById('panel-details').innerHTML = `
-        <h4 style="font-size:14px;margin-bottom:16px">Quick Reference</h4>
-        <div class="detail-row"><span class="label">BE Acceptance Range</span><span class="value">80.00-125.00%</span></div>
-        <div class="detail-row"><span class="label">CI Level</span><span class="value">90% (standard)</span></div>
-        <div class="detail-row"><span class="label">NTI Range</span><span class="value">90.00-111.11%</span></div>
-        <div class="detail-row"><span class="label">Data Transform</span><span class="value">Log (ln)</span></div>
-        <div class="detail-row"><span class="label">Statistical Test</span><span class="value">TOST</span></div>
-        <div class="detail-row"><span class="label">HVD Threshold</span><span class="value">CV &gt;30%</span></div>
-        <div class="detail-row"><span class="label">f2 Threshold</span><span class="value">&ge;50</span></div>
-        <div style="margin-top:20px"><h4 style="font-size:14px;margin-bottom:12px">Key Regulations</h4>
-        <div style="font-size:12px;line-height:1.8;color:var(--text-light)">&bull; 21 CFR Part 320<br>&bull; 21 CFR Part 314.94<br>&bull; FDA Guidance: BE with PK Endpoints<br>&bull; FDA Guidance: BCS Biowaivers<br>&bull; ICH E6(R3) GCP</div></div>
-      `;
-
-      // Panel history
-      document.getElementById('panel-history').innerHTML = `
-        <h4 style="font-size:14px;margin-bottom:16px">Review History</h4>
-        ${[
-          { title:'ANDA-217870 Approved', date:'Mar 15, 2026', sub:'Lisinopril Tablets (Sandoz)', desc:'All BE criteria met. Approved after supervisory review.' },
-          { title:'ANDA-217892 Deficiency Letter', date:'Mar 10, 2026', sub:'Pantoprazole DR (Amneal)', desc:'Cmax CI below acceptance range. Insufficient sample size.' },
-          { title:'ANDA-217861 Flagged', date:'Mar 8, 2026', sub:'Omeprazole DR (Sun Pharma)', desc:'Cmax upper CI exceeds 125%. High variability noted.' },
-          { title:'ANDA-217845 In Review', date:'Mar 5, 2026', sub:'Metformin HCl ER (Teva)', desc:'Fasting study data received. Analysis in progress.' }
-        ].map(h => `<div style="padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="font-weight:600;font-size:13px">${h.title}</div>
-          <div style="font-size:11px;color:var(--text-light)">${h.date} - ${h.sub}</div>
-          <div style="margin-top:4px;font-size:13px">${h.desc}</div>
-        </div>`).join('')}
-      `;
     }, 1500);
   </script>
 </body>
