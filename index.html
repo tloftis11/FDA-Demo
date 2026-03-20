@@ -371,11 +371,11 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section">Main</div>
-      <div class="nav-item active" data-view="dashboard"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="11" width="7" height="10" rx="1"/></svg></span> Dashboard</div>
+      <div class="nav-item" data-view="dashboard"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="11" width="7" height="10" rx="1"/></svg></span> Dashboard</div>
       <div class="nav-item" data-view="submissions"><span class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span> Submissions <span class="badge">3</span></div>
       <div class="nav-item" data-view="analysis"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg></span> BE Analysis</div>
       <div class="nav-section">Agent Tools</div>
-      <div class="nav-item" data-view="agent"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg></span> Agent Console</div>
+      <div class="nav-item active" data-view="agent"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg></span> Agent Console</div>
       <div class="nav-item" data-view="dissolution"><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 2v4l-2 8a5 5 0 0012 0L16 6V2"/><line x1="8" y1="2" x2="16" y2="2"/><path d="M7 10.5c2 0 3 1.5 5 1.5s3-1.5 5-1.5"/></svg></span> Dissolution</div>
       <div class="nav-item" data-view="power"><span class="icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Power Analysis</div>
       <div class="nav-item" data-view="trending"><span class="icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span> Trending</div>
@@ -407,7 +407,7 @@
     <div class="content">
       <div class="content-main">
         <!-- Dashboard -->
-        <div class="view-section active" id="view-dashboard">
+        <div class="view-section" id="view-dashboard">
           <div class="stats-grid" id="stats-grid"></div>
           <div class="two-col">
             <div class="card">
@@ -448,7 +448,7 @@
         </div>
 
         <!-- Agent Console -->
-        <div class="view-section" id="view-agent">
+        <div class="view-section active" id="view-agent">
           <div class="two-col">
             <div class="card">
               <div class="card-header">
@@ -516,21 +516,38 @@
 
         <!-- Trending -->
         <div class="view-section" id="view-trending">
-          <div class="card">
-            <div class="card-header"><h3><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Historical Submission Trending</h3></div>
-            <div class="card-body">
-              <canvas id="trending-chart" class="chart-canvas" height="280"></canvas>
-              <div id="trending-legend" style="display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:12px"></div>
+          <div class="two-col">
+            <div class="card" style="flex:2">
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Submission Trends</h3>
+                <div style="display:flex;gap:4px" id="trending-toggle">
+                  <button class="btn btn-sm btn-primary" data-mode="area" onclick="setTrendMode('area')">Area</button>
+                  <button class="btn btn-sm btn-outline" data-mode="bar" onclick="setTrendMode('bar')">Bar</button>
+                </div>
+              </div>
+              <div class="card-body" style="position:relative">
+                <canvas id="trending-chart" class="chart-canvas" height="280"></canvas>
+                <div id="trending-tooltip" style="display:none;position:absolute;background:var(--bg-dark);color:#fff;padding:8px 12px;border-radius:8px;font-size:11px;pointer-events:none;z-index:10;box-shadow:0 4px 12px rgba(0,0,0,.15);line-height:1.5"></div>
+              </div>
+            </div>
+            <div class="card" style="flex:1">
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0110 10"/></svg> Status Distribution</h3></div>
+              <div class="card-body" style="position:relative">
+                <canvas id="status-pie-chart" class="chart-canvas" height="260"></canvas>
+                <div id="pie-center-label" style="position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none">
+                  <div style="font-size:28px;font-weight:700;color:var(--text)">3</div>
+                  <div style="font-size:11px;color:var(--text-light)">Total</div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="two-col">
             <div class="card">
-              <div class="card-header"><h3>Status Distribution</h3></div>
-              <div class="card-body"><canvas id="status-pie-chart" class="chart-canvas" height="220"></canvas></div>
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><path d="M12 20V10m6 10V4M6 20v-4"/></svg> Review Metrics</h3></div>
+              <div class="card-body"><canvas id="metrics-chart" class="chart-canvas" height="200"></canvas></div>
             </div>
             <div class="card">
-              <div class="card-header"><h3>Submission Timeline</h3></div>
-              <div class="card-body" id="timeline-content"></div>
+              <div class="card-header"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Activity Timeline</h3></div>
+              <div class="card-body" id="timeline-content" style="max-height:220px;overflow-y:auto"></div>
             </div>
           </div>
         </div>
@@ -833,7 +850,7 @@
         currentView = view;
         // Render charts that need canvas when switching to their view
         if (view === 'power') calcPower();
-        if (view === 'trending') { renderTrendingChart(); renderStatusPie(); renderTimeline(); }
+        if (view === 'trending') { renderTrendingChart(); renderStatusPie(); renderMetricsChart(); renderTimeline(); }
       }, prev ? 200 : 0);
     }
 
@@ -1354,6 +1371,15 @@
     // ==========================================
     // TRENDING CHARTS
     // ==========================================
+    let trendMode = 'area';
+    function setTrendMode(mode) {
+      trendMode = mode;
+      document.querySelectorAll('#trending-toggle button').forEach(b => {
+        b.className = 'btn btn-sm ' + (b.dataset.mode === mode ? 'btn-primary' : 'btn-outline');
+      });
+      renderTrendingChart();
+    }
+
     function renderTrendingChart() {
       const canvas = document.getElementById('trending-chart');
       if (!canvas) return;
@@ -1364,54 +1390,155 @@
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
       const w = rect.width, h = rect.height;
-      const pad = { l: 50, r: 30, t: 20, b: 50 };
+      const pad = { l: 44, r: 20, t: 24, b: 44 };
       const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
-
       const d = trendingData;
       const maxVal = Math.max(...d.submitted, ...d.approved, ...d.deficient) + 2;
 
       ctx.clearRect(0, 0, w, h);
-      // Grid
-      ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
-      for (let i = 0; i <= 5; i++) {
-        const y = pad.t + plotH - (i/5)*plotH;
+
+      // Subtle horizontal grid with dashed lines
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 1;
+      for (let i = 1; i <= 4; i++) {
+        const y = pad.t + plotH - (i/4)*plotH;
         ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w-pad.r, y); ctx.stroke();
       }
+      ctx.setLineDash([]);
 
-      // Bars
-      const barW = plotW / d.months.length * 0.7;
-      const groupW = barW / 3;
-      const colors = ['#2980b9', '#27ae60', '#e74c3c'];
+      const colors = [
+        { fill: 'rgba(41,128,185,0.12)', stroke: '#2980b9', label: 'Submitted' },
+        { fill: 'rgba(39,174,96,0.12)', stroke: '#27ae60', label: 'Approved' },
+        { fill: 'rgba(231,76,60,0.10)', stroke: '#e74c3c', label: 'Deficient' }
+      ];
       const series = [d.submitted, d.approved, d.deficient];
-      const labels = ['Submitted', 'Approved', 'Deficient'];
+      const n = d.months.length;
 
-      d.months.forEach((m, mi) => {
-        const cx = pad.l + (mi + 0.5) / d.months.length * plotW;
-        series.forEach((s, si) => {
-          const x = cx - barW/2 + si * groupW + 2;
-          const barH = (s[mi] / maxVal) * plotH;
-          const y = pad.t + plotH - barH;
-          ctx.fillStyle = colors[si];
+      // Compute point positions
+      const pts = series.map(s => s.map((v, i) => ({
+        x: pad.l + (i / (n-1)) * plotW,
+        y: pad.t + plotH - (v / maxVal) * plotH,
+        v
+      })));
+
+      // Store rects for bar mode hover
+      const barRects = [];
+
+      if (trendMode === 'area') {
+        // Draw filled area + smooth line for each series
+        pts.forEach((points, si) => {
+          // Area fill
           ctx.beginPath();
-          ctx.roundRect(x, y, groupW - 4, barH, [3, 3, 0, 0]);
+          ctx.moveTo(points[0].x, pad.t + plotH);
+          points.forEach((p, i) => {
+            if (i === 0) { ctx.lineTo(p.x, p.y); return; }
+            const prev = points[i-1];
+            const cpx = (prev.x + p.x) / 2;
+            ctx.bezierCurveTo(cpx, prev.y, cpx, p.y, p.x, p.y);
+          });
+          ctx.lineTo(points[n-1].x, pad.t + plotH);
+          ctx.closePath();
+          ctx.fillStyle = colors[si].fill;
           ctx.fill();
-        });
-        // Month label
-        ctx.fillStyle = '#7f8c8d'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
-        ctx.fillText(m, cx, h - pad.b + 16);
-      });
 
-      // Y-axis
-      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
-      for (let i = 0; i <= 5; i++) {
-        const v = Math.round(maxVal * i / 5);
-        ctx.fillText(v, pad.l - 8, pad.t + plotH - (i/5)*plotH);
+          // Line
+          ctx.beginPath();
+          points.forEach((p, i) => {
+            if (i === 0) { ctx.moveTo(p.x, p.y); return; }
+            const prev = points[i-1];
+            const cpx = (prev.x + p.x) / 2;
+            ctx.bezierCurveTo(cpx, prev.y, cpx, p.y, p.x, p.y);
+          });
+          ctx.strokeStyle = colors[si].stroke; ctx.lineWidth = 2.5;
+          ctx.stroke();
+
+          // Data points
+          points.forEach(p => {
+            ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI*2);
+            ctx.fillStyle = '#fff'; ctx.fill();
+            ctx.strokeStyle = colors[si].stroke; ctx.lineWidth = 2; ctx.stroke();
+          });
+        });
+      } else {
+        // Grouped bar chart with rounded tops
+        const barGroupW = plotW / n * 0.65;
+        const barW = barGroupW / 3;
+        d.months.forEach((m, mi) => {
+          const cx = pad.l + (mi / (n-1)) * plotW;
+          series.forEach((s, si) => {
+            const bx = cx - barGroupW/2 + si * barW + 1;
+            const barH = (s[mi] / maxVal) * plotH;
+            const by = pad.t + plotH - barH;
+            // Gradient fill
+            const grad = ctx.createLinearGradient(bx, by, bx, pad.t + plotH);
+            grad.addColorStop(0, colors[si].stroke);
+            grad.addColorStop(1, colors[si].fill.replace('0.1', '0.5'));
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.roundRect(bx, by, barW - 2, barH, [4, 4, 0, 0]);
+            ctx.fill();
+            barRects.push({ x: bx, y: by, w: barW-2, h: barH, month: m, label: colors[si].label, value: s[mi] });
+          });
+        });
       }
 
-      // Legend
-      document.getElementById('trending-legend').innerHTML = labels.map((l, i) =>
-        `<span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:${colors[i]}"></span>${l}</span>`
-      ).join('');
+      // X-axis labels
+      ctx.fillStyle = 'var(--text-light)'; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center';
+      d.months.forEach((m, i) => {
+        const x = pad.l + (i / (n-1)) * plotW;
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(m, x, h - pad.b + 18);
+      });
+
+      // Y-axis labels
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      for (let i = 0; i <= 4; i++) {
+        const v = Math.round(maxVal * i / 4);
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(v, pad.l - 10, pad.t + plotH - (i/4)*plotH);
+      }
+
+      // Inline legend at top
+      let lx = pad.l;
+      colors.forEach((c, i) => {
+        ctx.fillStyle = c.stroke;
+        ctx.beginPath(); ctx.arc(lx + 5, 10, 4, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#64748b'; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left';
+        ctx.fillText(c.label, lx + 14, 13);
+        lx += ctx.measureText(c.label).width + 30;
+      });
+
+      // Tooltip on hover
+      canvas.onmousemove = function(e) {
+        const tt = document.getElementById('trending-tooltip');
+        const cr = canvas.getBoundingClientRect();
+        const mx = e.clientX - cr.left, my = e.clientY - cr.top;
+
+        if (trendMode === 'area') {
+          // Find closest month
+          let closest = -1, minD = Infinity;
+          d.months.forEach((m, i) => {
+            const x = pad.l + (i / (n-1)) * plotW;
+            const dist = Math.abs(mx - x);
+            if (dist < minD) { minD = dist; closest = i; }
+          });
+          if (closest >= 0 && minD < 40) {
+            tt.innerHTML = `<strong>${d.months[closest]}</strong><br>Submitted: ${d.submitted[closest]}<br>Approved: ${d.approved[closest]}<br>Deficient: ${d.deficient[closest]}`;
+            tt.style.display = 'block';
+            tt.style.left = (pad.l + (closest / (n-1)) * plotW + 12) + 'px';
+            tt.style.top = (my - 20) + 'px';
+          } else { tt.style.display = 'none'; }
+        } else {
+          let hit = barRects.find(r => mx >= r.x && mx <= r.x + r.w && my >= r.y && my <= r.y + r.h);
+          if (hit) {
+            tt.innerHTML = `<strong>${hit.month}</strong><br>${hit.label}: ${hit.value}`;
+            tt.style.display = 'block';
+            tt.style.left = (hit.x + hit.w + 8) + 'px';
+            tt.style.top = (hit.y - 10) + 'px';
+          } else { tt.style.display = 'none'; }
+        }
+      };
+      canvas.onmouseleave = function() { document.getElementById('trending-tooltip').style.display = 'none'; };
     }
 
     function renderStatusPie() {
@@ -1424,7 +1551,9 @@
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
       const w = rect.width, h = rect.height;
-      const cx = w/2, cy = h/2 - 10, r = Math.min(w,h)/2 - 30;
+      const cx = w/2, cy = h/2 - 8;
+      const outerR = Math.min(w,h)/2 - 30;
+      const innerR = outerR * 0.6; // donut
 
       const counts = {
         'In Review': submissions.filter(s=>s.status==='in-review').length,
@@ -1432,59 +1561,130 @@
         'Approved': submissions.filter(s=>s.status==='approved').length,
         'Deficient': submissions.filter(s=>s.status==='deficient').length
       };
-      const colors = { 'In Review':'#2980b9', 'Pending':'#e67e22', 'Approved':'#27ae60', 'Deficient':'#e74c3c' };
+      const palette = { 'In Review':'#3b82f6', 'Pending':'#f59e0b', 'Approved':'#10b981', 'Deficient':'#ef4444' };
       const total = Object.values(counts).reduce((a,b)=>a+b, 0);
+
+      // Update center label
+      const cl = document.getElementById('pie-center-label');
+      if (cl) cl.querySelector('div').textContent = total;
 
       ctx.clearRect(0, 0, w, h);
       let startAngle = -Math.PI/2;
+      const gap = 0.04; // gap between segments
+
       Object.entries(counts).forEach(([label, count]) => {
         if (count === 0) return;
-        const sliceAngle = (count / total) * Math.PI * 2;
+        const sliceAngle = (count / total) * Math.PI * 2 - gap;
+
+        // Draw arc segment (donut)
         ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.arc(cx, cy, r, startAngle, startAngle + sliceAngle);
+        ctx.arc(cx, cy, outerR, startAngle + gap/2, startAngle + sliceAngle + gap/2);
+        ctx.arc(cx, cy, innerR, startAngle + sliceAngle + gap/2, startAngle + gap/2, true);
         ctx.closePath();
-        ctx.fillStyle = colors[label];
+        ctx.fillStyle = palette[label];
         ctx.fill();
-        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
 
-        // Label
-        const midAngle = startAngle + sliceAngle / 2;
-        const lx = cx + (r * 0.65) * Math.cos(midAngle);
-        const ly = cy + (r * 0.65) * Math.sin(midAngle);
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(count, lx, ly);
+        // Percentage label outside
+        const midAngle = startAngle + sliceAngle / 2 + gap/2;
+        const pct = Math.round(count/total*100);
+        if (pct > 0) {
+          const lx = cx + (outerR + 16) * Math.cos(midAngle);
+          const ly = cy + (outerR + 16) * Math.sin(midAngle);
+          ctx.fillStyle = '#475569'; ctx.font = 'bold 11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillText(pct + '%', lx, ly);
+        }
 
-        startAngle += sliceAngle;
+        startAngle += sliceAngle + gap;
       });
 
-      // Legend below
-      const legendY = cy + r + 20;
-      let legendX = 20;
-      ctx.font = '11px sans-serif';
+      // Legend below donut
+      const legendY = cy + outerR + 32;
+      let legendX = (w - Object.keys(counts).length * 80) / 2;
       Object.entries(counts).forEach(([label, count]) => {
-        ctx.fillStyle = colors[label];
-        ctx.fillRect(legendX, legendY, 10, 10);
-        ctx.fillStyle = '#2c3e50'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-        ctx.fillText(`${label} (${count})`, legendX + 14, legendY + 5);
-        legendX += ctx.measureText(`${label} (${count})`).width + 28;
+        if (count === 0) return;
+        ctx.fillStyle = palette[label];
+        ctx.beginPath(); ctx.arc(legendX + 5, legendY, 4, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#64748b'; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText(label, legendX + 14, legendY);
+        legendX += ctx.measureText(label).width + 28;
       });
+    }
+
+    function renderMetricsChart() {
+      const canvas = document.getElementById('metrics-chart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const pad = { l: 44, r: 20, t: 30, b: 44 };
+      const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+      const d = trendingData;
+      const n = d.months.length;
+      const maxD = Math.max(...d.avgReviewDays) + 5;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Title
+      ctx.fillStyle = '#64748b'; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText('Avg Review Days', pad.l, 14);
+
+      // Grid
+      ctx.setLineDash([4, 4]); ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 1;
+      for (let i = 1; i <= 3; i++) {
+        const y = pad.t + plotH - (i/3)*plotH;
+        ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w-pad.r, y); ctx.stroke();
+      }
+      ctx.setLineDash([]);
+
+      // Bar chart with gradient
+      const barW = plotW / n * 0.5;
+      d.avgReviewDays.forEach((v, i) => {
+        const x = pad.l + (i / (n-1)) * plotW - barW/2;
+        const barH = (v / maxD) * plotH;
+        const y = pad.t + plotH - barH;
+        const grad = ctx.createLinearGradient(x, y, x, pad.t + plotH);
+        grad.addColorStop(0, '#8b5cf6');
+        grad.addColorStop(1, 'rgba(139,92,246,0.15)');
+        ctx.fillStyle = grad;
+        ctx.beginPath(); ctx.roundRect(x, y, barW, barH, [6, 6, 0, 0]); ctx.fill();
+        // Value on top
+        ctx.fillStyle = '#7c3aed'; ctx.font = 'bold 11px system-ui, sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(v + 'd', x + barW/2, y - 6);
+      });
+
+      // X-axis
+      ctx.fillStyle = '#94a3b8'; ctx.font = '11px system-ui, sans-serif';
+      d.months.forEach((m, i) => {
+        ctx.fillText(m, pad.l + (i / (n-1)) * plotW, h - pad.b + 18);
+      });
+
+      // Y-axis
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      for (let i = 0; i <= 3; i++) {
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(Math.round(maxD * i / 3), pad.l - 10, pad.t + plotH - (i/3)*plotH);
+      }
     }
 
     function renderTimeline() {
       const container = document.getElementById('timeline-content');
       const sorted = [...submissions].sort((a,b) => new Date(b.submitted) - new Date(a.submitted));
+      const statusColors = { approved: '#10b981', deficient: '#ef4444', 'in-review': '#3b82f6', pending: '#f59e0b' };
       container.innerHTML = sorted.map(s => `
-        <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="display:flex;flex-direction:column;align-items:center;width:8px">
-            <div style="width:8px;height:8px;border-radius:50%;background:${s.status==='approved'?'var(--accent)':s.status==='deficient'?'var(--danger)':s.status==='in-review'?'var(--primary-light)':'var(--warning)'};flex-shrink:0"></div>
-            <div style="width:1px;flex:1;background:var(--border)"></div>
+        <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);align-items:flex-start">
+          <div style="display:flex;flex-direction:column;align-items:center;width:10px;padding-top:3px">
+            <div style="width:10px;height:10px;border-radius:50%;background:${statusColors[s.status] || '#94a3b8'};flex-shrink:0;box-shadow:0 0 0 3px ${(statusColors[s.status] || '#94a3b8')}22"></div>
+            <div style="width:1px;flex:1;background:var(--border);min-height:20px"></div>
           </div>
-          <div style="flex:1">
-            <div style="font-size:12px;font-weight:600">${s.id} - ${s.drug.split(' ').slice(0,2).join(' ')}</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.id} - ${s.drug.split(' ').slice(0,2).join(' ')}</div>
             <div style="font-size:11px;color:var(--text-light)">${s.submitted} &bull; ${s.applicant}</div>
           </div>
-          <div>${getStatusTag(s.status)}</div>
+          <div style="flex-shrink:0">${getStatusTag(s.status)}</div>
         </div>
       `).join('');
     }
@@ -2070,9 +2270,11 @@
       hideSkeletons();
       renderAll();
 
-      // Activate smooth transition for initial view
+      // Activate smooth transition for initial view (Agent Console)
+      currentView = 'agent';
+      document.getElementById('page-title').textContent = 'Agent Console';
       requestAnimationFrame(() => {
-        document.getElementById('view-dashboard').classList.add('visible');
+        document.getElementById('view-agent').classList.add('visible');
       });
 
     }, 1500);
