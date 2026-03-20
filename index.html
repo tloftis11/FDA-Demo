@@ -31,972 +31,410 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
 
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-light); }
 
     /* Sidebar */
-    .sidebar {
-      width: 260px;
-      background: var(--bg-sidebar);
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      z-index: 10;
-    }
-
-    .sidebar-brand {
-      padding: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .sidebar-brand .logo {
-      width: 36px;
-      height: 36px;
-      background: var(--primary-light);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: #fff;
-      font-size: 14px;
-    }
-
-    .sidebar-brand h2 {
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    .sidebar-brand span {
-      color: var(--text-sidebar);
-      font-size: 11px;
-      font-weight: 400;
-    }
-
-    .sidebar-nav {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px 0;
-    }
-
-    .nav-section {
-      padding: 8px 20px 4px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: rgba(255,255,255,0.3);
-      font-weight: 600;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 20px;
-      color: var(--text-sidebar);
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 13px;
-      border-left: 3px solid transparent;
-    }
-
-    .nav-item:hover {
-      background: var(--bg-sidebar-hover);
-      color: #fff;
-    }
-
-    .nav-item.active {
-      background: var(--bg-sidebar-hover);
-      color: #fff;
-      border-left-color: var(--primary-light);
-    }
-
-    .nav-item .icon {
-      width: 20px;
-      text-align: center;
-      font-size: 15px;
-    }
-
-    .nav-item .badge {
-      margin-left: auto;
-      background: var(--danger);
-      color: #fff;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 10px;
-      font-weight: 600;
-    }
-
-    .sidebar-footer {
-      padding: 16px 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .sidebar-footer .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .sidebar-footer .user-info {
-      flex: 1;
-    }
-
-    .sidebar-footer .user-info .name {
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .sidebar-footer .user-info .role {
-      color: var(--text-sidebar);
-      font-size: 11px;
-    }
+    .sidebar { width: 260px; background: var(--bg-sidebar); display: flex; flex-direction: column; flex-shrink: 0; z-index: 10; }
+    .sidebar-brand { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 12px; }
+    .sidebar-brand .logo { width: 36px; height: 36px; background: var(--primary-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 14px; }
+    .sidebar-brand h2 { color: #fff; font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .sidebar-brand span { color: var(--text-sidebar); font-size: 11px; font-weight: 400; }
+    .sidebar-nav { flex: 1; overflow-y: auto; padding: 12px 0; }
+    .nav-section { padding: 8px 20px 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.3); font-weight: 600; }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--text-sidebar); cursor: pointer; transition: var(--transition); font-size: 13px; border-left: 3px solid transparent; }
+    .nav-item:hover { background: var(--bg-sidebar-hover); color: #fff; }
+    .nav-item.active { background: var(--bg-sidebar-hover); color: #fff; border-left-color: var(--primary-light); }
+    .nav-item .icon { width: 20px; text-align: center; font-size: 15px; }
+    .nav-item .badge { margin-left: auto; background: var(--danger); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 10px; font-weight: 600; }
+    .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 10px; }
+    .sidebar-footer .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; }
+    .sidebar-footer .user-info { flex: 1; }
+    .sidebar-footer .user-info .name { color: #fff; font-size: 13px; font-weight: 500; }
+    .sidebar-footer .user-info .role { color: var(--text-sidebar); font-size: 11px; }
 
     /* Main Layout */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .header {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .header-left h1 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .header-left .status-pill {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .header-left h1 { font-size: 18px; font-weight: 600; color: var(--text); }
+    .status-pill { font-size: 11px; padding: 4px 10px; border-radius: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
     .status-pill.active { background: #e8f8f0; color: var(--accent); }
     .status-pill.processing { background: #fef3e2; color: var(--warning); }
-    .status-pill.error { background: #fde8e8; color: var(--danger); }
+    .status-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
 
-    .status-pill .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn {
-      padding: 8px 16px;
-      border-radius: var(--radius);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
-
+    /* Buttons */
+    .btn { padding: 8px 16px; border-radius: var(--radius); font-size: 13px; font-weight: 500; cursor: pointer; border: none; transition: var(--transition); display: flex; align-items: center; gap: 6px; font-family: var(--font); }
+    .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: var(--primary-light); }
-
-    .btn-success {
-      background: var(--accent);
-      color: #fff;
-    }
-
+    .btn-success { background: var(--accent); color: #fff; }
     .btn-success:hover { background: var(--accent-light); }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--primary-light); color: var(--primary-light); }
-
-    .btn-danger {
-      background: var(--danger);
-      color: #fff;
-    }
-
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover { background: #c0392b; }
+    .btn-warning { background: var(--warning); color: #fff; }
     .btn-sm { padding: 5px 10px; font-size: 12px; }
+    .btn-demo { background: linear-gradient(135deg, #8e44ad, #3498db); color: #fff; font-weight: 600; }
+    .btn-demo:hover { opacity: 0.9; }
 
     /* Content Area */
-    .content {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    }
-
-    .content-main {
-      flex: 1;
-      overflow-y: auto;
-      padding: 24px 28px;
-    }
-
-    .content-panel {
-      width: 380px;
-      border-left: 1px solid var(--border);
-      background: var(--bg-card);
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-    }
+    .content { flex: 1; display: flex; overflow: hidden; }
+    .content-main { flex: 1; overflow-y: auto; padding: 24px 28px; position: relative; }
+    .content-panel { width: 380px; border-left: 1px solid var(--border); background: var(--bg-card); display: flex; flex-direction: column; flex-shrink: 0; }
 
     /* Cards */
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      margin-bottom: 20px;
-    }
-
-    .card-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .card-header h3 {
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .card { background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 20px; }
+    .card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .card-header h3 { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .card-body { padding: 20px; }
 
     /* Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .stat-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .stat-card .stat-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-light);
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .stat-card .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .stat-card .stat-change {
-      font-size: 11px;
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .stat-card .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-light); margin-bottom: 6px; font-weight: 600; }
+    .stat-card .stat-value { font-size: 28px; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .stat-card .stat-change { font-size: 11px; margin-top: 4px; font-weight: 500; }
     .stat-card .stat-change.up { color: var(--accent); }
     .stat-card .stat-change.down { color: var(--danger); }
 
     /* Table */
     .table-wrap { overflow-x: auto; }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    th {
-      text-align: left;
-      padding: 10px 16px;
-      font-weight: 600;
-      color: var(--text-light);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      border-bottom: 2px solid var(--border);
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: middle;
-    }
-
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 10px 16px; font-weight: 600; color: var(--text-light); font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
     tr:hover td { background: rgba(0,0,0,0.015); }
-
-    .tag {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
+    .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
     .tag-green { background: #e8f8f0; color: #1a8a4a; }
     .tag-yellow { background: #fef3e2; color: #b7791f; }
     .tag-red { background: #fde8e8; color: #c53030; }
     .tag-blue { background: #ebf5fb; color: #1a5276; }
     .tag-gray { background: #f0f0f0; color: #666; }
+    .tag-purple { background: #f3e8ff; color: #6b21a8; }
 
     /* Progress Bar */
-    .progress-bar {
-      height: 6px;
-      background: var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      border-radius: 3px;
-      transition: width 0.5s ease;
-    }
-
+    .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
     .progress-fill.green { background: var(--accent); }
     .progress-fill.blue { background: var(--primary-light); }
     .progress-fill.yellow { background: var(--warning); }
     .progress-fill.red { background: var(--danger); }
 
-    /* Panel Tabs */
-    .panel-tabs {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-      padding: 0 16px;
-      flex-shrink: 0;
-    }
-
-    .panel-tab {
-      padding: 12px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-light);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: var(--transition);
-    }
-
+    /* Panel */
+    .panel-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 16px; flex-shrink: 0; }
+    .panel-tab { padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition); }
     .panel-tab:hover { color: var(--text); }
     .panel-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .panel-content { flex: 1; overflow-y: auto; padding: 16px; }
+    .panel-tab-content { display: none; }
+    .panel-tab-content.active { display: block; }
 
-    .panel-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px;
-    }
+    /* Chat */
+    .agent-message { margin-bottom: 16px; display: flex; gap: 10px; }
+    .msg-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700; }
+    .msg-avatar.agent { background: var(--primary-light); color: #fff; }
+    .msg-avatar.system { background: var(--warning); color: #fff; }
+    .msg-avatar.user { background: #8e44ad; color: #fff; }
+    .msg-content { flex: 1; }
+    .msg-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .msg-header .name { font-size: 12px; font-weight: 600; }
+    .msg-header .time { font-size: 10px; color: var(--text-light); }
+    .msg-body { font-size: 13px; line-height: 1.6; color: var(--text); background: var(--bg); padding: 10px 14px; border-radius: 0 var(--radius) var(--radius) var(--radius); }
+    .msg-body code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 12px; }
 
-    /* Chat / Agent Messages */
-    .agent-message {
-      margin-bottom: 16px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .agent-message .msg-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      flex-shrink: 0;
-      font-weight: 700;
-    }
-
-    .agent-message .msg-avatar.agent {
-      background: var(--primary-light);
-      color: #fff;
-    }
-
-    .agent-message .msg-avatar.system {
-      background: var(--warning);
-      color: #fff;
-    }
-
-    .agent-message .msg-avatar.user {
-      background: #8e44ad;
-      color: #fff;
-    }
-
-    .msg-content {
-      flex: 1;
-    }
-
-    .msg-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .msg-header .name {
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .msg-header .time {
-      font-size: 10px;
-      color: var(--text-light);
-    }
-
-    .msg-body {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      padding: 10px 14px;
-      border-radius: 0 var(--radius) var(--radius) var(--radius);
-    }
-
-    .msg-body code {
-      background: rgba(0,0,0,0.06);
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-
-    .msg-body .highlight {
-      background: #fff3cd;
-      padding: 1px 4px;
-      border-radius: 2px;
-    }
-
-    /* Form Elements */
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 5px;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 13px;
-      font-family: var(--font);
-      transition: var(--transition);
-      background: #fff;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary-light);
-      box-shadow: 0 0 0 3px rgba(41,128,185,0.1);
-    }
-
+    /* Forms */
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .form-control { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: var(--font); transition: var(--transition); background: #fff; }
+    .form-control:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(41,128,185,0.1); }
     select.form-control { cursor: pointer; }
-
     textarea.form-control { resize: vertical; min-height: 80px; }
-
-    /* Chat Input */
-    .chat-input-wrap {
-      padding: 12px 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .chat-input-wrap input {
-      flex: 1;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 13px;
-      font-family: var(--font);
-    }
-
-    .chat-input-wrap input:focus {
-      outline: none;
-      border-color: var(--primary-light);
-    }
+    .chat-input-wrap { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; flex-shrink: 0; }
+    .chat-input-wrap input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: var(--font); }
+    .chat-input-wrap input:focus { outline: none; border-color: var(--primary-light); }
 
     /* Modal */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-    }
-
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 100; }
     .modal-overlay.show { display: flex; }
-
-    .modal {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      width: 600px;
-      max-width: 90vw;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-
-    .modal-header {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
+    .modal { background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 600px; max-width: 90vw; max-height: 80vh; overflow-y: auto; }
+    .modal-header { padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
     .modal-header h3 { font-size: 16px; }
-
-    .modal-close {
-      cursor: pointer;
-      font-size: 20px;
-      color: var(--text-light);
-      background: none;
-      border: none;
-      line-height: 1;
-    }
-
+    .modal-close { cursor: pointer; font-size: 20px; color: var(--text-light); background: none; border: none; line-height: 1; }
     .modal-body { padding: 24px; }
+    .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
 
-    .modal-footer {
-      padding: 16px 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
+    /* Skeleton Loading */
+    .skeleton { background: linear-gradient(90deg, #e8ecf1 25%, #f0f3f7 50%, #e8ecf1 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; }
+    .skeleton-text { height: 14px; margin-bottom: 8px; }
+    .skeleton-text.short { width: 40%; }
+    .skeleton-text.medium { width: 65%; }
+    .skeleton-text.long { width: 90%; }
+    .skeleton-box { height: 60px; margin-bottom: 12px; border-radius: var(--radius); }
+    .skeleton-circle { width: 40px; height: 40px; border-radius: 50%; }
+    .skeleton-stat { height: 80px; border-radius: var(--radius-lg); }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
+
+    /* Smooth View Transitions */
+    .view-section { display: none; opacity: 0; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease; }
+    .view-section.active { display: block; }
+    .view-section.visible { opacity: 1; transform: translateY(0); }
 
     /* Animations */
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes thinkingDots { 0%, 20% { opacity: 0.2; } 50% { opacity: 1; } 80%, 100% { opacity: 0.2; } }
 
     .animate-in { animation: slideIn 0.3s ease; }
-
-    .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid var(--border);
-      border-top-color: var(--primary-light);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      display: inline-block;
-    }
-
+    .fade-in { animation: fadeIn 0.4s ease; }
+    .spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--primary-light); border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
     .pulse { animation: pulse 2s ease-in-out infinite; }
 
+    /* Thinking Indicator */
+    .thinking-indicator { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #f0f4ff; border-radius: var(--radius); margin-bottom: 12px; font-size: 12px; color: var(--primary); }
+    .thinking-dots span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--primary-light); animation: thinkingDots 1.4s infinite; }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Confidence Badge */
+    .confidence-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+    .confidence-high { background: #e8f8f0; color: #1a8a4a; }
+    .confidence-medium { background: #fef3e2; color: #b7791f; }
+    .confidence-low { background: #fde8e8; color: #c53030; }
+
     /* Checklist */
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .checklist-item:last-child { border-bottom: none; }
-
-    .check-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
+    .check-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
     .check-icon.pass { background: #e8f8f0; color: var(--accent); }
     .check-icon.fail { background: #fde8e8; color: var(--danger); }
     .check-icon.pending { background: #f0f0f0; color: var(--text-light); }
     .check-icon.warn { background: #fef3e2; color: var(--warning); }
-
     .check-text { flex: 1; }
     .check-text .title { font-size: 13px; font-weight: 500; }
     .check-text .desc { font-size: 11px; color: var(--text-light); margin-top: 2px; }
 
-    /* Flowchart steps */
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .flow-step {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      background: var(--bg);
-      transition: var(--transition);
-    }
-
+    /* Flow Steps */
+    .flow-steps { display: flex; flex-direction: column; gap: 2px; }
+    .flow-step { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: var(--radius); background: var(--bg); transition: var(--transition); }
     .flow-step.active { background: #ebf5fb; border: 1px solid var(--primary-light); }
     .flow-step.complete { background: #e8f8f0; }
     .flow-step.error { background: #fde8e8; }
-
-    .flow-step .step-num {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
+    .flow-step .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
     .flow-step.active .step-num { background: var(--primary-light); color: #fff; }
     .flow-step.complete .step-num { background: var(--accent); color: #fff; }
     .flow-step.error .step-num { background: var(--danger); color: #fff; }
-
     .flow-step .step-info { flex: 1; }
     .flow-step .step-info .step-title { font-size: 12px; font-weight: 600; }
     .flow-step .step-info .step-desc { font-size: 11px; color: var(--text-light); }
 
-    /* Tooltip */
-    .tooltip-wrap {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip-wrap .tooltip-text {
-      visibility: hidden;
-      background: var(--text);
-      color: #fff;
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 4px;
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      z-index: 50;
-    }
-
-    .tooltip-wrap:hover .tooltip-text { visibility: visible; }
-
-    /* Two Column Layout */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+    /* Two Column */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
     /* Detail Row */
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
+    .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
     .detail-row:last-child { border-bottom: none; }
     .detail-row .label { color: var(--text-light); }
     .detail-row .value { font-weight: 500; text-align: right; }
 
-    /* Hidden sections */
-    .view-section { display: none; }
-    .view-section.active { display: block; }
+    /* SVG Chart */
+    .chart-container { position: relative; }
+    .chart-container svg { width: 100%; }
+    .chart-tooltip { position: absolute; background: var(--text); color: #fff; font-size: 11px; padding: 6px 10px; border-radius: 4px; pointer-events: none; z-index: 20; white-space: nowrap; display: none; }
 
-    /* Tab content in panel */
-    .panel-tab-content { display: none; }
-    .panel-tab-content.active { display: block; }
+    /* Canvas Chart */
+    canvas.chart-canvas { width: 100%; height: 250px; cursor: crosshair; }
+
+    /* Demo Mode */
+    .demo-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 200; display: none; }
+    .demo-overlay.show { display: block; }
+    .demo-spotlight { position: absolute; box-shadow: 0 0 0 9999px rgba(0,0,0,0.65); border-radius: var(--radius); z-index: 201; transition: all 0.5s ease; pointer-events: none; }
+    .demo-card { position: absolute; z-index: 202; background: #fff; border-radius: var(--radius-lg); padding: 24px; max-width: 420px; box-shadow: var(--shadow-lg); }
+    .demo-card h4 { font-size: 16px; margin-bottom: 8px; color: var(--primary); }
+    .demo-card .demo-step-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); font-weight: 600; margin-bottom: 4px; }
+    .demo-card p { font-size: 13px; line-height: 1.6; color: var(--text); margin-bottom: 16px; }
+    .demo-card .demo-nav { display: flex; justify-content: space-between; align-items: center; }
+    .demo-card .demo-dots { display: flex; gap: 6px; }
+    .demo-card .demo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+    .demo-card .demo-dot.active { background: var(--primary-light); }
+    .demo-card .demo-dot.done { background: var(--accent); }
+
+    /* Demo Welcome */
+    .demo-welcome { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 203; background: #fff; border-radius: var(--radius-lg); padding: 40px; max-width: 520px; width: 90%; text-align: center; box-shadow: var(--shadow-lg); }
+    .demo-welcome h2 { font-size: 24px; margin-bottom: 8px; color: var(--primary); }
+    .demo-welcome .subtitle { color: var(--text-light); font-size: 14px; margin-bottom: 24px; }
+    .demo-welcome .scenario-list { text-align: left; margin-bottom: 24px; }
+    .demo-welcome .scenario-item { display: flex; gap: 12px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; cursor: pointer; transition: var(--transition); }
+    .demo-welcome .scenario-item:hover { border-color: var(--primary-light); background: #f8faff; }
+    .demo-welcome .scenario-item.selected { border-color: var(--primary-light); background: #ebf5fb; }
+    .demo-welcome .scenario-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+
+    /* Inline mini chart in chat */
+    .mini-chart { display: inline-block; margin: 8px 0; padding: 8px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+    .mini-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 11px; }
+    .mini-bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; position: relative; overflow: visible; }
+    .mini-bar-fill { height: 100%; border-radius: 4px; }
+    .mini-bar-limits { position: absolute; top: -2px; bottom: -2px; border-left: 2px dashed var(--accent); border-right: 2px dashed var(--accent); background: rgba(39,174,96,0.08); }
   </style>
 </head>
 <body>
+  <!-- Demo Overlay -->
+  <div class="demo-overlay" id="demo-overlay"></div>
+  <div class="demo-spotlight" id="demo-spotlight" style="display:none"></div>
+  <div class="demo-card" id="demo-card" style="display:none">
+    <div class="demo-step-label" id="demo-step-label">Step 1 of 8</div>
+    <h4 id="demo-title"></h4>
+    <p id="demo-desc"></p>
+    <div class="demo-nav">
+      <button class="btn btn-outline btn-sm" id="demo-prev" onclick="demoNav(-1)">Back</button>
+      <div class="demo-dots" id="demo-dots"></div>
+      <button class="btn btn-primary btn-sm" id="demo-next" onclick="demoNav(1)">Next</button>
+    </div>
+  </div>
+
+  <!-- Demo Welcome -->
+  <div class="demo-welcome" id="demo-welcome" style="display:none">
+    <h2>ANDA Bioequivalence Review Agent</h2>
+    <p class="subtitle">Interactive Demo - Choose a scenario to explore</p>
+    <div class="scenario-list">
+      <div class="scenario-item" onclick="startDemo('full-review')" id="scenario-full">
+        <div class="scenario-icon" style="background:#ebf5fb;color:var(--primary-light)">&#128202;</div>
+        <div>
+          <strong style="font-size:13px">Full BE Review Walkthrough</strong>
+          <div style="font-size:12px;color:var(--text-light);margin-top:2px">Follow a complete ANDA submission through agent analysis, PK evaluation, and approval recommendation</div>
+        </div>
+      </div>
+      <div class="scenario-item" onclick="startDemo('failure-detection')" id="scenario-fail">
+        <div class="scenario-icon" style="background:#fde8e8;color:var(--danger)">&#9888;</div>
+        <div>
+          <strong style="font-size:13px">Failure Detection & Deficiency</strong>
+          <div style="font-size:12px;color:var(--text-light);margin-top:2px">See how the agent identifies BE failures, flags issues, and generates deficiency letters</div>
+        </div>
+      </div>
+      <div class="scenario-item" onclick="startDemo('data-deep-dive')" id="scenario-data">
+        <div class="scenario-icon" style="background:#f3e8ff;color:#6b21a8">&#128300;</div>
+        <div>
+          <strong style="font-size:13px">Data Analysis Deep Dive</strong>
+          <div style="font-size:12px;color:var(--text-light);margin-top:2px">Explore interactive charts, dissolution profiles, scatter plots, and power analysis tools</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center">
+      <button class="btn btn-outline" onclick="closeDemoWelcome()">Skip - Explore Freely</button>
+    </div>
+  </div>
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-brand">
       <div class="logo">FDA</div>
-      <div>
-        <h2>ANDA Review</h2>
-        <span>Bioequivalence Agent</span>
-      </div>
+      <div><h2>ANDA Review</h2><span>Bioequivalence Agent</span></div>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section">Main</div>
-      <div class="nav-item active" data-view="dashboard">
-        <span class="icon">&#9776;</span> Dashboard
-      </div>
-      <div class="nav-item" data-view="submissions">
-        <span class="icon">&#128196;</span> Submissions
-        <span class="badge">3</span>
-      </div>
-      <div class="nav-item" data-view="analysis">
-        <span class="icon">&#128202;</span> BE Analysis
-      </div>
+      <div class="nav-item active" data-view="dashboard"><span class="icon">&#9776;</span> Dashboard</div>
+      <div class="nav-item" data-view="submissions"><span class="icon">&#128196;</span> Submissions <span class="badge">3</span></div>
+      <div class="nav-item" data-view="analysis"><span class="icon">&#128202;</span> BE Analysis</div>
       <div class="nav-section">Agent Tools</div>
-      <div class="nav-item" data-view="agent">
-        <span class="icon">&#9881;</span> Agent Console
-      </div>
-      <div class="nav-item" data-view="regulations">
-        <span class="icon">&#128214;</span> Regulations
-      </div>
-      <div class="nav-item" data-view="reports">
-        <span class="icon">&#128203;</span> Reports
-      </div>
-      <div class="nav-section">System</div>
-      <div class="nav-item" data-view="settings">
-        <span class="icon">&#9881;</span> Settings
-      </div>
+      <div class="nav-item" data-view="agent"><span class="icon">&#9881;</span> Agent Console</div>
+      <div class="nav-item" data-view="dissolution"><span class="icon">&#128300;</span> Dissolution</div>
+      <div class="nav-item" data-view="power"><span class="icon">&#128200;</span> Power Analysis</div>
+      <div class="nav-item" data-view="trending"><span class="icon">&#128201;</span> Trending</div>
+      <div class="nav-section">Reference</div>
+      <div class="nav-item" data-view="regulations"><span class="icon">&#128214;</span> Regulations</div>
+      <div class="nav-item" data-view="reports"><span class="icon">&#128203;</span> Reports</div>
+      <div class="nav-item" data-view="settings"><span class="icon">&#9881;</span> Settings</div>
     </nav>
     <div class="sidebar-footer">
       <div class="avatar">SR</div>
-      <div class="user-info">
-        <div class="name">Dr. Sarah Reynolds</div>
-        <div class="role">Senior Reviewer, OGD</div>
-      </div>
+      <div class="user-info"><div class="name">Dr. Sarah Reynolds</div><div class="role">Senior Reviewer, OGD</div></div>
     </div>
   </aside>
 
   <!-- Main Content -->
   <div class="main">
-    <!-- Header -->
     <header class="header">
       <div class="header-left">
         <h1 id="page-title">Dashboard</h1>
-        <div class="status-pill active" id="agent-status">
-          <div class="dot"></div>
-          <span>Agent Active</span>
-        </div>
+        <div class="status-pill active" id="agent-status"><div class="dot"></div><span>Agent Active</span></div>
       </div>
       <div class="header-actions">
+        <button class="btn btn-demo btn-sm" onclick="openDemoWelcome()">&#127916; Demo Mode</button>
         <button class="btn btn-outline btn-sm" onclick="openModal('new-submission')">+ New Submission</button>
         <button class="btn btn-primary btn-sm" onclick="runAgent()">Run Agent Analysis</button>
       </div>
     </header>
 
-    <!-- Content -->
     <div class="content">
       <div class="content-main">
-        <!-- Dashboard View -->
+        <!-- Dashboard -->
         <div class="view-section active" id="view-dashboard">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-label">Active Reviews</div>
-              <div class="stat-value" id="stat-active">7</div>
-              <div class="stat-change up">+2 this week</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-label">Pending BE Analysis</div>
-              <div class="stat-value" id="stat-pending">3</div>
-              <div class="stat-change down">Requires attention</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-label">Approved (YTD)</div>
-              <div class="stat-value" id="stat-approved">24</div>
-              <div class="stat-change up">+12% vs last year</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-label">Avg Review Time</div>
-              <div class="stat-value" id="stat-time">18d</div>
-              <div class="stat-change up">-3d improvement</div>
-            </div>
-          </div>
-
+          <div class="stats-grid" id="stats-grid"></div>
           <div class="two-col">
             <div class="card">
-              <div class="card-header">
-                <h3>&#128202; Recent Submissions</h3>
-              </div>
-              <div class="card-body">
-                <div class="table-wrap">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>ANDA #</th>
-                        <th>Drug Product</th>
-                        <th>Status</th>
-                        <th>BE Result</th>
-                      </tr>
-                    </thead>
-                    <tbody id="dashboard-table">
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <div class="card-header"><h3>&#128202; Recent Submissions</h3></div>
+              <div class="card-body"><div class="table-wrap"><table><thead><tr><th>ANDA #</th><th>Drug Product</th><th>Status</th><th>BE Result</th></tr></thead><tbody id="dashboard-table"></tbody></table></div></div>
             </div>
             <div class="card">
-              <div class="card-header">
-                <h3>&#9881; Agent Activity</h3>
-              </div>
-              <div class="card-body" id="agent-activity-feed">
-              </div>
+              <div class="card-header"><h3>&#9881; Agent Activity</h3></div>
+              <div class="card-body" id="agent-activity-feed"></div>
             </div>
           </div>
         </div>
 
-        <!-- Submissions View -->
+        <!-- Submissions -->
         <div class="view-section" id="view-submissions">
           <div class="card">
             <div class="card-header">
               <h3>&#128196; ANDA Submissions Queue</h3>
-              <div style="display:flex;gap:8px;">
+              <div style="display:flex;gap:8px">
                 <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="filter-status">
-                  <option value="all">All Statuses</option>
-                  <option value="pending">Pending</option>
-                  <option value="in-review">In Review</option>
-                  <option value="approved">Approved</option>
-                  <option value="deficient">Deficient</option>
+                  <option value="all">All Statuses</option><option value="pending">Pending</option><option value="in-review">In Review</option><option value="approved">Approved</option><option value="deficient">Deficient</option>
                 </select>
               </div>
             </div>
-            <div class="card-body">
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>ANDA #</th>
-                      <th>Applicant</th>
-                      <th>Drug Product</th>
-                      <th>RLD</th>
-                      <th>Status</th>
-                      <th>BE Study</th>
-                      <th>Submitted</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="submissions-table">
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <div class="card-body"><div class="table-wrap"><table><thead><tr><th>ANDA #</th><th>Applicant</th><th>Drug Product</th><th>RLD</th><th>Status</th><th>BE Study</th><th>Submitted</th><th>Actions</th></tr></thead><tbody id="submissions-table"></tbody></table></div></div>
           </div>
         </div>
 
-        <!-- Analysis View -->
+        <!-- Analysis -->
         <div class="view-section" id="view-analysis">
           <div class="card">
             <div class="card-header">
               <h3>&#128202; Bioequivalence Analysis</h3>
-              <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="analysis-select">
-                <option value="">Select ANDA...</option>
-              </select>
+              <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="analysis-select"><option value="">Select ANDA...</option></select>
             </div>
-            <div class="card-body" id="analysis-content">
-              <p style="color:var(--text-light);text-align:center;padding:40px">Select an ANDA submission to view bioequivalence analysis</p>
-            </div>
+            <div class="card-body" id="analysis-content"><p style="color:var(--text-light);text-align:center;padding:40px">Select an ANDA submission to view bioequivalence analysis</p></div>
           </div>
         </div>
 
-        <!-- Agent Console View -->
+        <!-- Agent Console -->
         <div class="view-section" id="view-agent">
           <div class="two-col">
             <div class="card">
               <div class="card-header">
                 <h3>&#9881; Agent Workflow</h3>
-                <button class="btn btn-primary btn-sm" onclick="runAgent()">Execute</button>
-              </div>
-              <div class="card-body">
-                <div class="flow-steps" id="agent-steps">
+                <div style="display:flex;gap:6px">
+                  <button class="btn btn-primary btn-sm" id="agent-run-btn" onclick="runAgent()">Execute</button>
+                  <button class="btn btn-warning btn-sm" id="agent-pause-btn" onclick="pauseAgent()" style="display:none">Pause</button>
+                  <button class="btn btn-danger btn-sm" id="agent-stop-btn" onclick="stopAgent()" style="display:none">Stop</button>
                 </div>
               </div>
+              <div class="card-body"><div class="flow-steps" id="agent-steps"></div></div>
             </div>
             <div class="card">
-              <div class="card-header">
-                <h3>&#128203; Compliance Checklist</h3>
-              </div>
-              <div class="card-body" id="compliance-checklist">
-              </div>
+              <div class="card-header"><h3>&#128203; Compliance Checklist</h3></div>
+              <div class="card-body" id="compliance-checklist"></div>
             </div>
           </div>
           <div class="card">
@@ -1004,85 +442,98 @@
               <h3>&#128172; Agent Log</h3>
               <button class="btn btn-outline btn-sm" onclick="clearAgentLog()">Clear</button>
             </div>
-            <div class="card-body" id="agent-log" style="max-height:300px;overflow-y:auto;font-family:var(--font-mono);font-size:12px;">
+            <div class="card-body" id="agent-log" style="max-height:300px;overflow-y:auto;font-family:var(--font-mono);font-size:12px"></div>
+          </div>
+        </div>
+
+        <!-- Dissolution Profiles -->
+        <div class="view-section" id="view-dissolution">
+          <div class="card">
+            <div class="card-header">
+              <h3>&#128300; Dissolution Profile Comparison</h3>
+              <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="dissolution-select"><option value="">Select ANDA...</option></select>
+            </div>
+            <div class="card-body">
+              <div id="dissolution-content"><p style="color:var(--text-light);text-align:center;padding:40px">Select an ANDA to view dissolution comparison</p></div>
             </div>
           </div>
         </div>
 
-        <!-- Regulations View -->
-        <div class="view-section" id="view-regulations">
+        <!-- Power Analysis -->
+        <div class="view-section" id="view-power">
           <div class="card">
-            <div class="card-header">
-              <h3>&#128214; Regulatory Reference</h3>
-            </div>
-            <div class="card-body" id="regulations-content">
-            </div>
-          </div>
-        </div>
-
-        <!-- Reports View -->
-        <div class="view-section" id="view-reports">
-          <div class="card">
-            <div class="card-header">
-              <h3>&#128203; Generated Reports</h3>
-              <button class="btn btn-primary btn-sm" onclick="generateReport()">Generate New Report</button>
-            </div>
-            <div class="card-body" id="reports-content">
-            </div>
-          </div>
-        </div>
-
-        <!-- Settings View -->
-        <div class="view-section" id="view-settings">
-          <div class="card">
-            <div class="card-header">
-              <h3>&#9881; Agent Configuration</h3>
-            </div>
+            <div class="card-header"><h3>&#128200; Sample Size & Power Calculator</h3></div>
             <div class="card-body">
               <div class="two-col">
                 <div>
-                  <div class="form-group">
-                    <label>Confidence Interval Threshold</label>
-                    <select class="form-control" id="ci-threshold">
-                      <option value="90">90% CI (Standard BE)</option>
-                      <option value="95">95% CI (Narrow Therapeutic Index)</option>
-                    </select>
+                  <div class="form-group"><label>Expected GMR (%)</label><input class="form-control" type="number" value="100" id="power-gmr" oninput="calcPower()"></div>
+                  <div class="form-group"><label>Within-Subject CV (%)</label><input class="form-control" type="number" value="25" id="power-cv" oninput="calcPower()"></div>
+                  <div class="form-group"><label>Target Power (%)</label><input class="form-control" type="number" value="80" id="power-target" oninput="calcPower()"></div>
+                  <div class="form-group"><label>Study Design</label>
+                    <select class="form-control" id="power-design" onchange="calcPower()"><option value="2x2">2x2 Crossover</option><option value="replicate">Replicate Crossover</option><option value="parallel">Parallel</option></select>
                   </div>
-                  <div class="form-group">
-                    <label>BE Acceptance Range</label>
-                    <input class="form-control" type="text" value="80.00% - 125.00%" id="be-range">
-                  </div>
-                  <div class="form-group">
-                    <label>Study Design Preference</label>
-                    <select class="form-control" id="study-design">
-                      <option>2x2 Crossover</option>
-                      <option>Replicate Crossover</option>
-                      <option>Parallel Design</option>
-                    </select>
+                  <div class="form-group"><label>BE Limits</label>
+                    <select class="form-control" id="power-limits" onchange="calcPower()"><option value="standard">80-125% (Standard)</option><option value="nti">90-111.11% (NTI)</option></select>
                   </div>
                 </div>
                 <div>
-                  <div class="form-group">
-                    <label>PK Parameters</label>
-                    <input class="form-control" type="text" value="AUC0-t, AUC0-inf, Cmax" id="pk-params">
-                  </div>
-                  <div class="form-group">
-                    <label>Auto-flag Threshold</label>
-                    <input class="form-control" type="text" value="5% deviation from limits" id="flag-threshold">
-                  </div>
-                  <div class="form-group">
-                    <label>Agent Mode</label>
-                    <select class="form-control" id="agent-mode">
-                      <option>Assisted Review</option>
-                      <option>Full Automated Review</option>
-                      <option>Audit Only</option>
-                    </select>
-                  </div>
+                  <div id="power-result" style="text-align:center;padding:20px"></div>
+                  <div id="power-chart-wrap"><canvas id="power-chart" class="chart-canvas" height="250"></canvas></div>
                 </div>
               </div>
-              <div style="margin-top:16px">
-                <button class="btn btn-primary" onclick="saveSettings()">Save Configuration</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trending -->
+        <div class="view-section" id="view-trending">
+          <div class="card">
+            <div class="card-header"><h3>&#128201; Historical Submission Trending</h3></div>
+            <div class="card-body">
+              <canvas id="trending-chart" class="chart-canvas" height="280"></canvas>
+              <div id="trending-legend" style="display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:12px"></div>
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="card">
+              <div class="card-header"><h3>Status Distribution</h3></div>
+              <div class="card-body"><canvas id="status-pie-chart" class="chart-canvas" height="220"></canvas></div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3>Submission Timeline</h3></div>
+              <div class="card-body" id="timeline-content"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regulations -->
+        <div class="view-section" id="view-regulations">
+          <div class="card"><div class="card-header"><h3>&#128214; Regulatory Reference</h3></div><div class="card-body" id="regulations-content"></div></div>
+        </div>
+
+        <!-- Reports -->
+        <div class="view-section" id="view-reports">
+          <div class="card"><div class="card-header"><h3>&#128203; Generated Reports</h3><button class="btn btn-primary btn-sm" onclick="generateReport()">Generate New Report</button></div><div class="card-body" id="reports-content"></div></div>
+        </div>
+
+        <!-- Settings -->
+        <div class="view-section" id="view-settings">
+          <div class="card">
+            <div class="card-header"><h3>&#9881; Agent Configuration</h3></div>
+            <div class="card-body">
+              <div class="two-col">
+                <div>
+                  <div class="form-group"><label>Confidence Interval Threshold</label><select class="form-control" id="ci-threshold"><option value="90">90% CI (Standard BE)</option><option value="95">95% CI (Narrow Therapeutic Index)</option></select></div>
+                  <div class="form-group"><label>BE Acceptance Range</label><input class="form-control" type="text" value="80.00% - 125.00%" id="be-range"></div>
+                  <div class="form-group"><label>Study Design Preference</label><select class="form-control" id="study-design"><option>2x2 Crossover</option><option>Replicate Crossover</option><option>Parallel Design</option></select></div>
+                </div>
+                <div>
+                  <div class="form-group"><label>PK Parameters</label><input class="form-control" type="text" value="AUC0-t, AUC0-inf, Cmax" id="pk-params"></div>
+                  <div class="form-group"><label>Auto-flag Threshold</label><input class="form-control" type="text" value="5% deviation from limits" id="flag-threshold"></div>
+                  <div class="form-group"><label>Agent Mode</label><select class="form-control" id="agent-mode"><option>Assisted Review</option><option>Full Automated Review</option><option>Audit Only</option></select></div>
+                </div>
               </div>
+              <div style="margin-top:16px"><button class="btn btn-primary" onclick="saveSettings()">Save Configuration</button></div>
             </div>
           </div>
         </div>
@@ -1096,12 +547,9 @@
           <div class="panel-tab" data-panel="history">History</div>
         </div>
         <div class="panel-content">
-          <div class="panel-tab-content active" id="panel-chat">
-          </div>
-          <div class="panel-tab-content" id="panel-details">
-          </div>
-          <div class="panel-tab-content" id="panel-history">
-          </div>
+          <div class="panel-tab-content active" id="panel-chat"></div>
+          <div class="panel-tab-content" id="panel-details"></div>
+          <div class="panel-tab-content" id="panel-history"></div>
         </div>
         <div class="chat-input-wrap">
           <input type="text" placeholder="Ask the agent..." id="chat-input" onkeydown="if(event.key==='Enter')sendChat()">
@@ -1114,74 +562,26 @@
   <!-- New Submission Modal -->
   <div class="modal-overlay" id="modal-new-submission">
     <div class="modal">
-      <div class="modal-header">
-        <h3>New ANDA Submission</h3>
-        <button class="modal-close" onclick="closeModal('new-submission')">&times;</button>
-      </div>
+      <div class="modal-header"><h3>New ANDA Submission</h3><button class="modal-close" onclick="closeModal('new-submission')">&times;</button></div>
       <div class="modal-body">
         <div class="two-col">
-          <div class="form-group">
-            <label>ANDA Number</label>
-            <input class="form-control" type="text" placeholder="e.g., ANDA-217890" id="new-anda-num">
-          </div>
-          <div class="form-group">
-            <label>Applicant</label>
-            <input class="form-control" type="text" placeholder="Company name" id="new-applicant">
-          </div>
-          <div class="form-group">
-            <label>Drug Product</label>
-            <input class="form-control" type="text" placeholder="Generic drug name" id="new-drug">
-          </div>
-          <div class="form-group">
-            <label>Reference Listed Drug (RLD)</label>
-            <input class="form-control" type="text" placeholder="Brand name" id="new-rld">
-          </div>
-          <div class="form-group">
-            <label>Dosage Form</label>
-            <select class="form-control" id="new-dosage">
-              <option>Oral Tablet</option>
-              <option>Oral Capsule</option>
-              <option>Injectable</option>
-              <option>Topical</option>
-              <option>Ophthalmic</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Strength</label>
-            <input class="form-control" type="text" placeholder="e.g., 10 mg, 25 mg" id="new-strength">
-          </div>
+          <div class="form-group"><label>ANDA Number</label><input class="form-control" type="text" placeholder="e.g., ANDA-217890" id="new-anda-num"></div>
+          <div class="form-group"><label>Applicant</label><input class="form-control" type="text" placeholder="Company name" id="new-applicant"></div>
+          <div class="form-group"><label>Drug Product</label><input class="form-control" type="text" placeholder="Generic drug name" id="new-drug"></div>
+          <div class="form-group"><label>Reference Listed Drug (RLD)</label><input class="form-control" type="text" placeholder="Brand name" id="new-rld"></div>
+          <div class="form-group"><label>Dosage Form</label><select class="form-control" id="new-dosage"><option>Oral Tablet</option><option>Oral Capsule</option><option>Injectable</option><option>Topical</option><option>Ophthalmic</option></select></div>
+          <div class="form-group"><label>Strength</label><input class="form-control" type="text" placeholder="e.g., 10 mg" id="new-strength"></div>
         </div>
-        <div class="form-group">
-          <label>BE Study Type</label>
-          <select class="form-control" id="new-study-type">
-            <option>In Vivo - Fasting</option>
-            <option>In Vivo - Fed</option>
-            <option>In Vivo - Fasting & Fed</option>
-            <option>In Vitro (BCS Class I/III Waiver)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Notes</label>
-          <textarea class="form-control" placeholder="Additional information..." id="new-notes"></textarea>
-        </div>
+        <div class="form-group"><label>BE Study Type</label><select class="form-control" id="new-study-type"><option>In Vivo - Fasting</option><option>In Vivo - Fed</option><option>In Vivo - Fasting &amp; Fed</option><option>In Vitro (BCS Class I/III Waiver)</option></select></div>
+        <div class="form-group"><label>Notes</label><textarea class="form-control" placeholder="Additional information..." id="new-notes"></textarea></div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline" onclick="closeModal('new-submission')">Cancel</button>
-        <button class="btn btn-primary" onclick="submitNewAnda()">Submit</button>
-      </div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('new-submission')">Cancel</button><button class="btn btn-primary" onclick="submitNewAnda()">Submit</button></div>
     </div>
   </div>
 
   <!-- Detail Modal -->
   <div class="modal-overlay" id="modal-detail">
-    <div class="modal" style="width:750px">
-      <div class="modal-header">
-        <h3 id="detail-modal-title">ANDA Detail</h3>
-        <button class="modal-close" onclick="closeModal('detail')">&times;</button>
-      </div>
-      <div class="modal-body" id="detail-modal-body">
-      </div>
-    </div>
+    <div class="modal" style="width:750px"><div class="modal-header"><h3 id="detail-modal-title">ANDA Detail</h3><button class="modal-close" onclick="closeModal('detail')">&times;</button></div><div class="modal-body" id="detail-modal-body"></div></div>
   </div>
 
   <script>
@@ -1190,138 +590,145 @@
     // ==========================================
     const submissions = [
       {
-        id: 'ANDA-217845',
-        applicant: 'Teva Pharmaceuticals',
-        drug: 'Metformin HCl Extended-Release Tablets',
-        rld: 'Glucophage XR',
-        dosageForm: 'Oral Tablet',
-        strength: '500 mg, 750 mg',
-        status: 'in-review',
-        beStudy: 'In Vivo - Fasting & Fed',
-        submitted: '2026-01-15',
-        beResult: 'pass',
+        id: 'ANDA-217845', applicant: 'Teva Pharmaceuticals', drug: 'Metformin HCl Extended-Release Tablets',
+        rld: 'Glucophage XR', dosageForm: 'Oral Tablet', strength: '500 mg, 750 mg',
+        status: 'in-review', beStudy: 'In Vivo - Fasting & Fed', submitted: '2026-01-15', beResult: 'pass',
         pkData: {
           auc0t: { geoMeanRatio: 102.3, ci90Lower: 96.5, ci90Upper: 108.4 },
           auc0inf: { geoMeanRatio: 101.8, ci90Lower: 95.8, ci90Upper: 108.1 },
           cmax: { geoMeanRatio: 105.1, ci90Lower: 97.2, ci90Upper: 113.7 }
         },
-        subjects: 36,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'Fasting study completed. Fed study pending final analysis.'
+        subjects: 36, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'Fasting study completed. Fed study pending final analysis.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217852',
-        applicant: 'Mylan Laboratories',
-        drug: 'Amlodipine Besylate Tablets',
-        rld: 'Norvasc',
-        dosageForm: 'Oral Tablet',
-        strength: '5 mg, 10 mg',
-        status: 'pending',
-        beStudy: 'In Vivo - Fasting',
-        submitted: '2026-02-03',
-        beResult: 'pending',
-        pkData: null,
-        subjects: 24,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'Awaiting BE study data submission from applicant.'
+        id: 'ANDA-217852', applicant: 'Mylan Laboratories', drug: 'Amlodipine Besylate Tablets',
+        rld: 'Norvasc', dosageForm: 'Oral Tablet', strength: '5 mg, 10 mg',
+        status: 'pending', beStudy: 'In Vivo - Fasting', submitted: '2026-02-03', beResult: 'pending',
+        pkData: null, subjects: 24, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'Awaiting BE study data submission from applicant.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217861',
-        applicant: 'Sun Pharmaceutical',
-        drug: 'Omeprazole Delayed-Release Capsules',
-        rld: 'Prilosec',
-        dosageForm: 'Oral Capsule',
-        strength: '20 mg, 40 mg',
-        status: 'in-review',
-        beStudy: 'In Vivo - Fasting',
-        submitted: '2026-01-28',
-        beResult: 'fail',
+        id: 'ANDA-217861', applicant: 'Sun Pharmaceutical', drug: 'Omeprazole Delayed-Release Capsules',
+        rld: 'Prilosec', dosageForm: 'Oral Capsule', strength: '20 mg, 40 mg',
+        status: 'in-review', beStudy: 'In Vivo - Fasting', submitted: '2026-01-28', beResult: 'fail',
         pkData: {
           auc0t: { geoMeanRatio: 118.7, ci90Lower: 105.3, ci90Upper: 133.9 },
           auc0inf: { geoMeanRatio: 120.2, ci90Lower: 107.1, ci90Upper: 134.8 },
           cmax: { geoMeanRatio: 131.5, ci90Lower: 112.8, ci90Upper: 153.3 }
         },
-        subjects: 28,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'Cmax CI upper bound exceeds 125%. High variability noted.'
+        subjects: 28, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'Cmax CI upper bound exceeds 125%. High variability noted.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217870',
-        applicant: 'Sandoz Inc.',
-        drug: 'Lisinopril Tablets',
-        rld: 'Zestril',
-        dosageForm: 'Oral Tablet',
-        strength: '10 mg, 20 mg, 40 mg',
-        status: 'approved',
-        beStudy: 'In Vivo - Fasting',
-        submitted: '2025-11-10',
-        beResult: 'pass',
+        id: 'ANDA-217870', applicant: 'Sandoz Inc.', drug: 'Lisinopril Tablets',
+        rld: 'Zestril', dosageForm: 'Oral Tablet', strength: '10 mg, 20 mg, 40 mg',
+        status: 'approved', beStudy: 'In Vivo - Fasting', submitted: '2025-11-10', beResult: 'pass',
         pkData: {
           auc0t: { geoMeanRatio: 99.4, ci90Lower: 94.1, ci90Upper: 105.0 },
           auc0inf: { geoMeanRatio: 99.8, ci90Lower: 94.6, ci90Upper: 105.3 },
           cmax: { geoMeanRatio: 101.2, ci90Lower: 93.5, ci90Upper: 109.5 }
         },
-        subjects: 32,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'All PK parameters within 80-125% CI. Approved.'
+        subjects: 32, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'All PK parameters within 80-125% CI. Approved.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217878',
-        applicant: 'Zydus Lifesciences',
-        drug: 'Atorvastatin Calcium Tablets',
-        rld: 'Lipitor',
-        dosageForm: 'Oral Tablet',
-        strength: '10 mg, 20 mg, 40 mg, 80 mg',
-        status: 'in-review',
-        beStudy: 'In Vivo - Fasting',
-        submitted: '2026-02-18',
-        beResult: 'pass',
+        id: 'ANDA-217878', applicant: 'Zydus Lifesciences', drug: 'Atorvastatin Calcium Tablets',
+        rld: 'Lipitor', dosageForm: 'Oral Tablet', strength: '10 mg, 20 mg, 40 mg, 80 mg',
+        status: 'in-review', beStudy: 'In Vivo - Fasting', submitted: '2026-02-18', beResult: 'pass',
         pkData: {
           auc0t: { geoMeanRatio: 97.6, ci90Lower: 91.2, ci90Upper: 104.5 },
           auc0inf: { geoMeanRatio: 98.1, ci90Lower: 91.8, ci90Upper: 104.8 },
           cmax: { geoMeanRatio: 104.8, ci90Lower: 94.3, ci90Upper: 116.5 }
         },
-        subjects: 40,
-        studyDesign: 'Replicate Crossover, Single-dose',
-        notes: 'Highly variable drug. Replicate design used. Reference-scaled BE applied for Cmax.'
+        subjects: 40, studyDesign: 'Replicate Crossover, Single-dose',
+        notes: 'Highly variable drug. Replicate design used. Reference-scaled BE applied for Cmax.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217885',
-        applicant: 'Cipla Ltd.',
-        drug: 'Escitalopram Oxalate Tablets',
-        rld: 'Lexapro',
-        dosageForm: 'Oral Tablet',
-        strength: '5 mg, 10 mg, 20 mg',
-        status: 'pending',
-        beStudy: 'In Vivo - Fasting',
-        submitted: '2026-03-05',
-        beResult: 'pending',
-        pkData: null,
-        subjects: 30,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'Submission received. BE data under preliminary review.'
+        id: 'ANDA-217885', applicant: 'Cipla Ltd.', drug: 'Escitalopram Oxalate Tablets',
+        rld: 'Lexapro', dosageForm: 'Oral Tablet', strength: '5 mg, 10 mg, 20 mg',
+        status: 'pending', beStudy: 'In Vivo - Fasting', submitted: '2026-03-05', beResult: 'pending',
+        pkData: null, subjects: 30, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'Submission received. BE data under preliminary review.',
+        subjectData: null, dissolution: null
       },
       {
-        id: 'ANDA-217892',
-        applicant: 'Amneal Pharmaceuticals',
-        drug: 'Pantoprazole Sodium DR Tablets',
-        rld: 'Protonix',
-        dosageForm: 'Oral Tablet',
-        strength: '20 mg, 40 mg',
-        status: 'deficient',
-        beStudy: 'In Vivo - Fasting & Fed',
-        submitted: '2025-12-20',
-        beResult: 'fail',
+        id: 'ANDA-217892', applicant: 'Amneal Pharmaceuticals', drug: 'Pantoprazole Sodium DR Tablets',
+        rld: 'Protonix', dosageForm: 'Oral Tablet', strength: '20 mg, 40 mg',
+        status: 'deficient', beStudy: 'In Vivo - Fasting & Fed', submitted: '2025-12-20', beResult: 'fail',
         pkData: {
           auc0t: { geoMeanRatio: 88.3, ci90Lower: 74.2, ci90Upper: 105.1 },
           auc0inf: { geoMeanRatio: 89.1, ci90Lower: 75.0, ci90Upper: 105.9 },
           cmax: { geoMeanRatio: 78.5, ci90Lower: 65.8, ci90Upper: 93.6 }
         },
-        subjects: 24,
-        studyDesign: '2x2 Crossover, Single-dose',
-        notes: 'Deficiency letter issued. Cmax GMR and lower CI below acceptance range. Insufficient subjects.'
+        subjects: 24, studyDesign: '2x2 Crossover, Single-dose',
+        notes: 'Deficiency letter issued. Cmax GMR and lower CI below acceptance range. Insufficient subjects.',
+        subjectData: null, dissolution: null
       }
     ];
+
+    // Generate subject-level data for submissions with PK data
+    function generateSubjectData(s) {
+      if (!s.pkData) return null;
+      const rng = (mean, cv) => {
+        let u = 0, v = 0;
+        while (u === 0) u = Math.random();
+        while (v === 0) v = Math.random();
+        const z = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+        return mean * Math.exp(z * cv / 100);
+      };
+      const data = [];
+      for (let i = 0; i < s.subjects; i++) {
+        const cv = s.studyDesign.includes('Replicate') ? 35 : 22;
+        data.push({
+          id: i + 1,
+          aucTest: rng(s.pkData.auc0t.geoMeanRatio, cv),
+          aucRef: rng(100, cv),
+          cmaxTest: rng(s.pkData.cmax.geoMeanRatio, cv),
+          cmaxRef: rng(100, cv)
+        });
+      }
+      return data;
+    }
+
+    // Generate dissolution data
+    function generateDissolutionData(s) {
+      if (!s.pkData) return null;
+      const timepoints = [5, 10, 15, 20, 30, 45, 60, 90, 120];
+      const pass = s.beResult === 'pass';
+      const testProfile = timepoints.map(t => {
+        const maxDiss = pass ? 98 : 92;
+        return Math.min(maxDiss, 20 + (maxDiss - 20) * (1 - Math.exp(-t / (pass ? 15 : 22)))) + (Math.random() - 0.5) * 3;
+      });
+      const refProfile = timepoints.map(t => {
+        return Math.min(98, 20 + 78 * (1 - Math.exp(-t / 15))) + (Math.random() - 0.5) * 3;
+      });
+      // f2 calculation
+      const n = timepoints.length;
+      const sumSq = testProfile.reduce((acc, val, i) => acc + Math.pow(val - refProfile[i], 2), 0);
+      const f2 = 50 * Math.log10(100 / Math.sqrt(1 + sumSq / n));
+      return { timepoints, testProfile, refProfile, f2: Math.round(f2 * 10) / 10 };
+    }
+
+    // Populate generated data
+    submissions.forEach(s => {
+      s.subjectData = generateSubjectData(s);
+      s.dissolution = generateDissolutionData(s);
+    });
+
+    // Historical trending data
+    const trendingData = {
+      months: ['Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26'],
+      submitted: [5, 4, 6, 8, 5, 7],
+      approved: [3, 4, 3, 5, 4, 5],
+      deficient: [1, 0, 2, 1, 1, 1],
+      avgReviewDays: [22, 21, 19, 18, 17, 18]
+    };
 
     const agentSteps = [
       { title: 'Document Intake', desc: 'Parse ANDA submission package & extract BE study data' },
@@ -1369,47 +776,89 @@
 
     let currentView = 'dashboard';
     let agentRunning = false;
+    let agentPaused = false;
+    let agentStopped = false;
     let currentStep = -1;
     let chatMessages = [];
     let reports = [];
+    let showingSkeleton = false;
+    let demoActive = false;
+    let demoScenario = null;
+    let demoStepIndex = 0;
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function ciCheck(l, u) { return l >= 80 && u <= 125; }
+
+    // ==========================================
+    // SKELETON & VIEW TRANSITIONS
+    // ==========================================
+    function showSkeletons() {
+      showingSkeleton = true;
+      document.getElementById('stats-grid').innerHTML = Array(4).fill('<div class="skeleton skeleton-stat"></div>').join('');
+      document.getElementById('dashboard-table').innerHTML = Array(4).fill(`<tr><td><div class="skeleton skeleton-text short"></div></td><td><div class="skeleton skeleton-text medium"></div></td><td><div class="skeleton skeleton-text short"></div></td><td><div class="skeleton skeleton-text short"></div></td></tr>`).join('');
+      document.getElementById('agent-activity-feed').innerHTML = Array(4).fill('<div class="skeleton skeleton-box"></div>').join('');
+    }
+
+    function hideSkeletons() {
+      showingSkeleton = false;
+      renderStatsGrid();
+      renderDashboardTable();
+      renderAgentActivity();
+    }
+
+    function switchView(view) {
+      const prev = document.querySelector('.view-section.visible');
+      if (prev) { prev.classList.remove('visible'); }
+      setTimeout(() => {
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+        const next = document.getElementById('view-' + view);
+        if (next) {
+          next.classList.add('active');
+          requestAnimationFrame(() => { next.classList.add('visible'); });
+        }
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.view === view));
+        const titles = { dashboard:'Dashboard', submissions:'ANDA Submissions', analysis:'Bioequivalence Analysis', agent:'Agent Console', dissolution:'Dissolution Profiles', power:'Power Analysis', trending:'Trending', regulations:'Regulatory Reference', reports:'Reports', settings:'Settings' };
+        document.getElementById('page-title').textContent = titles[view] || 'Dashboard';
+        currentView = view;
+        // Render charts that need canvas when switching to their view
+        if (view === 'power') calcPower();
+        if (view === 'trending') { renderTrendingChart(); renderStatusPie(); renderTimeline(); }
+      }, prev ? 200 : 0);
+    }
 
     // ==========================================
     // RENDERING FUNCTIONS
     // ==========================================
-
     function getStatusTag(status) {
-      const map = {
-        'pending': '<span class="tag tag-yellow">Pending</span>',
-        'in-review': '<span class="tag tag-blue">In Review</span>',
-        'approved': '<span class="tag tag-green">Approved</span>',
-        'deficient': '<span class="tag tag-red">Deficient</span>'
-      };
+      const map = { 'pending':'<span class="tag tag-yellow">Pending</span>', 'in-review':'<span class="tag tag-blue">In Review</span>', 'approved':'<span class="tag tag-green">Approved</span>', 'deficient':'<span class="tag tag-red">Deficient</span>' };
       return map[status] || '<span class="tag tag-gray">Unknown</span>';
     }
-
     function getBETag(result) {
-      const map = {
-        'pass': '<span class="tag tag-green">Pass</span>',
-        'fail': '<span class="tag tag-red">Fail</span>',
-        'pending': '<span class="tag tag-yellow">Pending</span>'
-      };
+      const map = { 'pass':'<span class="tag tag-green">Pass</span>', 'fail':'<span class="tag tag-red">Fail</span>', 'pending':'<span class="tag tag-yellow">Pending</span>' };
       return map[result] || '<span class="tag tag-gray">N/A</span>';
+    }
+    function getConfidenceBadge(score) {
+      if (score >= 90) return `<span class="confidence-badge confidence-high">${score}% confident</span>`;
+      if (score >= 70) return `<span class="confidence-badge confidence-medium">${score}% confident</span>`;
+      return `<span class="confidence-badge confidence-low">${score}% confident</span>`;
+    }
+
+    function renderStatsGrid() {
+      document.getElementById('stats-grid').innerHTML = `
+        <div class="stat-card animate-in"><div class="stat-label">Active Reviews</div><div class="stat-value">${submissions.filter(s=>s.status==='in-review').length}</div><div class="stat-change up">+2 this week</div></div>
+        <div class="stat-card animate-in" style="animation-delay:0.05s"><div class="stat-label">Pending BE Analysis</div><div class="stat-value">${submissions.filter(s=>s.status==='pending').length}</div><div class="stat-change down">Requires attention</div></div>
+        <div class="stat-card animate-in" style="animation-delay:0.1s"><div class="stat-label">Approved (YTD)</div><div class="stat-value">24</div><div class="stat-change up">+12% vs last year</div></div>
+        <div class="stat-card animate-in" style="animation-delay:0.15s"><div class="stat-label">Avg Review Time</div><div class="stat-value">18d</div><div class="stat-change up">-3d improvement</div></div>
+      `;
     }
 
     function renderDashboardTable() {
-      const tbody = document.getElementById('dashboard-table');
-      tbody.innerHTML = submissions.slice(0, 5).map(s => `
-        <tr style="cursor:pointer" onclick="showDetail('${s.id}')">
-          <td><strong>${s.id}</strong></td>
-          <td>${s.drug}</td>
-          <td>${getStatusTag(s.status)}</td>
-          <td>${getBETag(s.beResult)}</td>
-        </tr>
+      document.getElementById('dashboard-table').innerHTML = submissions.slice(0, 5).map(s => `
+        <tr style="cursor:pointer" onclick="showDetail('${s.id}')"><td><strong>${s.id}</strong></td><td>${s.drug}</td><td>${getStatusTag(s.status)}</td><td>${getBETag(s.beResult)}</td></tr>
       `).join('');
     }
 
     function renderAgentActivity() {
-      const feed = document.getElementById('agent-activity-feed');
       const activities = [
         { time: '10:32 AM', text: 'Completed BE analysis for ANDA-217845 (Metformin HCl ER)', type: 'success' },
         { time: '10:28 AM', text: 'Flagged ANDA-217861 - Cmax upper CI exceeds 125.00%', type: 'warning' },
@@ -1417,52 +866,267 @@
         { time: '09:45 AM', text: 'Deficiency identified in ANDA-217892 - insufficient power', type: 'error' },
         { time: '09:30 AM', text: 'Agent initialized. Loading submission queue...', type: 'info' }
       ];
-      feed.innerHTML = activities.map(a => {
-        const colors = { success: 'var(--accent)', warning: 'var(--warning)', error: 'var(--danger)', info: 'var(--primary-light)' };
-        return `<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px">
-          <div style="width:8px;height:8px;border-radius:50%;background:${colors[a.type]};margin-top:5px;flex-shrink:0"></div>
-          <div style="flex:1">${a.text}</div>
-          <div style="color:var(--text-light);font-size:11px;white-space:nowrap">${a.time}</div>
-        </div>`;
-      }).join('');
+      const colors = { success:'var(--accent)', warning:'var(--warning)', error:'var(--danger)', info:'var(--primary-light)' };
+      document.getElementById('agent-activity-feed').innerHTML = activities.map(a =>
+        `<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><div style="width:8px;height:8px;border-radius:50%;background:${colors[a.type]};margin-top:5px;flex-shrink:0"></div><div style="flex:1">${a.text}</div><div style="color:var(--text-light);font-size:11px;white-space:nowrap">${a.time}</div></div>`
+      ).join('');
     }
 
     function renderSubmissionsTable() {
       const filter = document.getElementById('filter-status').value;
       const filtered = filter === 'all' ? submissions : submissions.filter(s => s.status === filter);
-      const tbody = document.getElementById('submissions-table');
-      tbody.innerHTML = filtered.map(s => `
-        <tr>
-          <td><strong>${s.id}</strong></td>
-          <td>${s.applicant}</td>
-          <td>${s.drug}</td>
-          <td>${s.rld}</td>
-          <td>${getStatusTag(s.status)}</td>
-          <td>${getBETag(s.beResult)}</td>
-          <td>${s.submitted}</td>
-          <td>
-            <button class="btn btn-outline btn-sm" onclick="showDetail('${s.id}')">View</button>
-            <button class="btn btn-primary btn-sm" onclick="runAgentFor('${s.id}')" ${s.beResult === 'pending' ? '' : ''}>Analyze</button>
-          </td>
-        </tr>
+      document.getElementById('submissions-table').innerHTML = filtered.map(s => `
+        <tr><td><strong>${s.id}</strong></td><td>${s.applicant}</td><td>${s.drug}</td><td>${s.rld}</td><td>${getStatusTag(s.status)}</td><td>${getBETag(s.beResult)}</td><td>${s.submitted}</td>
+        <td><button class="btn btn-outline btn-sm" onclick="showDetail('${s.id}')">View</button> <button class="btn btn-primary btn-sm" onclick="runAgentFor('${s.id}')">Analyze</button></td></tr>
       `).join('');
     }
 
     function renderAnalysisSelect() {
       const sel = document.getElementById('analysis-select');
-      sel.innerHTML = '<option value="">Select ANDA...</option>' +
-        submissions.filter(s => s.pkData).map(s => `<option value="${s.id}">${s.id} - ${s.drug}</option>`).join('');
+      sel.innerHTML = '<option value="">Select ANDA...</option>' + submissions.filter(s => s.pkData).map(s => `<option value="${s.id}">${s.id} - ${s.drug}</option>`).join('');
+      // Same for dissolution
+      const dSel = document.getElementById('dissolution-select');
+      dSel.innerHTML = '<option value="">Select ANDA...</option>' + submissions.filter(s => s.dissolution).map(s => `<option value="${s.id}">${s.id} - ${s.drug}</option>`).join('');
     }
 
+    // ==========================================
+    // CI CHART (Interactive SVG)
+    // ==========================================
+    function renderCIChartSVG(pk) {
+      const params = [
+        { name: 'AUC₀₋ₜ', data: pk.auc0t },
+        { name: 'AUC₀₋∞', data: pk.auc0inf },
+        { name: 'Cmax', data: pk.cmax }
+      ];
+      const w = 500, h = 180, pad = { l: 70, r: 30, t: 10, b: 30 };
+      const plotW = w - pad.l - pad.r;
+      const xMin = 60, xMax = 150;
+      const xScale = v => pad.l + (v - xMin) / (xMax - xMin) * plotW;
+      const rowH = 40, startY = pad.t + 20;
+
+      let svg = `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font);width:100%">`;
+      // Acceptance region
+      svg += `<rect x="${xScale(80)}" y="${pad.t}" width="${xScale(125)-xScale(80)}" height="${h-pad.t-pad.b}" fill="rgba(39,174,96,0.08)" stroke="none"/>`;
+      svg += `<line x1="${xScale(80)}" y1="${pad.t}" x2="${xScale(80)}" y2="${h-pad.b}" stroke="#27ae60" stroke-dasharray="4,3" stroke-width="1.5"/>`;
+      svg += `<line x1="${xScale(125)}" y1="${pad.t}" x2="${xScale(125)}" y2="${h-pad.b}" stroke="#27ae60" stroke-dasharray="4,3" stroke-width="1.5"/>`;
+      svg += `<line x1="${xScale(100)}" y1="${pad.t}" x2="${xScale(100)}" y2="${h-pad.b}" stroke="#ddd" stroke-dasharray="2,2" stroke-width="1"/>`;
+
+      params.forEach((p, i) => {
+        const y = startY + i * rowH;
+        const pass = p.data.ci90Lower >= 80 && p.data.ci90Upper <= 125;
+        const color = pass ? '#27ae60' : '#e74c3c';
+        // CI bar
+        svg += `<line x1="${xScale(p.data.ci90Lower)}" y1="${y}" x2="${xScale(p.data.ci90Upper)}" y2="${y}" stroke="${color}" stroke-width="6" stroke-linecap="round"/>`;
+        // Mean point
+        svg += `<circle cx="${xScale(p.data.geoMeanRatio)}" cy="${y}" r="5" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+        // Label
+        svg += `<text x="${pad.l-8}" y="${y+4}" text-anchor="end" font-size="11" font-weight="600" fill="#2c3e50">${p.name}</text>`;
+        // Hover area with tooltip data encoded
+        svg += `<rect x="${xScale(p.data.ci90Lower)-5}" y="${y-12}" width="${xScale(p.data.ci90Upper)-xScale(p.data.ci90Lower)+10}" height="24" fill="transparent" class="ci-hover"
+          data-param="${p.name}" data-gmr="${p.data.geoMeanRatio}" data-lower="${p.data.ci90Lower}" data-upper="${p.data.ci90Upper}" data-pass="${pass}"/>`;
+      });
+
+      // X-axis labels
+      [60,80,100,125,150].forEach(v => {
+        svg += `<text x="${xScale(v)}" y="${h-8}" text-anchor="middle" font-size="10" fill="#7f8c8d">${v}%</text>`;
+      });
+      svg += `</svg>`;
+      return `<div class="chart-container" style="position:relative">
+        ${svg}
+        <div class="chart-tooltip" id="ci-tooltip"></div>
+      </div>`;
+    }
+
+    // ==========================================
+    // SCATTER PLOT (Canvas)
+    // ==========================================
+    function renderScatterPlot(canvasId, subjectData, paramType) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const pad = { l: 50, r: 20, t: 20, b: 40 };
+      const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+
+      const testKey = paramType === 'auc' ? 'aucTest' : 'cmaxTest';
+      const refKey = paramType === 'auc' ? 'aucRef' : 'cmaxRef';
+      const allVals = subjectData.flatMap(d => [d[testKey], d[refKey]]);
+      const dataMin = Math.min(...allVals) * 0.85;
+      const dataMax = Math.max(...allVals) * 1.15;
+      const xScale = v => pad.l + (v - dataMin) / (dataMax - dataMin) * plotW;
+      const yScale = v => pad.t + plotH - (v - dataMin) / (dataMax - dataMin) * plotH;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid
+      ctx.strokeStyle = '#eee';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const v = dataMin + (dataMax - dataMin) * i / 4;
+        ctx.beginPath(); ctx.moveTo(pad.l, yScale(v)); ctx.lineTo(w - pad.r, yScale(v)); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(xScale(v), pad.t); ctx.lineTo(xScale(v), h - pad.b); ctx.stroke();
+      }
+
+      // Unity line
+      ctx.strokeStyle = '#bbb';
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath(); ctx.moveTo(xScale(dataMin), yScale(dataMin)); ctx.lineTo(xScale(dataMax), yScale(dataMax)); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Points
+      subjectData.forEach(d => {
+        const x = xScale(d[refKey]);
+        const y = yScale(d[testKey]);
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(41,128,185,0.6)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(41,128,185,0.9)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+
+      // Axes labels
+      ctx.fillStyle = '#7f8c8d';
+      ctx.font = '11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(`Reference ${paramType === 'auc' ? 'AUC' : 'Cmax'} (%)`, w / 2, h - 5);
+      ctx.save();
+      ctx.translate(14, h / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText(`Test ${paramType === 'auc' ? 'AUC' : 'Cmax'} (%)`, 0, 0);
+      ctx.restore();
+
+      // Axis tick labels
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      for (let i = 0; i <= 4; i++) {
+        const v = dataMin + (dataMax - dataMin) * i / 4;
+        ctx.fillText(v.toFixed(0), xScale(v), h - pad.b + 5);
+      }
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      for (let i = 0; i <= 4; i++) {
+        const v = dataMin + (dataMax - dataMin) * i / 4;
+        ctx.fillText(v.toFixed(0), pad.l - 5, yScale(v));
+      }
+    }
+
+    // ==========================================
+    // DISSOLUTION CHART (Canvas)
+    // ==========================================
+    function renderDissolutionChart(canvasId, dissolution) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const pad = { l: 50, r: 30, t: 20, b: 40 };
+      const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+
+      const tp = dissolution.timepoints;
+      const xScale = v => pad.l + (v / 120) * plotW;
+      const yScale = v => pad.t + plotH - (v / 100) * plotH;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid
+      ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+      [0, 25, 50, 75, 100].forEach(v => {
+        ctx.beginPath(); ctx.moveTo(pad.l, yScale(v)); ctx.lineTo(w-pad.r, yScale(v)); ctx.stroke();
+      });
+
+      // 85% line
+      ctx.strokeStyle = 'rgba(231,76,60,0.3)'; ctx.setLineDash([5,3]);
+      ctx.beginPath(); ctx.moveTo(pad.l, yScale(85)); ctx.lineTo(w-pad.r, yScale(85)); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Reference profile
+      ctx.strokeStyle = '#2980b9'; ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      tp.forEach((t, i) => { i === 0 ? ctx.moveTo(xScale(t), yScale(dissolution.refProfile[i])) : ctx.lineTo(xScale(t), yScale(dissolution.refProfile[i])); });
+      ctx.stroke();
+      tp.forEach((t, i) => {
+        ctx.beginPath(); ctx.arc(xScale(t), yScale(dissolution.refProfile[i]), 4, 0, Math.PI*2);
+        ctx.fillStyle = '#2980b9'; ctx.fill();
+      });
+
+      // Test profile
+      ctx.strokeStyle = '#e67e22'; ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      tp.forEach((t, i) => { i === 0 ? ctx.moveTo(xScale(t), yScale(dissolution.testProfile[i])) : ctx.lineTo(xScale(t), yScale(dissolution.testProfile[i])); });
+      ctx.stroke();
+      tp.forEach((t, i) => {
+        ctx.beginPath(); ctx.arc(xScale(t), yScale(dissolution.testProfile[i]), 4, 0, Math.PI*2);
+        ctx.fillStyle = '#e67e22'; ctx.fill();
+      });
+
+      // Axes labels
+      ctx.fillStyle = '#7f8c8d'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Time (minutes)', w/2, h-5);
+      tp.forEach(t => { ctx.fillText(t, xScale(t), h-pad.b+12); });
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      [0,25,50,75,100].forEach(v => { ctx.fillText(v+'%', pad.l-5, yScale(v)); });
+
+      ctx.save(); ctx.translate(14, h/2); ctx.rotate(-Math.PI/2);
+      ctx.textAlign = 'center'; ctx.fillText('% Dissolved', 0, 0); ctx.restore();
+    }
+
+    function renderDissolutionView(id) {
+      const s = submissions.find(x => x.id === id);
+      const c = document.getElementById('dissolution-content');
+      if (!s || !s.dissolution) { c.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px">No dissolution data available</p>'; return; }
+
+      const d = s.dissolution;
+      const f2Pass = d.f2 >= 50;
+      c.innerHTML = `
+        <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px;padding:16px;background:var(--bg);border-radius:var(--radius)">
+            <div style="font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:0.8px;font-weight:600">f2 Similarity Factor</div>
+            <div style="font-size:36px;font-weight:700;color:${f2Pass?'var(--accent)':'var(--danger)'}">${d.f2}</div>
+            <div style="font-size:12px;color:${f2Pass?'var(--accent)':'var(--danger)'}">Threshold: ≥50 ${f2Pass?'(PASS)':'(FAIL)'}</div>
+          </div>
+          <div style="flex:1;min-width:200px;padding:16px;background:var(--bg);border-radius:var(--radius)">
+            <div style="font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:0.8px;font-weight:600">Drug Product</div>
+            <div style="font-size:14px;font-weight:600;margin-top:8px">${s.drug}</div>
+            <div style="font-size:12px;color:var(--text-light)">${s.id} | ${s.strength}</div>
+          </div>
+        </div>
+        <div style="margin-bottom:12px;display:flex;gap:16px;font-size:12px">
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:3px;background:#2980b9;border-radius:2px;display:inline-block"></span> Reference (${s.rld})</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:3px;background:#e67e22;border-radius:2px;display:inline-block"></span> Test (${s.drug})</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:3px;background:rgba(231,76,60,0.3);border-radius:2px;display:inline-block;border-top:1px dashed rgba(231,76,60,0.5)"></span> 85% Dissolved</span>
+        </div>
+        <canvas id="diss-canvas" class="chart-canvas" height="280" style="height:280px"></canvas>
+        <div style="margin-top:16px">
+          <h4 style="font-size:13px;margin-bottom:8px">Dissolution Data Table</h4>
+          <table><thead><tr><th>Time (min)</th>${d.timepoints.map(t=>'<th>'+t+'</th>').join('')}</tr></thead>
+          <tbody>
+            <tr><td><strong>Reference (%)</strong></td>${d.refProfile.map(v=>'<td>'+v.toFixed(1)+'</td>').join('')}</tr>
+            <tr><td><strong>Test (%)</strong></td>${d.testProfile.map(v=>'<td>'+v.toFixed(1)+'</td>').join('')}</tr>
+            <tr><td><strong>Difference</strong></td>${d.testProfile.map((v,i)=>{const diff=v-d.refProfile[i]; return '<td style="color:'+(Math.abs(diff)>10?'var(--danger)':'var(--text)')+'">'+diff.toFixed(1)+'</td>';}).join('')}</tr>
+          </tbody></table>
+        </div>
+      `;
+      setTimeout(() => renderDissolutionChart('diss-canvas', d), 50);
+    }
+
+    // ==========================================
+    // ANALYSIS VIEW
+    // ==========================================
     function renderAnalysis(id) {
       const s = submissions.find(x => x.id === id);
       const content = document.getElementById('analysis-content');
-      if (!s || !s.pkData) {
-        content.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px">No PK data available for this submission</p>';
-        return;
-      }
-
-      const ciCheck = (lower, upper) => lower >= 80 && upper <= 125;
+      if (!s || !s.pkData) { content.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px">No PK data available</p>'; return; }
       const pk = s.pkData;
 
       content.innerHTML = `
@@ -1478,213 +1142,513 @@
           <div>
             <h4 style="margin-bottom:12px;font-size:14px">BE Determination</h4>
             <div style="text-align:center;padding:20px">
-              <div style="font-size:48px;font-weight:700;color:${s.beResult === 'pass' ? 'var(--accent)' : 'var(--danger)'}">
-                ${s.beResult === 'pass' ? 'PASS' : 'FAIL'}
-              </div>
-              <div style="color:var(--text-light);font-size:13px;margin-top:8px">
-                Based on 90% CI within 80.00-125.00%
-              </div>
+              <div style="font-size:48px;font-weight:700;color:${s.beResult==='pass'?'var(--accent)':'var(--danger)'}">${s.beResult==='pass'?'PASS':'FAIL'}</div>
+              <div style="color:var(--text-light);font-size:13px;margin-top:8px">Based on 90% CI within 80.00-125.00%</div>
             </div>
           </div>
         </div>
 
         <h4 style="margin-bottom:12px;font-size:14px">Pharmacokinetic Parameters (Log-transformed)</h4>
         <table>
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Geometric Mean Ratio (%)</th>
-              <th>90% CI Lower</th>
-              <th>90% CI Upper</th>
-              <th>Within 80-125%</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Parameter</th><th>GMR (%)</th><th>90% CI Lower</th><th>90% CI Upper</th><th>Within 80-125%</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>AUC<sub>0-t</sub></strong></td>
-              <td>${pk.auc0t.geoMeanRatio.toFixed(1)}</td>
-              <td>${pk.auc0t.ci90Lower.toFixed(1)}</td>
-              <td>${pk.auc0t.ci90Upper.toFixed(1)}</td>
-              <td>${ciCheck(pk.auc0t.ci90Lower, pk.auc0t.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-            </tr>
-            <tr>
-              <td><strong>AUC<sub>0-&infin;</sub></strong></td>
-              <td>${pk.auc0inf.geoMeanRatio.toFixed(1)}</td>
-              <td>${pk.auc0inf.ci90Lower.toFixed(1)}</td>
-              <td>${pk.auc0inf.ci90Upper.toFixed(1)}</td>
-              <td>${ciCheck(pk.auc0inf.ci90Lower, pk.auc0inf.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-            </tr>
-            <tr>
-              <td><strong>C<sub>max</sub></strong></td>
-              <td>${pk.cmax.geoMeanRatio.toFixed(1)}</td>
-              <td>${pk.cmax.ci90Lower.toFixed(1)}</td>
-              <td>${pk.cmax.ci90Upper.toFixed(1)}</td>
-              <td>${ciCheck(pk.cmax.ci90Lower, pk.cmax.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-            </tr>
+            <tr><td><strong>AUC<sub>0-t</sub></strong></td><td>${pk.auc0t.geoMeanRatio.toFixed(1)}</td><td>${pk.auc0t.ci90Lower.toFixed(1)}</td><td>${pk.auc0t.ci90Upper.toFixed(1)}</td><td>${ciCheck(pk.auc0t.ci90Lower,pk.auc0t.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
+            <tr><td><strong>AUC<sub>0-∞</sub></strong></td><td>${pk.auc0inf.geoMeanRatio.toFixed(1)}</td><td>${pk.auc0inf.ci90Lower.toFixed(1)}</td><td>${pk.auc0inf.ci90Upper.toFixed(1)}</td><td>${ciCheck(pk.auc0inf.ci90Lower,pk.auc0inf.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
+            <tr><td><strong>C<sub>max</sub></strong></td><td>${pk.cmax.geoMeanRatio.toFixed(1)}</td><td>${pk.cmax.ci90Lower.toFixed(1)}</td><td>${pk.cmax.ci90Upper.toFixed(1)}</td><td>${ciCheck(pk.cmax.ci90Lower,pk.cmax.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
           </tbody>
         </table>
 
         <div style="margin-top:20px">
-          <h4 style="margin-bottom:12px;font-size:14px">90% Confidence Interval Visualization</h4>
-          <div style="background:var(--bg);border-radius:var(--radius);padding:20px">
-            ${renderCIChart(pk)}
-          </div>
+          <h4 style="margin-bottom:12px;font-size:14px">90% Confidence Interval Visualization <span style="font-size:11px;color:var(--text-light);font-weight:400">(hover for details)</span></h4>
+          ${renderCIChartSVG(pk)}
         </div>
 
-        <div style="margin-top:16px;padding:12px;background:${s.beResult === 'pass' ? '#e8f8f0' : '#fde8e8'};border-radius:var(--radius);font-size:13px">
-          <strong>${s.beResult === 'pass' ? 'Conclusion:' : 'Issue Identified:'}</strong>
-          ${s.beResult === 'pass'
-            ? 'All pharmacokinetic parameters demonstrate bioequivalence within the 80.00-125.00% confidence interval range. The generic product is bioequivalent to the reference listed drug.'
-            : 'One or more PK parameters have 90% CI outside the acceptance range of 80.00-125.00%. Bioequivalence has NOT been established. ' + s.notes
-          }
+        ${s.subjectData ? `
+        <div style="margin-top:24px">
+          <h4 style="margin-bottom:12px;font-size:14px">Subject-Level PK Data</h4>
+          <div class="two-col">
+            <div>
+              <div style="font-size:12px;font-weight:600;margin-bottom:8px;text-align:center">AUC: Test vs Reference</div>
+              <canvas id="scatter-auc-${s.id}" class="chart-canvas" height="250" style="height:250px"></canvas>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:600;margin-bottom:8px;text-align:center">Cmax: Test vs Reference</div>
+              <canvas id="scatter-cmax-${s.id}" class="chart-canvas" height="250" style="height:250px"></canvas>
+            </div>
+          </div>
+        </div>` : ''}
+
+        <div style="margin-top:16px;padding:12px;background:${s.beResult==='pass'?'#e8f8f0':'#fde8e8'};border-radius:var(--radius);font-size:13px">
+          <strong>${s.beResult==='pass'?'Conclusion:':'Issue Identified:'}</strong>
+          ${s.beResult==='pass'
+            ? 'All pharmacokinetic parameters demonstrate bioequivalence within the 80.00-125.00% confidence interval range.'
+            : 'One or more PK parameters have 90% CI outside the acceptance range. Bioequivalence NOT established. ' + s.notes}
         </div>
       `;
-    }
 
-    function renderCIChart(pk) {
-      const params = [
-        { name: 'AUC0-t', data: pk.auc0t },
-        { name: 'AUC0-inf', data: pk.auc0inf },
-        { name: 'Cmax', data: pk.cmax }
-      ];
+      // Render scatter plots after DOM is ready
+      if (s.subjectData) {
+        setTimeout(() => {
+          renderScatterPlot('scatter-auc-'+s.id, s.subjectData, 'auc');
+          renderScatterPlot('scatter-cmax-'+s.id, s.subjectData, 'cmax');
+        }, 50);
+      }
 
-      return params.map(p => {
-        const min = 60, max = 150, range = max - min;
-        const lowerPct = ((p.data.ci90Lower - min) / range * 100).toFixed(1);
-        const upperPct = ((p.data.ci90Upper - min) / range * 100).toFixed(1);
-        const meanPct = ((p.data.geoMeanRatio - min) / range * 100).toFixed(1);
-        const limitLow = ((80 - min) / range * 100).toFixed(1);
-        const limitHigh = ((125 - min) / range * 100).toFixed(1);
-        const pass = p.data.ci90Lower >= 80 && p.data.ci90Upper <= 125;
-        const color = pass ? 'var(--accent)' : 'var(--danger)';
-
-        return `<div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-            <span style="font-size:12px;font-weight:600">${p.name}</span>
-            <span style="font-size:11px;color:var(--text-light)">${p.data.ci90Lower.toFixed(1)}% - ${p.data.ci90Upper.toFixed(1)}%</span>
-          </div>
-          <div style="position:relative;height:24px;background:#fff;border-radius:4px;border:1px solid var(--border)">
-            <div style="position:absolute;left:${limitLow}%;right:${100-limitHigh}%;top:0;bottom:0;background:rgba(39,174,96,0.1);border-left:2px dashed var(--accent);border-right:2px dashed var(--accent)"></div>
-            <div style="position:absolute;left:${lowerPct}%;width:${upperPct-lowerPct}%;top:8px;height:8px;background:${color};border-radius:4px"></div>
-            <div style="position:absolute;left:${meanPct}%;top:4px;width:3px;height:16px;background:${color};border-radius:2px;transform:translateX(-50%)"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-light);margin-top:2px">
-            <span>60%</span><span>80%</span><span>100%</span><span>125%</span><span>150%</span>
-          </div>
-        </div>`;
-      }).join('');
+      // Setup CI tooltip interactions
+      setTimeout(() => {
+        document.querySelectorAll('.ci-hover').forEach(el => {
+          el.addEventListener('mouseenter', e => {
+            const tt = document.getElementById('ci-tooltip');
+            tt.innerHTML = `<strong>${el.dataset.param}</strong><br>GMR: ${parseFloat(el.dataset.gmr).toFixed(1)}%<br>90% CI: [${parseFloat(el.dataset.lower).toFixed(1)}%, ${parseFloat(el.dataset.upper).toFixed(1)}%]<br>${el.dataset.pass==='true'?'&#10003; Within range':'&#10007; Outside range'}`;
+            tt.style.display = 'block';
+          });
+          el.addEventListener('mousemove', e => {
+            const tt = document.getElementById('ci-tooltip');
+            const container = tt.parentElement;
+            const cr = container.getBoundingClientRect();
+            tt.style.left = (e.clientX - cr.left + 10) + 'px';
+            tt.style.top = (e.clientY - cr.top - 40) + 'px';
+          });
+          el.addEventListener('mouseleave', () => { document.getElementById('ci-tooltip').style.display = 'none'; });
+        });
+      }, 100);
     }
 
     // ==========================================
-    // AGENT LOGIC
+    // POWER ANALYSIS CALCULATOR
     // ==========================================
+    function calcPower() {
+      const gmr = parseFloat(document.getElementById('power-gmr').value) || 100;
+      const cv = parseFloat(document.getElementById('power-cv').value) || 25;
+      const targetPower = parseFloat(document.getElementById('power-target').value) || 80;
+      const design = document.getElementById('power-design').value;
+      const limits = document.getElementById('power-limits').value;
 
+      const lower = limits === 'nti' ? 90 : 80;
+      const upper = limits === 'nti' ? 111.11 : 125;
+      const sigma = Math.sqrt(Math.log(1 + (cv/100)**2));
+      const delta = Math.abs(Math.log(gmr/100));
+      const thetaL = Math.log(lower/100);
+      const thetaU = Math.log(upper/100);
+      const designFactor = design === 'parallel' ? 2 : design === 'replicate' ? 0.5 : 1;
+
+      // Approximate sample size using normal approximation
+      let n = 4;
+      let power = 0;
+      const z_alpha = 1.645; // one-sided 0.05
+      while (power < targetPower/100 && n < 200) {
+        const se = sigma * Math.sqrt(designFactor * 2 / n);
+        const z_lower = (delta - thetaL) / se - z_alpha;
+        const z_upper = (thetaU - delta) / se - z_alpha;
+        power = normCDF(z_lower) * normCDF(z_upper);
+        if (power < targetPower/100) n += 2;
+      }
+
+      const resultDiv = document.getElementById('power-result');
+      resultDiv.innerHTML = `
+        <div style="font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:0.8px;font-weight:600">Required Sample Size</div>
+        <div style="font-size:48px;font-weight:700;color:var(--primary);margin:8px 0">${n}</div>
+        <div style="font-size:12px;color:var(--text-light)">subjects per sequence</div>
+        <div style="font-size:12px;color:var(--text-light);margin-top:4px">Total: ${design === 'parallel' ? n*2 : n} subjects</div>
+        <div style="margin-top:12px;padding:8px;background:var(--bg);border-radius:var(--radius);font-size:12px">
+          <div class="detail-row"><span class="label">Achieved Power</span><span class="value">${(power*100).toFixed(1)}%</span></div>
+          <div class="detail-row"><span class="label">Within-Subject CV</span><span class="value">${cv}%</span></div>
+          <div class="detail-row"><span class="label">BE Limits</span><span class="value">${lower}% - ${upper.toFixed(2)}%</span></div>
+        </div>
+      `;
+
+      // Draw power curve
+      renderPowerCurve(cv, gmr, design, limits);
+    }
+
+    function normCDF(x) {
+      const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429;
+      const p = 0.3275911;
+      const sign = x < 0 ? -1 : 1;
+      x = Math.abs(x) / Math.sqrt(2);
+      const t = 1.0 / (1.0 + p * x);
+      const y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-x*x);
+      return 0.5 * (1.0 + sign * y);
+    }
+
+    function renderPowerCurve(cv, gmr, design, limits) {
+      const canvas = document.getElementById('power-chart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const pad = { l: 50, r: 20, t: 15, b: 40 };
+      const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+
+      const lower = limits === 'nti' ? 90 : 80;
+      const upper = limits === 'nti' ? 111.11 : 125;
+      const sigma = Math.sqrt(Math.log(1 + (cv/100)**2));
+      const delta = Math.abs(Math.log(gmr/100));
+      const thetaL = Math.log(lower/100);
+      const thetaU = Math.log(upper/100);
+      const designFactor = design === 'parallel' ? 2 : design === 'replicate' ? 0.5 : 1;
+      const z_alpha = 1.645;
+
+      ctx.clearRect(0, 0, w, h);
+      // Grid
+      ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+      [0, 0.2, 0.4, 0.6, 0.8, 1.0].forEach(v => {
+        const y = pad.t + plotH - v * plotH;
+        ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w-pad.r, y); ctx.stroke();
+      });
+
+      // 80% line
+      ctx.strokeStyle = 'rgba(231,76,60,0.3)'; ctx.setLineDash([5,3]);
+      const y80 = pad.t + plotH - 0.8 * plotH;
+      ctx.beginPath(); ctx.moveTo(pad.l, y80); ctx.lineTo(w-pad.r, y80); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Power curve
+      const nVals = [];
+      for (let n = 4; n <= 100; n += 2) {
+        const se = sigma * Math.sqrt(designFactor * 2 / n);
+        const z_lower = (delta - thetaL) / se - z_alpha;
+        const z_upper = (thetaU - delta) / se - z_alpha;
+        const power = normCDF(z_lower) * normCDF(z_upper);
+        nVals.push({ n, power });
+      }
+
+      ctx.strokeStyle = '#2980b9'; ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      nVals.forEach((pt, i) => {
+        const x = pad.l + ((pt.n - 4) / 96) * plotW;
+        const y = pad.t + plotH - pt.power * plotH;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // Labels
+      ctx.fillStyle = '#7f8c8d'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Sample Size (n)', w/2, h-5);
+      [4, 20, 40, 60, 80, 100].forEach(n => {
+        ctx.fillText(n, pad.l + ((n-4)/96)*plotW, h-pad.b+14);
+      });
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      [0, 20, 40, 60, 80, 100].forEach(v => {
+        ctx.fillText(v+'%', pad.l-5, pad.t + plotH - (v/100)*plotH);
+      });
+      ctx.save(); ctx.translate(14, h/2); ctx.rotate(-Math.PI/2);
+      ctx.textAlign = 'center'; ctx.fillText('Power', 0, 0); ctx.restore();
+    }
+
+    // ==========================================
+    // TRENDING CHARTS
+    // ==========================================
+    function renderTrendingChart() {
+      const canvas = document.getElementById('trending-chart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const pad = { l: 50, r: 30, t: 20, b: 50 };
+      const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+
+      const d = trendingData;
+      const maxVal = Math.max(...d.submitted, ...d.approved, ...d.deficient) + 2;
+
+      ctx.clearRect(0, 0, w, h);
+      // Grid
+      ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+      for (let i = 0; i <= 5; i++) {
+        const y = pad.t + plotH - (i/5)*plotH;
+        ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w-pad.r, y); ctx.stroke();
+      }
+
+      // Bars
+      const barW = plotW / d.months.length * 0.7;
+      const groupW = barW / 3;
+      const colors = ['#2980b9', '#27ae60', '#e74c3c'];
+      const series = [d.submitted, d.approved, d.deficient];
+      const labels = ['Submitted', 'Approved', 'Deficient'];
+
+      d.months.forEach((m, mi) => {
+        const cx = pad.l + (mi + 0.5) / d.months.length * plotW;
+        series.forEach((s, si) => {
+          const x = cx - barW/2 + si * groupW + 2;
+          const barH = (s[mi] / maxVal) * plotH;
+          const y = pad.t + plotH - barH;
+          ctx.fillStyle = colors[si];
+          ctx.beginPath();
+          ctx.roundRect(x, y, groupW - 4, barH, [3, 3, 0, 0]);
+          ctx.fill();
+        });
+        // Month label
+        ctx.fillStyle = '#7f8c8d'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(m, cx, h - pad.b + 16);
+      });
+
+      // Y-axis
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      for (let i = 0; i <= 5; i++) {
+        const v = Math.round(maxVal * i / 5);
+        ctx.fillText(v, pad.l - 8, pad.t + plotH - (i/5)*plotH);
+      }
+
+      // Legend
+      document.getElementById('trending-legend').innerHTML = labels.map((l, i) =>
+        `<span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:${colors[i]}"></span>${l}</span>`
+      ).join('');
+    }
+
+    function renderStatusPie() {
+      const canvas = document.getElementById('status-pie-chart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width, h = rect.height;
+      const cx = w/2, cy = h/2 - 10, r = Math.min(w,h)/2 - 30;
+
+      const counts = {
+        'In Review': submissions.filter(s=>s.status==='in-review').length,
+        'Pending': submissions.filter(s=>s.status==='pending').length,
+        'Approved': submissions.filter(s=>s.status==='approved').length,
+        'Deficient': submissions.filter(s=>s.status==='deficient').length
+      };
+      const colors = { 'In Review':'#2980b9', 'Pending':'#e67e22', 'Approved':'#27ae60', 'Deficient':'#e74c3c' };
+      const total = Object.values(counts).reduce((a,b)=>a+b, 0);
+
+      ctx.clearRect(0, 0, w, h);
+      let startAngle = -Math.PI/2;
+      Object.entries(counts).forEach(([label, count]) => {
+        if (count === 0) return;
+        const sliceAngle = (count / total) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, startAngle, startAngle + sliceAngle);
+        ctx.closePath();
+        ctx.fillStyle = colors[label];
+        ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+
+        // Label
+        const midAngle = startAngle + sliceAngle / 2;
+        const lx = cx + (r * 0.65) * Math.cos(midAngle);
+        const ly = cy + (r * 0.65) * Math.sin(midAngle);
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(count, lx, ly);
+
+        startAngle += sliceAngle;
+      });
+
+      // Legend below
+      const legendY = cy + r + 20;
+      let legendX = 20;
+      ctx.font = '11px sans-serif';
+      Object.entries(counts).forEach(([label, count]) => {
+        ctx.fillStyle = colors[label];
+        ctx.fillRect(legendX, legendY, 10, 10);
+        ctx.fillStyle = '#2c3e50'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText(`${label} (${count})`, legendX + 14, legendY + 5);
+        legendX += ctx.measureText(`${label} (${count})`).width + 28;
+      });
+    }
+
+    function renderTimeline() {
+      const container = document.getElementById('timeline-content');
+      const sorted = [...submissions].sort((a,b) => new Date(b.submitted) - new Date(a.submitted));
+      container.innerHTML = sorted.map(s => `
+        <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+          <div style="display:flex;flex-direction:column;align-items:center;width:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:${s.status==='approved'?'var(--accent)':s.status==='deficient'?'var(--danger)':s.status==='in-review'?'var(--primary-light)':'var(--warning)'};flex-shrink:0"></div>
+            <div style="width:1px;flex:1;background:var(--border)"></div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:600">${s.id} - ${s.drug.split(' ').slice(0,2).join(' ')}</div>
+            <div style="font-size:11px;color:var(--text-light)">${s.submitted} &bull; ${s.applicant}</div>
+          </div>
+          <div>${getStatusTag(s.status)}</div>
+        </div>
+      `).join('');
+    }
+
+    // ==========================================
+    // AGENT LOGIC (Interruptible, Thinking, Confidence)
+    // ==========================================
     function renderAgentSteps() {
-      const container = document.getElementById('agent-steps');
-      container.innerHTML = agentSteps.map((step, i) => {
+      document.getElementById('agent-steps').innerHTML = agentSteps.map((step, i) => {
         let cls = '';
         if (i < currentStep) cls = 'complete';
-        else if (i === currentStep) cls = 'active';
+        else if (i === currentStep) cls = agentPaused ? 'active' : 'active';
         return `<div class="flow-step ${cls}">
           <div class="step-num">${i < currentStep ? '&#10003;' : i + 1}</div>
           <div class="step-info">
-            <div class="step-title">${step.title}</div>
+            <div class="step-title">${step.title} ${i < currentStep ? getConfidenceBadge(85 + Math.floor(Math.random()*15)) : ''}</div>
             <div class="step-desc">${step.desc}</div>
           </div>
-          ${i === currentStep ? '<div class="spinner"></div>' : ''}
+          ${i === currentStep && agentRunning && !agentPaused ? '<div class="spinner"></div>' : ''}
+          ${i === currentStep && agentPaused ? '<span class="tag tag-yellow" style="font-size:10px">Paused</span>' : ''}
         </div>`;
       }).join('');
     }
 
     function renderComplianceChecklist() {
-      const container = document.getElementById('compliance-checklist');
       const items = [
-        { title: 'Study Design Adequacy', desc: 'Crossover or parallel design per FDA guidance', status: 'pass' },
-        { title: 'Sample Size Justification', desc: 'Adequate power (>80%) to detect 20% difference', status: 'pass' },
-        { title: 'Subject Demographics', desc: 'Healthy volunteers, 18-55 years, BMI 18.5-30', status: 'pass' },
-        { title: 'Washout Period', desc: 'Minimum 5x elimination half-life between periods', status: 'pass' },
-        { title: 'Analytical Method Validation', desc: 'LC-MS/MS method validated per FDA BMV guidance', status: 'warn' },
-        { title: 'PK Parameter Calculation', desc: 'Non-compartmental analysis using validated software', status: 'pass' },
-        { title: 'Statistical Analysis', desc: 'ANOVA on log-transformed data, 90% CI approach', status: 'pass' },
-        { title: 'BE Criteria Met', desc: '90% CI for AUC and Cmax within 80.00-125.00%', status: currentStep >= 3 ? 'pass' : 'pending' }
+        { title: 'Study Design Adequacy', desc: 'Crossover or parallel design per FDA guidance', status: currentStep>1?'pass':'pending' },
+        { title: 'Sample Size Justification', desc: 'Adequate power (>80%) to detect 20% difference', status: currentStep>1?'pass':'pending' },
+        { title: 'Subject Demographics', desc: 'Healthy volunteers, 18-55 years, BMI 18.5-30', status: currentStep>2?'pass':'pending' },
+        { title: 'Washout Period', desc: 'Minimum 5x elimination half-life between periods', status: currentStep>2?'pass':'pending' },
+        { title: 'Analytical Method Validation', desc: 'LC-MS/MS method validated per FDA BMV guidance', status: currentStep>4?'warn':'pending' },
+        { title: 'PK Parameter Calculation', desc: 'Non-compartmental analysis using validated software', status: currentStep>3?'pass':'pending' },
+        { title: 'Statistical Analysis', desc: 'ANOVA on log-transformed data, 90% CI approach', status: currentStep>3?'pass':'pending' },
+        { title: 'BE Criteria Met', desc: '90% CI for AUC and Cmax within 80.00-125.00%', status: currentStep>=7?'pass':'pending' }
       ];
-
-      container.innerHTML = items.map(item => {
-        const icons = { pass: '&#10003;', fail: '&#10007;', pending: '&#8230;', warn: '!' };
-        return `<div class="checklist-item">
-          <div class="check-icon ${item.status}">${icons[item.status]}</div>
-          <div class="check-text">
-            <div class="title">${item.title}</div>
-            <div class="desc">${item.desc}</div>
-          </div>
-        </div>`;
-      }).join('');
+      const icons = { pass:'&#10003;', fail:'&#10007;', pending:'&#8230;', warn:'!' };
+      document.getElementById('compliance-checklist').innerHTML = items.map(item =>
+        `<div class="checklist-item"><div class="check-icon ${item.status}">${icons[item.status]}</div><div class="check-text"><div class="title">${item.title}</div><div class="desc">${item.desc}</div></div></div>`
+      ).join('');
     }
 
     function addAgentLog(text, type = 'info') {
       const log = document.getElementById('agent-log');
-      const colors = { info: 'var(--text-light)', success: 'var(--accent)', warning: 'var(--warning)', error: 'var(--danger)' };
+      const colors = { info:'var(--text-light)', success:'var(--accent)', warning:'var(--warning)', error:'var(--danger)', thinking:'var(--primary-light)' };
       const ts = new Date().toLocaleTimeString();
       log.innerHTML += `<div class="animate-in" style="padding:4px 0;color:${colors[type]}">[${ts}] ${text}</div>`;
       log.scrollTop = log.scrollHeight;
     }
 
+    function showThinking(text) {
+      const chat = document.getElementById('panel-chat');
+      const existing = document.getElementById('thinking-msg');
+      if (existing) existing.remove();
+      const div = document.createElement('div');
+      div.id = 'thinking-msg';
+      div.className = 'agent-message animate-in';
+      div.innerHTML = `
+        <div class="msg-avatar agent">AI</div>
+        <div class="msg-content">
+          <div class="thinking-indicator">
+            <div class="thinking-dots"><span></span><span></span><span></span></div>
+            <span>${text}</span>
+          </div>
+        </div>
+      `;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function hideThinking() {
+      const el = document.getElementById('thinking-msg');
+      if (el) el.remove();
+    }
+
+    function updateAgentButtons() {
+      document.getElementById('agent-run-btn').style.display = agentRunning ? 'none' : '';
+      document.getElementById('agent-pause-btn').style.display = agentRunning && !agentPaused ? '' : 'none';
+      document.getElementById('agent-stop-btn').style.display = agentRunning ? '' : 'none';
+      if (agentPaused) {
+        document.getElementById('agent-pause-btn').textContent = 'Resume';
+        document.getElementById('agent-pause-btn').onclick = resumeAgent;
+      } else {
+        document.getElementById('agent-pause-btn').textContent = 'Pause';
+        document.getElementById('agent-pause-btn').onclick = pauseAgent;
+      }
+    }
+
+    function pauseAgent() {
+      agentPaused = true;
+      updateAgentButtons();
+      renderAgentSteps();
+      addAgentLog('Agent PAUSED by reviewer.', 'warning');
+      const statusPill = document.getElementById('agent-status');
+      statusPill.className = 'status-pill processing';
+      statusPill.innerHTML = '<div class="dot"></div><span>Paused</span>';
+    }
+
+    function resumeAgent() {
+      agentPaused = false;
+      updateAgentButtons();
+      renderAgentSteps();
+      addAgentLog('Agent RESUMED by reviewer.', 'info');
+      const statusPill = document.getElementById('agent-status');
+      statusPill.className = 'status-pill processing';
+      statusPill.innerHTML = '<div class="dot"></div><span>Processing...</span>';
+    }
+
+    function stopAgent() {
+      agentStopped = true;
+      agentPaused = false;
+      addAgentLog('Agent STOPPED by reviewer. Analysis incomplete.', 'error');
+    }
+
+    async function waitWhilePaused() {
+      while (agentPaused && !agentStopped) { await delay(200); }
+    }
+
     async function runAgent() {
       if (agentRunning) return;
-      agentRunning = true;
+      agentRunning = true; agentPaused = false; agentStopped = false;
       currentStep = 0;
+      updateAgentButtons();
 
       const statusPill = document.getElementById('agent-status');
       statusPill.className = 'status-pill processing';
       statusPill.innerHTML = '<div class="dot"></div><span>Processing...</span>';
 
       switchView('agent');
-
+      showThinking('Analyzing ANDA-217845 submission package...');
       addAgentLog('Agent started. Loading ANDA-217845 submission package...', 'info');
 
       const logMessages = [
-        ['Parsing submission documents... Found 12 files (CTD Module 5)', 'info'],
-        ['Extracting study protocol. Design: 2x2 Crossover, Single-dose, Fasting', 'info'],
-        ['Study design validated per 21 CFR 320.26. Adequate washout period confirmed.', 'success'],
-        ['Extracting PK parameters from bioanalytical report...', 'info'],
-        ['AUC0-t GMR: 102.3%, 90% CI: [96.5%, 108.4%] - WITHIN RANGE', 'success'],
-        ['AUC0-inf GMR: 101.8%, 90% CI: [95.8%, 108.1%] - WITHIN RANGE', 'success'],
-        ['Cmax GMR: 105.1%, 90% CI: [97.2%, 113.7%] - WITHIN RANGE', 'success'],
-        ['Running outlier detection (Dixon Q-test, Grubbs test)...', 'info'],
-        ['No significant outliers detected. All subjects retained in analysis.', 'success'],
-        ['Comparing dissolution profiles. f2 similarity factor = 67.3 (>50, acceptable)', 'success'],
-        ['Cross-referencing Orange Book... RLD Glucophage XR (NDA 021202) confirmed.', 'info'],
-        ['Verifying against FDA product-specific guidance for Metformin HCl ER...', 'info'],
-        ['All regulatory requirements satisfied. Generating review summary...', 'success'],
-        ['RECOMMENDATION: Bioequivalence ESTABLISHED. Proceed to supervisory review.', 'success']
+        ['Parsing submission documents... Found 12 files (CTD Module 5)', 'info', 'Reasoning: Identifying document structure and extracting relevant sections from eCTD format...'],
+        ['Study design validated per 21 CFR 320.26. Adequate washout period confirmed.', 'success', 'Reasoning: Comparing protocol against regulatory requirements for crossover BE studies...'],
+        ['AUC0-t GMR: 102.3%, 90% CI: [96.5%, 108.4%] - WITHIN RANGE', 'success', 'Reasoning: Applying ANOVA on log-transformed AUC data, computing least-squares means...'],
+        ['Cmax GMR: 105.1%, 90% CI: [97.2%, 113.7%] - WITHIN RANGE', 'success', 'Reasoning: Evaluating Cmax variability and checking if reference-scaled approach is needed...'],
+        ['No significant outliers detected. All 36 subjects retained.', 'success', 'Reasoning: Running Dixon Q-test and Grubbs test on individual subject ratios...'],
+        ['Dissolution f2 = 67.3 (>50, acceptable). Profiles similar.', 'success', 'Reasoning: Computing f2 similarity factor across 9 timepoints in pH 6.8 media...'],
+        ['Orange Book cross-reference: RLD Glucophage XR (NDA 021202) confirmed.', 'info', 'Reasoning: Verifying RLD status, therapeutic equivalence code, and patent/exclusivity...'],
+        ['RECOMMENDATION: Bioequivalence ESTABLISHED. Proceed to supervisory review.', 'success', 'Reasoning: All acceptance criteria met. Compiling final assessment with confidence scores...']
       ];
 
       for (let i = 0; i < agentSteps.length; i++) {
+        if (agentStopped) break;
         currentStep = i;
         renderAgentSteps();
         renderComplianceChecklist();
+        updateAgentButtons();
 
-        if (logMessages[i * 2]) {
-          await delay(800);
-          addAgentLog(logMessages[i * 2][0], logMessages[i * 2][1]);
-        }
-        if (logMessages[i * 2 + 1]) {
-          await delay(600);
-          addAgentLog(logMessages[i * 2 + 1][0], logMessages[i * 2 + 1][1]);
-        }
+        await waitWhilePaused();
+        if (agentStopped) break;
 
+        const msg = logMessages[i];
+        showThinking(msg[2]);
+        await delay(1200);
+        if (agentStopped) break;
+        await waitWhilePaused();
+
+        hideThinking();
+        addAgentLog(msg[0], msg[1]);
         await delay(400);
       }
 
-      currentStep = agentSteps.length;
-      renderAgentSteps();
-      renderComplianceChecklist();
+      hideThinking();
+      if (!agentStopped) {
+        currentStep = agentSteps.length;
+        renderAgentSteps();
+        renderComplianceChecklist();
+        addChatMessage('agent', 'BE Agent', `Analysis complete for <strong>ANDA-217845</strong> (Metformin HCl ER). ${getConfidenceBadge(96)}<br><br>All PK parameters within 80.00-125.00% acceptance range.<br><strong>Bioequivalence is established.</strong><br><br>` + renderMiniChart(submissions[0].pkData) + `<br>Recommendation: Approve pending supervisory review.`);
+      }
 
       statusPill.className = 'status-pill active';
       statusPill.innerHTML = '<div class="dot"></div><span>Agent Active</span>';
-      agentRunning = false;
-
-      addChatMessage('agent', 'BE Agent', 'Analysis complete for <strong>ANDA-217845</strong> (Metformin HCl ER). All PK parameters are within the 80.00-125.00% acceptance range. <strong>Bioequivalence is established.</strong> Recommendation: Approve pending supervisory review.');
+      agentRunning = false; agentPaused = false; agentStopped = false;
+      updateAgentButtons();
     }
 
     async function runAgentFor(id) {
@@ -1692,146 +1656,358 @@
       if (!s) return;
       switchView('agent');
       addAgentLog(`Loading submission ${s.id} - ${s.drug}...`, 'info');
-      await delay(500);
-      addAgentLog(`Applicant: ${s.applicant}`, 'info');
-      await delay(300);
+      showThinking(`Analyzing ${s.id}...`);
+      await delay(1000);
 
       if (s.pkData) {
+        hideThinking();
         addAgentLog(`PK data found. Running analysis...`, 'info');
-        await delay(700);
+        showThinking('Evaluating pharmacokinetic parameters and computing confidence intervals...');
+        await delay(1200);
 
         const pk = s.pkData;
-        const ciCheck = (l, u) => l >= 80 && u <= 125;
-
-        addAgentLog(`AUC0-t GMR: ${pk.auc0t.geoMeanRatio}%, 90% CI: [${pk.auc0t.ci90Lower}%, ${pk.auc0t.ci90Upper}%] - ${ciCheck(pk.auc0t.ci90Lower, pk.auc0t.ci90Upper) ? 'PASS' : 'FAIL'}`, ciCheck(pk.auc0t.ci90Lower, pk.auc0t.ci90Upper) ? 'success' : 'error');
+        hideThinking();
+        addAgentLog(`AUC0-t GMR: ${pk.auc0t.geoMeanRatio}%, 90% CI: [${pk.auc0t.ci90Lower}%, ${pk.auc0t.ci90Upper}%] - ${ciCheck(pk.auc0t.ci90Lower,pk.auc0t.ci90Upper)?'PASS':'FAIL'}`, ciCheck(pk.auc0t.ci90Lower,pk.auc0t.ci90Upper)?'success':'error');
+        await delay(300);
+        addAgentLog(`AUC0-inf GMR: ${pk.auc0inf.geoMeanRatio}%, 90% CI: [${pk.auc0inf.ci90Lower}%, ${pk.auc0inf.ci90Upper}%] - ${ciCheck(pk.auc0inf.ci90Lower,pk.auc0inf.ci90Upper)?'PASS':'FAIL'}`, ciCheck(pk.auc0inf.ci90Lower,pk.auc0inf.ci90Upper)?'success':'error');
+        await delay(300);
+        addAgentLog(`Cmax GMR: ${pk.cmax.geoMeanRatio}%, 90% CI: [${pk.cmax.ci90Lower}%, ${pk.cmax.ci90Upper}%] - ${ciCheck(pk.cmax.ci90Lower,pk.cmax.ci90Upper)?'PASS':'FAIL'}`, ciCheck(pk.cmax.ci90Lower,pk.cmax.ci90Upper)?'success':'error');
         await delay(400);
-        addAgentLog(`AUC0-inf GMR: ${pk.auc0inf.geoMeanRatio}%, 90% CI: [${pk.auc0inf.ci90Lower}%, ${pk.auc0inf.ci90Upper}%] - ${ciCheck(pk.auc0inf.ci90Lower, pk.auc0inf.ci90Upper) ? 'PASS' : 'FAIL'}`, ciCheck(pk.auc0inf.ci90Lower, pk.auc0inf.ci90Upper) ? 'success' : 'error');
-        await delay(400);
-        addAgentLog(`Cmax GMR: ${pk.cmax.geoMeanRatio}%, 90% CI: [${pk.cmax.ci90Lower}%, ${pk.cmax.ci90Upper}%] - ${ciCheck(pk.cmax.ci90Lower, pk.cmax.ci90Upper) ? 'PASS' : 'FAIL'}`, ciCheck(pk.cmax.ci90Lower, pk.cmax.ci90Upper) ? 'success' : 'error');
-        await delay(500);
 
-        const allPass = ciCheck(pk.auc0t.ci90Lower, pk.auc0t.ci90Upper) && ciCheck(pk.auc0inf.ci90Lower, pk.auc0inf.ci90Upper) && ciCheck(pk.cmax.ci90Lower, pk.cmax.ci90Upper);
-        addAgentLog(`CONCLUSION: Bioequivalence ${allPass ? 'ESTABLISHED' : 'NOT ESTABLISHED'} for ${s.id}`, allPass ? 'success' : 'error');
+        const allPass = ciCheck(pk.auc0t.ci90Lower,pk.auc0t.ci90Upper) && ciCheck(pk.auc0inf.ci90Lower,pk.auc0inf.ci90Upper) && ciCheck(pk.cmax.ci90Lower,pk.cmax.ci90Upper);
+        const confidence = allPass ? 85 + Math.floor(Math.random()*13) : 90 + Math.floor(Math.random()*8);
+        addAgentLog(`CONCLUSION: Bioequivalence ${allPass?'ESTABLISHED':'NOT ESTABLISHED'} for ${s.id}`, allPass?'success':'error');
 
-        addChatMessage('agent', 'BE Agent', `Analysis for <strong>${s.id}</strong> (${s.drug}) complete. BE ${allPass ? '<span class="tag tag-green">Established</span>' : '<span class="tag tag-red">Not Established</span>'}. ${s.notes}`);
+        addChatMessage('agent', 'BE Agent', `Analysis for <strong>${s.id}</strong> (${s.drug}) complete. ${getConfidenceBadge(confidence)}<br><br>BE ${allPass?'<span class="tag tag-green">Established</span>':'<span class="tag tag-red">Not Established</span>'}<br><br>${renderMiniChart(pk)}<br>${s.notes}`);
       } else {
-        addAgentLog('No PK data available. Submission is pending data from applicant.', 'warning');
-        addChatMessage('agent', 'BE Agent', `<strong>${s.id}</strong> (${s.drug}): No BE study data available yet. Status: Pending. ${s.notes}`);
+        hideThinking();
+        addAgentLog('No PK data available. Submission pending data from applicant.', 'warning');
+        addChatMessage('agent', 'BE Agent', `<strong>${s.id}</strong> (${s.drug}): No BE study data available yet. ${getConfidenceBadge(45)}<br><br>Status: Pending. ${s.notes}`);
       }
     }
 
-    // ==========================================
-    // UI INTERACTIONS
-    // ==========================================
-
-    function switchView(view) {
-      currentView = view;
-      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-      document.getElementById('view-' + view).classList.add('active');
-      document.querySelectorAll('.nav-item').forEach(el => {
-        el.classList.toggle('active', el.dataset.view === view);
-      });
-      const titles = {
-        dashboard: 'Dashboard',
-        submissions: 'ANDA Submissions',
-        analysis: 'Bioequivalence Analysis',
-        agent: 'Agent Console',
-        regulations: 'Regulatory Reference',
-        reports: 'Reports',
-        settings: 'Settings'
-      };
-      document.getElementById('page-title').textContent = titles[view] || 'Dashboard';
-    }
-
-    function switchPanel(panel) {
-      document.querySelectorAll('.panel-tab').forEach(el => {
-        el.classList.toggle('active', el.dataset.panel === panel);
-      });
-      document.querySelectorAll('.panel-tab-content').forEach(el => el.classList.remove('active'));
-      document.getElementById('panel-' + panel).classList.add('active');
-    }
-
-    function openModal(name) {
-      document.getElementById('modal-' + name).classList.add('show');
-    }
-
-    function closeModal(name) {
-      document.getElementById('modal-' + name).classList.remove('show');
-    }
-
-    function showDetail(id) {
-      const s = submissions.find(x => x.id === id);
-      if (!s) return;
-      document.getElementById('detail-modal-title').textContent = s.id + ' - ' + s.drug;
-
-      let body = `
-        <div class="two-col">
-          <div>
-            <div class="detail-row"><span class="label">ANDA Number</span><span class="value">${s.id}</span></div>
-            <div class="detail-row"><span class="label">Applicant</span><span class="value">${s.applicant}</span></div>
-            <div class="detail-row"><span class="label">Drug Product</span><span class="value">${s.drug}</span></div>
-            <div class="detail-row"><span class="label">RLD</span><span class="value">${s.rld}</span></div>
-            <div class="detail-row"><span class="label">Dosage Form</span><span class="value">${s.dosageForm}</span></div>
-            <div class="detail-row"><span class="label">Strength</span><span class="value">${s.strength}</span></div>
+    function renderMiniChart(pk) {
+      const params = [
+        { name: 'AUC₀₋ₜ', d: pk.auc0t },
+        { name: 'AUC₀₋∞', d: pk.auc0inf },
+        { name: 'Cmax', d: pk.cmax }
+      ];
+      return `<div class="mini-chart">${params.map(p => {
+        const pass = ciCheck(p.d.ci90Lower, p.d.ci90Upper);
+        const color = pass ? 'var(--accent)' : 'var(--danger)';
+        const min = 60, max = 150, range = max - min;
+        const lPct = ((p.d.ci90Lower - min) / range * 100);
+        const wPct = ((p.d.ci90Upper - p.d.ci90Lower) / range * 100);
+        const limLPct = ((80 - min) / range * 100);
+        const limWPct = ((125 - 80) / range * 100);
+        return `<div class="mini-bar">
+          <span style="width:55px;font-weight:600">${p.name}</span>
+          <div class="mini-bar-track">
+            <div class="mini-bar-limits" style="left:${limLPct}%;width:${limWPct}%"></div>
+            <div class="mini-bar-fill" style="left:${lPct}%;width:${wPct}%;position:absolute;background:${color};border-radius:4px;top:1px;height:6px"></div>
           </div>
-          <div>
-            <div class="detail-row"><span class="label">Status</span><span class="value">${getStatusTag(s.status)}</span></div>
-            <div class="detail-row"><span class="label">BE Study</span><span class="value">${s.beStudy}</span></div>
-            <div class="detail-row"><span class="label">Study Design</span><span class="value">${s.studyDesign}</span></div>
-            <div class="detail-row"><span class="label">Subjects</span><span class="value">${s.subjects}</span></div>
-            <div class="detail-row"><span class="label">Submitted</span><span class="value">${s.submitted}</span></div>
-            <div class="detail-row"><span class="label">BE Result</span><span class="value">${getBETag(s.beResult)}</span></div>
-          </div>
+          <span style="width:50px;text-align:right;color:${color}">${p.d.geoMeanRatio.toFixed(1)}%</span>
         </div>`;
-
-      if (s.pkData) {
-        const pk = s.pkData;
-        const ciCheck = (l, u) => l >= 80 && u <= 125;
-        body += `
-          <div style="margin-top:20px">
-            <h4 style="margin-bottom:12px;font-size:14px">PK Parameters</h4>
-            <table>
-              <thead>
-                <tr><th>Parameter</th><th>GMR (%)</th><th>90% CI Lower</th><th>90% CI Upper</th><th>Pass</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>AUC<sub>0-t</sub></td>
-                  <td>${pk.auc0t.geoMeanRatio}</td>
-                  <td>${pk.auc0t.ci90Lower}</td>
-                  <td>${pk.auc0t.ci90Upper}</td>
-                  <td>${ciCheck(pk.auc0t.ci90Lower, pk.auc0t.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-                </tr>
-                <tr>
-                  <td>AUC<sub>0-inf</sub></td>
-                  <td>${pk.auc0inf.geoMeanRatio}</td>
-                  <td>${pk.auc0inf.ci90Lower}</td>
-                  <td>${pk.auc0inf.ci90Upper}</td>
-                  <td>${ciCheck(pk.auc0inf.ci90Lower, pk.auc0inf.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-                </tr>
-                <tr>
-                  <td>C<sub>max</sub></td>
-                  <td>${pk.cmax.geoMeanRatio}</td>
-                  <td>${pk.cmax.ci90Lower}</td>
-                  <td>${pk.cmax.ci90Upper}</td>
-                  <td>${ciCheck(pk.cmax.ci90Lower, pk.cmax.ci90Upper) ? '<span class="tag tag-green">Yes</span>' : '<span class="tag tag-red">No</span>'}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>`;
-      }
-
-      if (s.notes) {
-        body += `<div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:var(--radius);font-size:13px"><strong>Notes:</strong> ${s.notes}</div>`;
-      }
-
-      document.getElementById('detail-modal-body').innerHTML = body;
-      openModal('detail');
+      }).join('')}</div>`;
     }
 
+    // ==========================================
+    // DEMO MODE
+    // ==========================================
+    const demoScenarios = {
+      'full-review': {
+        name: 'Full BE Review Walkthrough',
+        steps: [
+          {
+            title: 'Welcome to the Dashboard',
+            desc: 'This is the ANDA Bioequivalence Review Agent dashboard. It shows an overview of active reviews, pending analyses, approval stats, and recent agent activity. The agent monitors all submissions in real-time.',
+            target: '#view-dashboard',
+            view: 'dashboard',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Submission Queue',
+            desc: 'The submissions view shows all ANDA applications in the review pipeline. Each submission includes the applicant, drug product, reference listed drug (RLD), current status, and BE study results. You can filter by status and click "Analyze" to run the agent on any submission.',
+            target: '#view-submissions',
+            view: 'submissions',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Agent Console - Workflow Engine',
+            desc: 'The Agent Console shows the 8-step review workflow. When you click "Execute", the agent processes each step sequentially: document intake, study design validation, PK extraction, statistical analysis, outlier detection, dissolution comparison, regulatory cross-check, and report generation. You can PAUSE or STOP the agent at any step.',
+            target: '#view-agent',
+            view: 'agent',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Running the Agent',
+            desc: 'Watch the agent process ANDA-217845 (Metformin HCl ER). It will show "thinking" indicators as it reasons through each step, then report confidence scores on its assessments. The compliance checklist updates in real-time as criteria are verified.',
+            target: '#view-agent',
+            view: 'agent',
+            action: 'runAgent',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Bioequivalence Analysis',
+            desc: 'The BE Analysis view shows detailed pharmacokinetic results. The interactive CI chart visualizes the 90% confidence intervals for AUC and Cmax against the 80-125% acceptance range. Hover over the bars for exact values. Below, subject-level scatter plots show individual Test vs Reference data points.',
+            target: '#view-analysis',
+            view: 'analysis',
+            action: 'showAnalysis',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Agent Chat - Natural Language Interaction',
+            desc: 'The Agent Chat panel lets you ask questions in natural language. Try asking about "BE criteria", "failed studies", "NTI drugs", "BCS waivers", or "ANDA status". The agent responds with context-aware answers and inline mini-charts. It can also navigate you to relevant views.',
+            target: '#right-panel',
+            view: 'dashboard',
+            position: 'left'
+          },
+          {
+            title: 'Dissolution Profiles',
+            desc: 'The dissolution comparison view shows test vs reference drug release profiles over time. The f2 similarity factor quantifies how similar the profiles are (must be >= 50). The chart shows individual timepoints with the 85% dissolved reference line.',
+            target: '#view-dissolution',
+            view: 'dissolution',
+            action: 'showDissolution',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Power Analysis Calculator',
+            desc: 'Plan future BE studies with the power calculator. Input the expected GMR, within-subject CV, target power, study design, and BE limits to compute the required sample size. The power curve shows how statistical power changes with sample size.',
+            target: '#view-power',
+            view: 'power',
+            position: 'bottom-right'
+          }
+        ]
+      },
+      'failure-detection': {
+        name: 'Failure Detection & Deficiency',
+        steps: [
+          {
+            title: 'Identifying BE Failures',
+            desc: 'The agent automatically flags submissions where PK parameters fall outside the 80-125% acceptance range. Let\'s examine ANDA-217861 (Omeprazole) which has a Cmax upper CI of 153.3% - well above the 125% limit.',
+            target: '#view-submissions',
+            view: 'submissions',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Failure Analysis - Omeprazole',
+            desc: 'The BE analysis clearly shows the failure: Cmax CI extends to 153.3%, far exceeding 125%. The interactive CI chart highlights failing parameters in red. High variability in the study design led to wide confidence intervals.',
+            target: '#view-analysis',
+            view: 'analysis',
+            action: 'showFailure',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Agent Flags the Issue',
+            desc: 'The agent runs analysis on the failed submission, identifies the specific parameters that fail, and provides detailed reasoning. It suggests potential causes (high variability, insufficient subjects) and recommends next steps.',
+            target: '#view-agent',
+            view: 'agent',
+            action: 'analyzeFailure',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Deficiency Case - Pantoprazole',
+            desc: 'ANDA-217892 (Pantoprazole) is even more concerning: Cmax GMR is only 78.5% with a CI of 65.8-93.6%. Both the point estimate and lower CI fall below the acceptance range. A deficiency letter has been issued recommending a new study with more subjects.',
+            target: '#view-analysis',
+            view: 'analysis',
+            action: 'showDeficiency',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Subject-Level Scatter Analysis',
+            desc: 'The scatter plots reveal individual subject variability. In failure cases, points scatter widely away from the unity line, indicating poor correlation between test and reference formulations. This visual helps reviewers understand the source of failure.',
+            target: '#view-analysis',
+            view: 'analysis',
+            position: 'bottom-right'
+          }
+        ]
+      },
+      'data-deep-dive': {
+        name: 'Data Analysis Deep Dive',
+        steps: [
+          {
+            title: 'Interactive CI Visualization',
+            desc: 'The confidence interval chart uses SVG for crisp rendering at any zoom level. The green shaded region marks the 80-125% acceptance range. Hover over any CI bar to see exact GMR, lower bound, upper bound, and pass/fail status.',
+            target: '#view-analysis',
+            view: 'analysis',
+            action: 'showAnalysis',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Subject-Level Scatter Plots',
+            desc: 'Canvas-rendered scatter plots show individual subject PK ratios. Each point represents one subject\'s test vs reference value. The dashed diagonal is the unity line (perfect agreement). Tight clustering near this line indicates good bioequivalence.',
+            target: '#view-analysis',
+            view: 'analysis',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Dissolution Profile Comparison',
+            desc: 'Compare how test and reference drugs dissolve over time. The f2 similarity factor summarizes profile similarity in a single number. Values >= 50 indicate acceptable similarity. The chart shows both profiles with individual timepoints and the data table below.',
+            target: '#view-dissolution',
+            view: 'dissolution',
+            action: 'showDissolution',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Power Analysis & Sample Size',
+            desc: 'The power calculator helps plan studies. Adjust the expected GMR, CV, and design to see how many subjects you need. The power curve visualization shows the relationship between sample size and statistical power. Try changing the CV to see how variability affects requirements.',
+            target: '#view-power',
+            view: 'power',
+            position: 'bottom-right'
+          },
+          {
+            title: 'Historical Trending',
+            desc: 'Track submission volumes, approval rates, and deficiency patterns over time. The bar chart shows monthly trends, the pie chart shows current status distribution, and the timeline provides a chronological view of all submissions.',
+            target: '#view-trending',
+            view: 'trending',
+            position: 'bottom-right'
+          }
+        ]
+      }
+    };
+
+    function openDemoWelcome() {
+      document.getElementById('demo-overlay').classList.add('show');
+      document.getElementById('demo-welcome').style.display = 'block';
+    }
+
+    function closeDemoWelcome() {
+      document.getElementById('demo-overlay').classList.remove('show');
+      document.getElementById('demo-welcome').style.display = 'none';
+    }
+
+    function startDemo(scenario) {
+      demoScenario = demoScenarios[scenario];
+      demoStepIndex = 0;
+      demoActive = true;
+      document.getElementById('demo-welcome').style.display = 'none';
+      showDemoStep();
+    }
+
+    function showDemoStep() {
+      if (!demoScenario || demoStepIndex >= demoScenario.steps.length) {
+        endDemo();
+        return;
+      }
+
+      const step = demoScenario.steps[demoStepIndex];
+      const overlay = document.getElementById('demo-overlay');
+      const spotlight = document.getElementById('demo-spotlight');
+      const card = document.getElementById('demo-card');
+
+      overlay.classList.add('show');
+
+      // Switch view if needed
+      if (step.view) switchView(step.view);
+
+      // Execute action if needed
+      if (step.action) {
+        setTimeout(() => executeDemoAction(step.action), 300);
+      }
+
+      // Update card content
+      document.getElementById('demo-step-label').textContent = `Step ${demoStepIndex + 1} of ${demoScenario.steps.length}`;
+      document.getElementById('demo-title').textContent = step.title;
+      document.getElementById('demo-desc').textContent = step.desc;
+
+      // Dots
+      document.getElementById('demo-dots').innerHTML = demoScenario.steps.map((_, i) =>
+        `<div class="demo-dot ${i < demoStepIndex ? 'done' : ''} ${i === demoStepIndex ? 'active' : ''}"></div>`
+      ).join('');
+
+      // Nav buttons
+      document.getElementById('demo-prev').style.visibility = demoStepIndex > 0 ? 'visible' : 'hidden';
+      document.getElementById('demo-next').textContent = demoStepIndex === demoScenario.steps.length - 1 ? 'Finish' : 'Next';
+
+      // Position the card and spotlight
+      setTimeout(() => {
+        const target = step.target ? document.querySelector(step.target) : null;
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          spotlight.style.display = 'block';
+          spotlight.style.top = rect.top + 'px';
+          spotlight.style.left = rect.left + 'px';
+          spotlight.style.width = rect.width + 'px';
+          spotlight.style.height = Math.min(rect.height, window.innerHeight * 0.6) + 'px';
+
+          // Position card
+          card.style.display = 'block';
+          if (step.position === 'left') {
+            card.style.top = rect.top + 'px';
+            card.style.left = (rect.left - 440) + 'px';
+            card.style.right = 'auto';
+          } else {
+            card.style.top = Math.min(rect.top + 20, window.innerHeight - 280) + 'px';
+            card.style.left = Math.min(rect.left + 40, window.innerWidth - 460) + 'px';
+            card.style.right = 'auto';
+          }
+        } else {
+          spotlight.style.display = 'none';
+          card.style.display = 'block';
+          card.style.top = '50%';
+          card.style.left = '50%';
+          card.style.transform = 'translate(-50%, -50%)';
+        }
+      }, 400);
+    }
+
+    function executeDemoAction(action) {
+      switch(action) {
+        case 'runAgent':
+          // Don't actually run the full agent in demo mode, just show the state
+          currentStep = 4;
+          renderAgentSteps();
+          renderComplianceChecklist();
+          addAgentLog('DEMO: Agent steps shown at step 5 (Outlier Assessment)', 'info');
+          break;
+        case 'showAnalysis':
+          document.getElementById('analysis-select').value = 'ANDA-217845';
+          renderAnalysis('ANDA-217845');
+          break;
+        case 'showFailure':
+          document.getElementById('analysis-select').value = 'ANDA-217861';
+          renderAnalysis('ANDA-217861');
+          break;
+        case 'showDeficiency':
+          document.getElementById('analysis-select').value = 'ANDA-217892';
+          renderAnalysis('ANDA-217892');
+          break;
+        case 'analyzeFailure':
+          addAgentLog('DEMO: Analyzing ANDA-217861 - Omeprazole DR Capsules', 'info');
+          addAgentLog('Cmax GMR: 131.5%, 90% CI: [112.8%, 153.3%] - FAIL', 'error');
+          addAgentLog('Upper CI 153.3% exceeds 125% limit by 28.3 percentage points', 'error');
+          addAgentLog('Recommendation: Study underpowered. Consider replicate design for HVD.', 'warning');
+          break;
+        case 'showDissolution':
+          document.getElementById('dissolution-select').value = 'ANDA-217845';
+          renderDissolutionView('ANDA-217845');
+          break;
+      }
+    }
+
+    function demoNav(dir) {
+      demoStepIndex += dir;
+      if (demoStepIndex >= demoScenario.steps.length || demoStepIndex < 0) {
+        endDemo();
+        return;
+      }
+      showDemoStep();
+    }
+
+    function endDemo() {
+      demoActive = false;
+      demoScenario = null;
+      document.getElementById('demo-overlay').classList.remove('show');
+      document.getElementById('demo-spotlight').style.display = 'none';
+      document.getElementById('demo-card').style.display = 'none';
+      document.getElementById('demo-welcome').style.display = 'none';
+    }
+
+    // ==========================================
+    // CHAT & NAVIGATION FROM CHAT
+    // ==========================================
     function addChatMessage(type, name, text) {
-      const msg = { type, name, text, time: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) };
-      chatMessages.push(msg);
+      chatMessages.push({ type, name, text, time: new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) });
       renderChat();
     }
 
@@ -1839,12 +2015,9 @@
       const container = document.getElementById('panel-chat');
       container.innerHTML = chatMessages.map(m => `
         <div class="agent-message animate-in">
-          <div class="msg-avatar ${m.type}">${m.type === 'agent' ? 'AI' : m.type === 'user' ? 'SR' : 'SY'}</div>
+          <div class="msg-avatar ${m.type}">${m.type==='agent'?'AI':m.type==='user'?'SR':'SY'}</div>
           <div class="msg-content">
-            <div class="msg-header">
-              <span class="name">${m.name}</span>
-              <span class="time">${m.time}</span>
-            </div>
+            <div class="msg-header"><span class="name">${m.name}</span><span class="time">${m.time}</span></div>
             <div class="msg-body">${m.text}</div>
           </div>
         </div>
@@ -1857,133 +2030,166 @@
       const text = input.value.trim();
       if (!text) return;
       input.value = '';
-
       addChatMessage('user', 'Dr. Reynolds', text);
+      showThinking('Processing your question...');
 
       setTimeout(() => {
-        const responses = getAgentResponse(text);
-        addChatMessage('agent', 'BE Agent', responses);
-      }, 800);
+        hideThinking();
+        const response = getAgentResponse(text);
+        addChatMessage('agent', 'BE Agent', response);
+      }, 1000);
     }
 
     function getAgentResponse(query) {
       const q = query.toLowerCase();
-      if (q.includes('bioequi') || q.includes(' be ') || q.includes('criteria')) {
-        return 'Bioequivalence is established when the 90% confidence interval for the geometric mean ratio of key PK parameters (AUC<sub>0-t</sub>, AUC<sub>0-&infin;</sub>, C<sub>max</sub>) falls within <strong>80.00-125.00%</strong> (log-transformed data). This is based on the Two One-Sided Tests (TOST) procedure per 21 CFR 320.';
+
+      // Navigation triggers
+      if (q.includes('show') && q.includes('anda-')) {
+        const match = q.match(/anda-\d+/i);
+        if (match) {
+          const id = match[0].toUpperCase();
+          const s = submissions.find(x => x.id === id);
+          if (s) {
+            setTimeout(() => { switchView('analysis'); document.getElementById('analysis-select').value = id; renderAnalysis(id); }, 500);
+            return `Navigating to analysis view for <strong>${id}</strong> (${s.drug}). ${getConfidenceBadge(92)}`;
+          }
+        }
       }
-      if (q.includes('anda') && (q.includes('status') || q.includes('how many'))) {
-        const pending = submissions.filter(s => s.status === 'pending').length;
-        const review = submissions.filter(s => s.status === 'in-review').length;
-        return `Current queue: <strong>${pending}</strong> pending, <strong>${review}</strong> in review, <strong>${submissions.filter(s => s.status === 'approved').length}</strong> approved, <strong>${submissions.filter(s => s.status === 'deficient').length}</strong> deficient. Total: ${submissions.length} submissions.`;
+      if (q.includes('dissolution') || q.includes('f2')) {
+        const s = submissions.find(x => x.dissolution);
+        if (s) {
+          setTimeout(() => { switchView('dissolution'); document.getElementById('dissolution-select').value = s.id; renderDissolutionView(s.id); }, 500);
+          return `Opening dissolution profile comparison. The <strong>f2 similarity factor</strong> measures profile similarity between test and reference. Values &ge;50 indicate acceptable similarity per FDA guidance.`;
+        }
+      }
+      if (q.includes('power') || q.includes('sample size')) {
+        setTimeout(() => switchView('power'), 500);
+        return `Opening the <strong>Power Analysis Calculator</strong>. You can estimate the required sample size based on expected GMR, within-subject CV, study design, and target power. For standard BE studies with CV &le;30%, a 2x2 crossover with 24-36 subjects typically provides &gt;80% power.`;
+      }
+      if (q.includes('trend') || q.includes('historical')) {
+        setTimeout(() => switchView('trending'), 500);
+        return `Opening the <strong>Historical Trending</strong> view. You can see submission volumes, approval rates, and deficiency patterns over the past 6 months.`;
+      }
+
+      // Knowledge responses
+      if (q.includes('bioequi') || q.includes(' be ') || q.includes('criteria')) {
+        return `Bioequivalence is established when the 90% CI for the GMR of key PK parameters falls within <strong>80.00-125.00%</strong> (log-transformed). ${getConfidenceBadge(98)}<br><br>Parameters evaluated:<br>&bull; AUC<sub>0-t</sub> (truncated area under curve)<br>&bull; AUC<sub>0-&infin;</sub> (extrapolated total exposure)<br>&bull; C<sub>max</sub> (peak concentration)<br><br>Based on TOST procedure per 21 CFR 320.`;
+      }
+      if (q.includes('status') || q.includes('how many') || q.includes('queue')) {
+        const counts = { pending: submissions.filter(s=>s.status==='pending').length, review: submissions.filter(s=>s.status==='in-review').length, approved: submissions.filter(s=>s.status==='approved').length, deficient: submissions.filter(s=>s.status==='deficient').length };
+        return `Current queue: <strong>${counts.pending}</strong> pending, <strong>${counts.review}</strong> in review, <strong>${counts.approved}</strong> approved, <strong>${counts.deficient}</strong> deficient. Total: ${submissions.length} submissions. ${getConfidenceBadge(99)}`;
       }
       if (q.includes('fail') || q.includes('deficien')) {
         const failed = submissions.filter(s => s.beResult === 'fail');
-        return `There are <strong>${failed.length}</strong> submissions with BE failures: ${failed.map(s => `<br>&bull; <strong>${s.id}</strong> (${s.drug}) - ${s.notes}`).join('')}`;
+        return `${getConfidenceBadge(95)} There are <strong>${failed.length}</strong> submissions with BE failures:${failed.map(s => `<br>&bull; <strong>${s.id}</strong> (${s.drug}) - ${s.notes}`).join('')}<br><br>Type "show ${failed[0]?.id}" to view detailed analysis.`;
       }
       if (q.includes('nti') || q.includes('narrow therapeutic')) {
-        return 'For <strong>Narrow Therapeutic Index (NTI)</strong> drugs, FDA applies tighter BE limits. The 95% CI must fall within <strong>90.00-111.11%</strong> for both AUC and Cmax. Additionally, both test and reference within-subject variability must be evaluated using a replicate crossover design.';
+        return `${getConfidenceBadge(97)} For <strong>Narrow Therapeutic Index (NTI)</strong> drugs, FDA applies tighter limits:<br>&bull; 95% CI within <strong>90.00-111.11%</strong><br>&bull; Both AUC and Cmax evaluated<br>&bull; Within-subject variability comparison required<br>&bull; Replicate crossover design mandatory`;
       }
       if (q.includes('waiver') || q.includes('bcs')) {
-        return 'A <strong>BCS-based biowaiver</strong> may be granted for BCS Class I (high solubility, high permeability) and Class III (high solubility, low permeability) drugs in IR solid oral dosage forms. Requirements include rapid dissolution (&ge;85% in 30 min) in pH 1.2, 4.5, and 6.8 media. See FDA Guidance on BCS-Based Biowaivers (May 2024).';
+        return `${getConfidenceBadge(96)} <strong>BCS-based biowaivers</strong> may be granted for:<br>&bull; BCS Class I (high solubility, high permeability)<br>&bull; BCS Class III (high solubility, low permeability)<br>&bull; IR solid oral dosage forms only<br><br>Requirements: Rapid dissolution (&ge;85% in 30 min) in pH 1.2, 4.5, and 6.8 media.`;
       }
       if (q.includes('highly variable') || q.includes('hvd') || q.includes('rsabe')) {
-        return 'For <strong>Highly Variable Drugs</strong> (within-subject CV &gt;30%), FDA allows <strong>Reference-Scaled Average Bioequivalence (RSABE)</strong> for C<sub>max</sub>. The scaled criterion uses the within-subject variability of the reference product. A replicate crossover design is required. The point estimate constraint of 80.00-125.00% still applies.';
+        return `${getConfidenceBadge(94)} For <strong>Highly Variable Drugs</strong> (CV &gt;30%):<br>&bull; Reference-Scaled ABE (RSABE) allowed for C<sub>max</sub><br>&bull; Replicate crossover design required<br>&bull; Point estimate 80-125% still applies<br>&bull; Scaled criterion uses reference within-subject variability<br><br>Try the <strong>Power Calculator</strong> to estimate sample size for HVD studies.`;
       }
-      return 'I can help with bioequivalence analysis, ANDA submission status, regulatory requirements, PK parameter evaluation, and study design guidance. Try asking about BE criteria, submission status, failed studies, NTI drugs, BCS waivers, or highly variable drugs.';
+      return `${getConfidenceBadge(85)} I can help with:<br>&bull; <strong>BE criteria</strong> - acceptance ranges and statistical methods<br>&bull; <strong>ANDA status</strong> - queue overview and individual submissions<br>&bull; <strong>Failed studies</strong> - identify and analyze failures<br>&bull; <strong>NTI drugs</strong> - narrow therapeutic index requirements<br>&bull; <strong>BCS waivers</strong> - biowaiver eligibility<br>&bull; <strong>HVD/RSABE</strong> - highly variable drug approaches<br><br>I can also navigate: try "show ANDA-217845", "dissolution", "power", or "trending".`;
+    }
+
+    // ==========================================
+    // REMAINING UI FUNCTIONS
+    // ==========================================
+    function showDetail(id) {
+      const s = submissions.find(x => x.id === id);
+      if (!s) return;
+      document.getElementById('detail-modal-title').textContent = s.id + ' - ' + s.drug;
+      let body = `<div class="two-col">
+        <div>
+          <div class="detail-row"><span class="label">ANDA</span><span class="value">${s.id}</span></div>
+          <div class="detail-row"><span class="label">Applicant</span><span class="value">${s.applicant}</span></div>
+          <div class="detail-row"><span class="label">Drug</span><span class="value">${s.drug}</span></div>
+          <div class="detail-row"><span class="label">RLD</span><span class="value">${s.rld}</span></div>
+          <div class="detail-row"><span class="label">Form</span><span class="value">${s.dosageForm}</span></div>
+          <div class="detail-row"><span class="label">Strength</span><span class="value">${s.strength}</span></div>
+        </div>
+        <div>
+          <div class="detail-row"><span class="label">Status</span><span class="value">${getStatusTag(s.status)}</span></div>
+          <div class="detail-row"><span class="label">BE Study</span><span class="value">${s.beStudy}</span></div>
+          <div class="detail-row"><span class="label">Design</span><span class="value">${s.studyDesign}</span></div>
+          <div class="detail-row"><span class="label">Subjects</span><span class="value">${s.subjects}</span></div>
+          <div class="detail-row"><span class="label">Submitted</span><span class="value">${s.submitted}</span></div>
+          <div class="detail-row"><span class="label">BE Result</span><span class="value">${getBETag(s.beResult)}</span></div>
+        </div>
+      </div>`;
+      if (s.pkData) {
+        const pk = s.pkData;
+        body += `<div style="margin-top:20px"><h4 style="margin-bottom:12px;font-size:14px">PK Parameters</h4>
+          <table><thead><tr><th>Parameter</th><th>GMR (%)</th><th>90% CI Lower</th><th>90% CI Upper</th><th>Pass</th></tr></thead><tbody>
+            <tr><td>AUC<sub>0-t</sub></td><td>${pk.auc0t.geoMeanRatio}</td><td>${pk.auc0t.ci90Lower}</td><td>${pk.auc0t.ci90Upper}</td><td>${ciCheck(pk.auc0t.ci90Lower,pk.auc0t.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
+            <tr><td>AUC<sub>0-∞</sub></td><td>${pk.auc0inf.geoMeanRatio}</td><td>${pk.auc0inf.ci90Lower}</td><td>${pk.auc0inf.ci90Upper}</td><td>${ciCheck(pk.auc0inf.ci90Lower,pk.auc0inf.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
+            <tr><td>C<sub>max</sub></td><td>${pk.cmax.geoMeanRatio}</td><td>${pk.cmax.ci90Lower}</td><td>${pk.cmax.ci90Upper}</td><td>${ciCheck(pk.cmax.ci90Lower,pk.cmax.ci90Upper)?'<span class="tag tag-green">Yes</span>':'<span class="tag tag-red">No</span>'}</td></tr>
+          </tbody></table></div>`;
+      }
+      if (s.notes) body += `<div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:var(--radius);font-size:13px"><strong>Notes:</strong> ${s.notes}</div>`;
+      document.getElementById('detail-modal-body').innerHTML = body;
+      openModal('detail');
     }
 
     function submitNewAnda() {
-      const num = document.getElementById('new-anda-num').value || 'ANDA-' + (217900 + Math.floor(Math.random() * 100));
-      const applicant = document.getElementById('new-applicant').value || 'New Applicant';
-      const drug = document.getElementById('new-drug').value || 'New Drug Product';
-      const rld = document.getElementById('new-rld').value || 'Reference Drug';
-
+      const num = document.getElementById('new-anda-num').value || 'ANDA-' + (217900 + Math.floor(Math.random()*100));
       submissions.unshift({
-        id: num,
-        applicant: applicant,
-        drug: drug,
-        rld: rld,
-        dosageForm: document.getElementById('new-dosage').value,
-        strength: document.getElementById('new-strength').value || 'TBD',
-        status: 'pending',
-        beStudy: document.getElementById('new-study-type').value,
-        submitted: new Date().toISOString().split('T')[0],
-        beResult: 'pending',
-        pkData: null,
-        subjects: 0,
-        studyDesign: 'TBD',
-        notes: document.getElementById('new-notes').value || ''
+        id: num, applicant: document.getElementById('new-applicant').value || 'New Applicant',
+        drug: document.getElementById('new-drug').value || 'New Drug Product',
+        rld: document.getElementById('new-rld').value || 'Reference Drug',
+        dosageForm: document.getElementById('new-dosage').value, strength: document.getElementById('new-strength').value || 'TBD',
+        status: 'pending', beStudy: document.getElementById('new-study-type').value,
+        submitted: new Date().toISOString().split('T')[0], beResult: 'pending',
+        pkData: null, subjects: 0, studyDesign: 'TBD', notes: document.getElementById('new-notes').value || '',
+        subjectData: null, dissolution: null
       });
-
       closeModal('new-submission');
       renderAll();
-      addChatMessage('system', 'System', `New submission <strong>${num}</strong> (${drug}) added to queue.`);
-      document.getElementById('stat-pending').textContent = submissions.filter(s => s.status === 'pending').length;
+      addChatMessage('system', 'System', `New submission <strong>${num}</strong> added to queue.`);
     }
 
-    function clearAgentLog() {
-      document.getElementById('agent-log').innerHTML = '';
-      addAgentLog('Log cleared.', 'info');
+    function openModal(name) { document.getElementById('modal-' + name).classList.add('show'); }
+    function closeModal(name) { document.getElementById('modal-' + name).classList.remove('show'); }
+    function switchPanel(panel) {
+      document.querySelectorAll('.panel-tab').forEach(el => el.classList.toggle('active', el.dataset.panel === panel));
+      document.querySelectorAll('.panel-tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('panel-' + panel).classList.add('active');
     }
+    function clearAgentLog() { document.getElementById('agent-log').innerHTML = ''; addAgentLog('Log cleared.', 'info'); }
+    function saveSettings() { addChatMessage('system', 'System', 'Agent configuration saved.'); }
 
     function renderRegulations() {
-      const container = document.getElementById('regulations-content');
-      container.innerHTML = regulations.map(reg => `
-        <div style="margin-bottom:24px">
-          <h4 style="font-size:14px;margin-bottom:12px;color:var(--primary)">${reg.title}</h4>
-          ${reg.sections.map(s => `
-            <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px">
-              <code style="font-size:12px;color:var(--primary-light);white-space:nowrap;font-weight:600">${s.code}</code>
-              <span>${s.text}</span>
-            </div>
-          `).join('')}
-        </div>
+      document.getElementById('regulations-content').innerHTML = regulations.map(reg => `
+        <div style="margin-bottom:24px"><h4 style="font-size:14px;margin-bottom:12px;color:var(--primary)">${reg.title}</h4>
+        ${reg.sections.map(s => `<div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px">
+          <code style="font-size:12px;color:var(--primary-light);white-space:nowrap;font-weight:600">${s.code}</code><span>${s.text}</span></div>`).join('')}</div>
       `).join('');
     }
 
     function renderReports() {
-      const container = document.getElementById('reports-content');
-      if (reports.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px">No reports generated yet. Run an agent analysis first, then generate a report.</p>';
-        return;
-      }
-      container.innerHTML = reports.map((r, i) => `
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
-          <div>
-            <div style="font-weight:600;font-size:13px">${r.title}</div>
-            <div style="font-size:11px;color:var(--text-light)">${r.date} &bull; ${r.type}</div>
-          </div>
-          <button class="btn btn-outline btn-sm" onclick="alert('Report download simulated for: ${r.title}')">Download PDF</button>
-        </div>
-      `).join('');
+      const c = document.getElementById('reports-content');
+      if (reports.length === 0) { c.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px">No reports generated yet.</p>'; return; }
+      c.innerHTML = reports.map(r => `<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+        <div><div style="font-weight:600;font-size:13px">${r.title}</div><div style="font-size:11px;color:var(--text-light)">${r.date} &bull; ${r.type}</div></div>
+        <button class="btn btn-outline btn-sm" onclick="alert('Download simulated: ${r.title}')">Download PDF</button></div>`).join('');
     }
 
     function generateReport() {
       const s = submissions.find(x => x.pkData);
-      if (!s) {
-        addChatMessage('system', 'System', 'No analyzed submissions available for report generation.');
-        return;
-      }
-      reports.unshift({
-        title: `BE Review Report - ${s.id} (${s.drug})`,
-        date: new Date().toLocaleDateString(),
-        type: 'Bioequivalence Assessment'
-      });
+      if (!s) return;
+      reports.unshift({ title: `BE Review - ${s.id} (${s.drug})`, date: new Date().toLocaleDateString(), type: 'Bioequivalence Assessment' });
       renderReports();
-      addChatMessage('agent', 'BE Agent', `Report generated: <strong>BE Review Report - ${s.id}</strong>. The report includes PK parameter analysis, CI visualization, compliance checklist, and recommendation.`);
+      addChatMessage('agent', 'BE Agent', `Report generated: <strong>${reports[0].title}</strong>. Includes PK analysis, CI visualization, compliance checklist, and recommendation.`);
     }
-
-    function saveSettings() {
-      addChatMessage('system', 'System', 'Agent configuration saved. New settings will apply to the next analysis run.');
-    }
-
-    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
 
     // ==========================================
     // INITIALIZATION
     // ==========================================
-
     function renderAll() {
+      renderStatsGrid();
       renderDashboardTable();
       renderAgentActivity();
       renderSubmissionsTable();
@@ -1996,84 +2202,66 @@
 
     // Event Listeners
     document.querySelectorAll('.nav-item').forEach(el => {
-      el.addEventListener('click', () => {
-        if (el.dataset.view) switchView(el.dataset.view);
-      });
+      el.addEventListener('click', () => { if (el.dataset.view) switchView(el.dataset.view); });
     });
-
     document.querySelectorAll('.panel-tab').forEach(el => {
-      el.addEventListener('click', () => {
-        if (el.dataset.panel) switchPanel(el.dataset.panel);
-      });
+      el.addEventListener('click', () => { if (el.dataset.panel) switchPanel(el.dataset.panel); });
     });
-
     document.getElementById('filter-status').addEventListener('change', renderSubmissionsTable);
-
-    document.getElementById('analysis-select').addEventListener('change', function() {
-      if (this.value) renderAnalysis(this.value);
-    });
-
-    // Close modals on overlay click
+    document.getElementById('analysis-select').addEventListener('change', function() { if (this.value) renderAnalysis(this.value); });
+    document.getElementById('dissolution-select').addEventListener('change', function() { if (this.value) renderDissolutionView(this.value); });
     document.querySelectorAll('.modal-overlay').forEach(el => {
-      el.addEventListener('click', function(e) {
-        if (e.target === this) this.classList.remove('show');
-      });
+      el.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
     });
 
-    // Initialize
-    renderAll();
+    // Keyboard shortcut to close demo
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && demoActive) endDemo();
+    });
 
-    // Welcome message
-    addChatMessage('agent', 'BE Agent', 'Welcome, Dr. Reynolds. I am the ANDA Bioequivalence Review Agent. I can help you analyze submissions, evaluate PK parameters, check regulatory compliance, and generate review reports. There are currently <strong>3 submissions</strong> requiring attention.');
+    // Boot with skeleton loading
+    showSkeletons();
+    setTimeout(() => {
+      hideSkeletons();
+      renderAll();
 
-    // Panel details content
-    document.getElementById('panel-details').innerHTML = `
-      <h4 style="font-size:14px;margin-bottom:16px">Quick Reference</h4>
-      <div class="detail-row"><span class="label">BE Acceptance Range</span><span class="value">80.00-125.00%</span></div>
-      <div class="detail-row"><span class="label">CI Level</span><span class="value">90% (standard)</span></div>
-      <div class="detail-row"><span class="label">NTI Range</span><span class="value">90.00-111.11%</span></div>
-      <div class="detail-row"><span class="label">Data Transform</span><span class="value">Log (ln)</span></div>
-      <div class="detail-row"><span class="label">Statistical Test</span><span class="value">TOST</span></div>
-      <div class="detail-row"><span class="label">HVD Threshold</span><span class="value">CV &gt;30%</span></div>
-      <div class="detail-row"><span class="label">f2 Threshold</span><span class="value">&ge;50</span></div>
-      <div style="margin-top:20px">
-        <h4 style="font-size:14px;margin-bottom:12px">Key Regulations</h4>
-        <div style="font-size:12px;line-height:1.8;color:var(--text-light)">
-          &bull; 21 CFR Part 320<br>
-          &bull; 21 CFR Part 314.94<br>
-          &bull; FDA Guidance: BE with PK Endpoints<br>
-          &bull; FDA Guidance: BCS Biowaivers<br>
-          &bull; ICH E6(R3) GCP
-        </div>
-      </div>
-    `;
+      // Activate smooth transition for initial view
+      requestAnimationFrame(() => {
+        document.getElementById('view-dashboard').classList.add('visible');
+      });
 
-    // Panel history content
-    document.getElementById('panel-history').innerHTML = `
-      <h4 style="font-size:14px;margin-bottom:16px">Review History</h4>
-      <div style="font-size:13px">
-        <div style="padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="font-weight:600">ANDA-217870 Approved</div>
-          <div style="font-size:11px;color:var(--text-light)">Mar 15, 2026 - Lisinopril Tablets (Sandoz)</div>
-          <div style="margin-top:4px">All BE criteria met. Approved after supervisory review.</div>
-        </div>
-        <div style="padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="font-weight:600">ANDA-217892 Deficiency Letter</div>
-          <div style="font-size:11px;color:var(--text-light)">Mar 10, 2026 - Pantoprazole DR (Amneal)</div>
-          <div style="margin-top:4px">Cmax CI below acceptance range. Insufficient sample size.</div>
-        </div>
-        <div style="padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="font-weight:600">ANDA-217861 Flagged</div>
-          <div style="font-size:11px;color:var(--text-light)">Mar 8, 2026 - Omeprazole DR (Sun Pharma)</div>
-          <div style="margin-top:4px">Cmax upper CI exceeds 125%. High variability noted.</div>
-        </div>
-        <div style="padding:10px 0;border-bottom:1px solid var(--border)">
-          <div style="font-weight:600">ANDA-217845 In Review</div>
-          <div style="font-size:11px;color:var(--text-light)">Mar 5, 2026 - Metformin HCl ER (Teva)</div>
-          <div style="margin-top:4px">Fasting study data received. Analysis in progress.</div>
-        </div>
-      </div>
-    `;
+      // Welcome chat
+      addChatMessage('agent', 'BE Agent', `Welcome, Dr. Reynolds. ${getConfidenceBadge(99)}<br><br>I am the ANDA Bioequivalence Review Agent. I can analyze submissions, evaluate PK parameters, check regulatory compliance, and generate reports.<br><br>There are <strong>${submissions.filter(s=>s.status==='pending'||s.status==='in-review').length} submissions</strong> requiring attention.<br><br>Try the <strong style="background:linear-gradient(135deg,#8e44ad,#3498db);color:#fff;padding:2px 8px;border-radius:4px;font-size:11px">Demo Mode</strong> button above for a guided walkthrough.`);
+
+      // Panel details
+      document.getElementById('panel-details').innerHTML = `
+        <h4 style="font-size:14px;margin-bottom:16px">Quick Reference</h4>
+        <div class="detail-row"><span class="label">BE Acceptance Range</span><span class="value">80.00-125.00%</span></div>
+        <div class="detail-row"><span class="label">CI Level</span><span class="value">90% (standard)</span></div>
+        <div class="detail-row"><span class="label">NTI Range</span><span class="value">90.00-111.11%</span></div>
+        <div class="detail-row"><span class="label">Data Transform</span><span class="value">Log (ln)</span></div>
+        <div class="detail-row"><span class="label">Statistical Test</span><span class="value">TOST</span></div>
+        <div class="detail-row"><span class="label">HVD Threshold</span><span class="value">CV &gt;30%</span></div>
+        <div class="detail-row"><span class="label">f2 Threshold</span><span class="value">&ge;50</span></div>
+        <div style="margin-top:20px"><h4 style="font-size:14px;margin-bottom:12px">Key Regulations</h4>
+        <div style="font-size:12px;line-height:1.8;color:var(--text-light)">&bull; 21 CFR Part 320<br>&bull; 21 CFR Part 314.94<br>&bull; FDA Guidance: BE with PK Endpoints<br>&bull; FDA Guidance: BCS Biowaivers<br>&bull; ICH E6(R3) GCP</div></div>
+      `;
+
+      // Panel history
+      document.getElementById('panel-history').innerHTML = `
+        <h4 style="font-size:14px;margin-bottom:16px">Review History</h4>
+        ${[
+          { title:'ANDA-217870 Approved', date:'Mar 15, 2026', sub:'Lisinopril Tablets (Sandoz)', desc:'All BE criteria met. Approved after supervisory review.' },
+          { title:'ANDA-217892 Deficiency Letter', date:'Mar 10, 2026', sub:'Pantoprazole DR (Amneal)', desc:'Cmax CI below acceptance range. Insufficient sample size.' },
+          { title:'ANDA-217861 Flagged', date:'Mar 8, 2026', sub:'Omeprazole DR (Sun Pharma)', desc:'Cmax upper CI exceeds 125%. High variability noted.' },
+          { title:'ANDA-217845 In Review', date:'Mar 5, 2026', sub:'Metformin HCl ER (Teva)', desc:'Fasting study data received. Analysis in progress.' }
+        ].map(h => `<div style="padding:10px 0;border-bottom:1px solid var(--border)">
+          <div style="font-weight:600;font-size:13px">${h.title}</div>
+          <div style="font-size:11px;color:var(--text-light)">${h.date} - ${h.sub}</div>
+          <div style="margin-top:4px;font-size:13px">${h.desc}</div>
+        </div>`).join('')}
+      `;
+    }, 1500);
   </script>
 </body>
 </html>
