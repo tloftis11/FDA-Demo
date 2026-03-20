@@ -255,22 +255,69 @@
     /* Canvas Chart */
     canvas.chart-canvas { width: 100%; height: 250px; cursor: crosshair; }
 
-    /* Demo Mode */
-    .demo-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 200; display: none; }
+    /* Demo Mode - Non-blocking overlay approach */
+    .demo-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: transparent; z-index: 200; display: none; pointer-events: none; }
     .demo-overlay.show { display: block; }
-    .demo-spotlight { position: absolute; box-shadow: 0 0 0 9999px rgba(0,0,0,0.65); border-radius: var(--radius); z-index: 201; transition: all 0.5s ease; pointer-events: none; }
-    .demo-card { position: absolute; z-index: 202; background: #fff; border-radius: var(--radius-lg); padding: 24px; max-width: 420px; box-shadow: var(--shadow-lg); }
-    .demo-card h4 { font-size: 16px; margin-bottom: 8px; color: var(--primary); }
-    .demo-card .demo-step-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); font-weight: 600; margin-bottom: 4px; }
-    .demo-card p { font-size: 13px; line-height: 1.6; color: var(--text); margin-bottom: 16px; }
-    .demo-card .demo-nav { display: flex; justify-content: space-between; align-items: center; }
-    .demo-card .demo-dots { display: flex; gap: 6px; }
-    .demo-card .demo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-    .demo-card .demo-dot.active { background: var(--primary-light); }
-    .demo-card .demo-dot.done { background: var(--accent); }
+
+    /* Spotlight: glowing animated border instead of darkening overlay */
+    .demo-spotlight {
+      position: fixed;
+      border-radius: var(--radius-lg);
+      z-index: 201;
+      transition: all 0.4s ease;
+      pointer-events: none;
+      border: 3px solid var(--primary-light);
+      box-shadow: 0 0 0 4px rgba(41,128,185,0.2), 0 0 20px rgba(41,128,185,0.3), inset 0 0 20px rgba(41,128,185,0.05);
+      animation: spotlightPulse 2s ease-in-out infinite;
+    }
+    @keyframes spotlightPulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(41,128,185,0.2), 0 0 20px rgba(41,128,185,0.3), inset 0 0 20px rgba(41,128,185,0.05); }
+      50% { box-shadow: 0 0 0 6px rgba(41,128,185,0.3), 0 0 30px rgba(41,128,185,0.4), inset 0 0 30px rgba(41,128,185,0.08); }
+    }
+
+    /* Demo card pinned to bottom of screen */
+    .demo-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 202;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 15%, #fff 25%);
+      padding: 28px 32px 20px;
+      display: none;
+      transition: transform 0.3s ease;
+    }
+    .demo-bar.show { display: block; animation: slideUpBar 0.3s ease; }
+    @keyframes slideUpBar { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    .demo-bar-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.1);
+    }
+    .demo-bar-content { flex: 1; min-width: 0; }
+    .demo-bar-content .demo-step-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-light); font-weight: 700; margin-bottom: 2px; }
+    .demo-bar-content h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .demo-bar-content p { font-size: 12.5px; line-height: 1.5; color: var(--text-light); margin: 0; }
+    .demo-bar-nav { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .demo-bar-dots { display: flex; gap: 5px; }
+    .demo-bar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); transition: background 0.2s; }
+    .demo-bar-dot.active { background: var(--primary-light); transform: scale(1.2); }
+    .demo-bar-dot.done { background: var(--accent); }
+    .demo-bar .btn-demo-close { position: absolute; top: 28px; right: 40px; background: none; border: none; font-size: 18px; color: var(--text-light); cursor: pointer; padding: 4px; line-height: 1; }
+    .demo-bar .btn-demo-close:hover { color: var(--text); }
 
     /* Demo Welcome */
-    .demo-welcome { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 203; background: #fff; border-radius: var(--radius-lg); padding: 40px; max-width: 520px; width: 90%; text-align: center; box-shadow: var(--shadow-lg); }
+    .demo-welcome-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 300; display: none; align-items: center; justify-content: center; }
+    .demo-welcome-overlay.show { display: flex; }
+    .demo-welcome { background: #fff; border-radius: var(--radius-lg); padding: 40px; max-width: 520px; width: 90%; text-align: center; box-shadow: var(--shadow-lg); }
     .demo-welcome h2 { font-size: 24px; margin-bottom: 8px; color: var(--primary); }
     .demo-welcome .subtitle { color: var(--text-light); font-size: 14px; margin-bottom: 24px; }
     .demo-welcome .scenario-list { text-align: left; margin-bottom: 24px; }
@@ -288,22 +335,30 @@
   </style>
 </head>
 <body>
-  <!-- Demo Overlay -->
+  <!-- Demo Spotlight (no blocking overlay - just a border highlight) -->
   <div class="demo-overlay" id="demo-overlay"></div>
   <div class="demo-spotlight" id="demo-spotlight" style="display:none"></div>
-  <div class="demo-card" id="demo-card" style="display:none">
-    <div class="demo-step-label" id="demo-step-label">Step 1 of 8</div>
-    <h4 id="demo-title"></h4>
-    <p id="demo-desc"></p>
-    <div class="demo-nav">
-      <button class="btn btn-outline btn-sm" id="demo-prev" onclick="demoNav(-1)">Back</button>
-      <div class="demo-dots" id="demo-dots"></div>
-      <button class="btn btn-primary btn-sm" id="demo-next" onclick="demoNav(1)">Next</button>
+
+  <!-- Demo Bottom Bar -->
+  <div class="demo-bar" id="demo-bar">
+    <button class="btn-demo-close" onclick="endDemo()" title="Exit demo">&times;</button>
+    <div class="demo-bar-inner">
+      <div class="demo-bar-content">
+        <div class="demo-step-label" id="demo-step-label">Step 1 of 8</div>
+        <h4 id="demo-title"></h4>
+        <p id="demo-desc"></p>
+      </div>
+      <div class="demo-bar-nav">
+        <button class="btn btn-outline btn-sm" id="demo-prev" onclick="demoNav(-1)">Back</button>
+        <div class="demo-bar-dots" id="demo-dots"></div>
+        <button class="btn btn-primary btn-sm" id="demo-next" onclick="demoNav(1)">Next</button>
+      </div>
     </div>
   </div>
 
   <!-- Demo Welcome -->
-  <div class="demo-welcome" id="demo-welcome" style="display:none">
+  <div class="demo-welcome-overlay" id="demo-welcome-overlay">
+  <div class="demo-welcome" id="demo-welcome">
     <h2>ANDA Bioequivalence Review Agent</h2>
     <p class="subtitle">Interactive Demo - Choose a scenario to explore</p>
     <div class="scenario-list">
@@ -332,6 +387,7 @@
     <div style="display:flex;gap:10px;justify-content:center">
       <button class="btn btn-outline" onclick="closeDemoWelcome()">Skip - Explore Freely</button>
     </div>
+  </div>
   </div>
 
   <!-- Sidebar -->
@@ -1867,20 +1923,18 @@
     };
 
     function openDemoWelcome() {
-      document.getElementById('demo-overlay').classList.add('show');
-      document.getElementById('demo-welcome').style.display = 'block';
+      document.getElementById('demo-welcome-overlay').classList.add('show');
     }
 
     function closeDemoWelcome() {
-      document.getElementById('demo-overlay').classList.remove('show');
-      document.getElementById('demo-welcome').style.display = 'none';
+      document.getElementById('demo-welcome-overlay').classList.remove('show');
     }
 
     function startDemo(scenario) {
       demoScenario = demoScenarios[scenario];
       demoStepIndex = 0;
       demoActive = true;
-      document.getElementById('demo-welcome').style.display = 'none';
+      document.getElementById('demo-welcome-overlay').classList.remove('show');
       showDemoStep();
     }
 
@@ -1891,11 +1945,8 @@
       }
 
       const step = demoScenario.steps[demoStepIndex];
-      const overlay = document.getElementById('demo-overlay');
       const spotlight = document.getElementById('demo-spotlight');
-      const card = document.getElementById('demo-card');
-
-      overlay.classList.add('show');
+      const bar = document.getElementById('demo-bar');
 
       // Switch view if needed
       if (step.view) switchView(step.view);
@@ -1905,48 +1956,45 @@
         setTimeout(() => executeDemoAction(step.action), 300);
       }
 
-      // Update card content
-      document.getElementById('demo-step-label').textContent = `Step ${demoStepIndex + 1} of ${demoScenario.steps.length}`;
+      // Update bottom bar content
+      document.getElementById('demo-step-label').textContent = `Step ${demoStepIndex + 1} of ${demoScenario.steps.length} — ${demoScenario.name}`;
       document.getElementById('demo-title').textContent = step.title;
       document.getElementById('demo-desc').textContent = step.desc;
 
       // Dots
       document.getElementById('demo-dots').innerHTML = demoScenario.steps.map((_, i) =>
-        `<div class="demo-dot ${i < demoStepIndex ? 'done' : ''} ${i === demoStepIndex ? 'active' : ''}"></div>`
+        `<div class="demo-bar-dot ${i < demoStepIndex ? 'done' : ''} ${i === demoStepIndex ? 'active' : ''}"></div>`
       ).join('');
 
       // Nav buttons
       document.getElementById('demo-prev').style.visibility = demoStepIndex > 0 ? 'visible' : 'hidden';
       document.getElementById('demo-next').textContent = demoStepIndex === demoScenario.steps.length - 1 ? 'Finish' : 'Next';
 
-      // Position the card and spotlight
+      // Show bar
+      bar.classList.add('show');
+
+      // Position spotlight around target element
       setTimeout(() => {
         const target = step.target ? document.querySelector(step.target) : null;
         if (target) {
           const rect = target.getBoundingClientRect();
+          const pad = 6;
           spotlight.style.display = 'block';
-          spotlight.style.top = rect.top + 'px';
-          spotlight.style.left = rect.left + 'px';
-          spotlight.style.width = rect.width + 'px';
-          spotlight.style.height = Math.min(rect.height, window.innerHeight * 0.6) + 'px';
+          spotlight.style.top = (rect.top - pad) + 'px';
+          spotlight.style.left = (rect.left - pad) + 'px';
+          spotlight.style.width = (rect.width + pad * 2) + 'px';
+          spotlight.style.height = (Math.min(rect.height, window.innerHeight * 0.65) + pad * 2) + 'px';
 
-          // Position card
-          card.style.display = 'block';
-          if (step.position === 'left') {
-            card.style.top = rect.top + 'px';
-            card.style.left = (rect.left - 440) + 'px';
-            card.style.right = 'auto';
-          } else {
-            card.style.top = Math.min(rect.top + 20, window.innerHeight - 280) + 'px';
-            card.style.left = Math.min(rect.left + 40, window.innerWidth - 460) + 'px';
-            card.style.right = 'auto';
+          // Scroll the spotlight target into view if needed (above the bottom bar)
+          const barHeight = bar.offsetHeight || 120;
+          if (rect.bottom > window.innerHeight - barHeight) {
+            const scrollTarget = target.closest('.content-main');
+            if (scrollTarget) {
+              scrollTarget.scrollBy({ top: rect.bottom - (window.innerHeight - barHeight) + 20, behavior: 'smooth' });
+            }
           }
         } else {
           spotlight.style.display = 'none';
-          card.style.display = 'block';
-          card.style.top = '50%';
-          card.style.left = '50%';
-          card.style.transform = 'translate(-50%, -50%)';
         }
       }, 400);
     }
@@ -1997,10 +2045,9 @@
     function endDemo() {
       demoActive = false;
       demoScenario = null;
-      document.getElementById('demo-overlay').classList.remove('show');
       document.getElementById('demo-spotlight').style.display = 'none';
-      document.getElementById('demo-card').style.display = 'none';
-      document.getElementById('demo-welcome').style.display = 'none';
+      document.getElementById('demo-bar').classList.remove('show');
+      document.getElementById('demo-welcome-overlay').classList.remove('show');
     }
 
     // ==========================================
