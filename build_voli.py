@@ -122,23 +122,31 @@ doc.add_paragraph()  # spacer
 add_h(doc, "1. Technical Approach", 1)
 
 add_para(doc,
-    "Our governing approach to CITS: keep what works, deflect demand, and modernize where it pays back. "
-    "CDC's IT customer support model — a tiered ITSM service-delivery structure built on ServiceNow, ITIL, and "
-    "PMBOK — is sound. The opportunity is not to replace it. It is to take excess demand out of the system, "
-    "automate the repetitive work that fills technicians' queues today, and direct human attention to the work "
-    "where human attention matters: emergency response, scientific computing, global health field deployments, "
-    "and OCONUS network restoration. This Technical Volume describes how we will assume performance, sustain "
-    "CDC's published service levels from day one, and deliver consistent total cost of ownership (TCO) reduction "
-    "across the period of performance. We address each task in the Performance Work Statement (PWS), identify "
-    "the operational baseline we will inherit, name the specific automation and workflow improvements we will "
-    "pursue, set quantified targets, and identify the risks and dependencies the Government should expect us "
-    "to manage.")
+    "Three observations from the published CDC demand profile shape our offer. First, roughly two-thirds of "
+    "inbound task volume is deflectable to verified self-service through capabilities CDC already owns. "
+    "Second, the work that human technicians cannot deflect — surge response, OCONUS restoration, scientific "
+    "computing, EOC activation — is where CDC's mission risk concentrates. Third, the prior contract's "
+    "stability is an asset to protect, not a baseline to disrupt. Our offer follows from those three "
+    "observations: keep what works, deflect demand, and modernize where it pays back. CDC has had stable "
+    "Tier-1 service. The next step isn't another stable contract — it is a stable contract that compounds "
+    "operational gains every option period.")
+
+add_para(doc,
+    "CDC's IT customer support model — a tiered ITSM service-delivery structure built on ServiceNow, ITIL, "
+    "and PMBOK — is sound. The opportunity is not to replace it. It is to take excess demand out of the "
+    "system, automate the repetitive work that fills technicians' queues today, and direct human attention "
+    "to the work where human attention matters. This Technical Volume describes how we will assume "
+    "performance, sustain CDC's published service levels from Day 1, and deliver consistent total cost of "
+    "ownership (TCO) reduction across the period of performance. We address each task in the Performance "
+    "Work Statement (PWS), identify the operational baseline we will inherit, name the specific automation "
+    "and workflow improvements we will pursue, set quantified targets, and identify the risks and "
+    "dependencies the Government should expect us to manage.")
 
 add_para(doc,
     "This volume is organized to mirror the evaluation structure in Section E. Section 1 is our Technical "
     "Approach, organized as a reading of the requirement (1.1), a Work Plan with milestones (1.2), task-by-task "
     "approaches (1.3), the cross-cutting service disciplines (1.4) including Human-Centered Design (HCD) as our "
-    "operating model, Section 508 accessibility (1.5), cybersecurity and compliance posture (1.6), three "
+    "operating model, Section 508 accessibility (1.5), cybersecurity and compliance position (1.6), three "
     "test-and-learn pilots scoped to the demand profile (1.7), and a quantified automation and deflection "
     "roadmap with year-over-year targets (1.8). Section 2 is the Staffing Plan. Section 3 is the Management "
     "Approach including the draft Quality Control Plan, draft Transition-In and Transition-Out Plans, and the "
@@ -196,7 +204,7 @@ add_para(doc,
     bold_lead="Constraints we are designing around.")
 
 add_para(doc,
-    "First, demand surge during public health emergencies — the EOC support model and Field Site Service posture in "
+    "First, demand surge during public health emergencies — the EOC support model and Field Site Service capability in "
     "PWS Task 1.3 cannot be staffed at peak as a baseline. Our approach uses the ServiceNow Virtual Agent for "
     "password and standard-request deflection so that human technician capacity is preserved for surge response, "
     "plus a defined cross-task surge plan from the optional Task 4.1 rapid surge staffing capability. "
@@ -271,7 +279,7 @@ add_para(doc,
     "as the system of record, knowledge management as a measured discipline, defined escalation paths, and "
     "named accountability — so we describe shared elements once in §1.4 and then treat each task as a delta "
     "from the common baseline. Each task subsection follows the same structure: operational baseline, operating "
-    "model, automation and deflection plan, staffing and credentials, SLA performance posture, and "
+    "model, automation and deflection plan, staffing and credentials, SLA performance, and "
     "task-specific risks with mitigations.")
 
 # ---- 1.3.1 Task 1.1 ITSDS (BIG TASK) ----------------------------------
@@ -317,12 +325,22 @@ add_para(doc,
     "automated fulfillment where the rules are deterministic, removing manual handoffs from approximately "
     "60% of provisioning paths. "
     "(3) Targeted knowledge articles, written in plain language and indexed for findability, that resolve the "
-    "top deflectable incident types — Outlook, Teams, OneDrive, MFA — at the customer-self-service layer. "
-    "Articles are owned, dated, version-controlled, and reviewed quarterly under §1.4 knowledge-management "
-    "discipline, with a target Knowledge Article Currency Rate of 95% (% of articles reviewed within 90 days). "
+    "top deflectable incident types in priority order: Outlook out-of-office macros and shared-mailbox "
+    "delegation; Teams audio-device troubleshooting and meeting-recording recovery; OneDrive sync conflict "
+    "resolution; MFA enrollment for new devices; CITGO Virtual Desktop disconnect recovery. Articles are "
+    "owned, dated, version-controlled, and reviewed quarterly under §1.4 knowledge-management practice, "
+    "with a target Knowledge Article Currency Rate of 95% (% of articles reviewed within 90 days). "
     "(4) Predictive Intelligence-style ticket categorization within ServiceNow (using CDC-provided platform "
     "features, not vendor-introduced AI) to reduce mis-routes and shorten time-to-assignment.",
     bold_lead="Demand reduction (highest-leverage area).")
+
+add_para(doc,
+    "At 6:47 a.m. on a typical weekday, the queue spikes with password-reset traffic from East Coast research "
+    "staff logging in. Today, three Tier-1 technicians work that wave manually. Under our deflection program, "
+    "the Virtual Agent absorbs the deterministic share of that wave and the same three technicians spend the "
+    "morning closing the harder Outlook and CITGO VDI tickets that drive CSAT. The deflection program is "
+    "not headcount reduction; it is human capacity preservation for the work that demands human judgment.",
+    bold_lead="What this looks like in operation.")
 
 add_para(doc,
     "Tier 1 is staffed across Computer Systems Analyst (SME), Senior / Journeyman / Junior Computer User "
@@ -341,7 +359,7 @@ add_para(doc,
     "the PWS thresholds: First-Contact Resolution rate (target 75% by OP1), and a Deflection Rate against "
     "deterministic categories (target 30%/45%/55% across OP1/OP2/OP3). Both are visible to the COR daily on "
     "the Task 10.5 reporting platform.",
-    bold_lead="SLA performance posture.")
+    bold_lead="SLA performance.")
 
 add_para(doc,
     "Three risks dominate at Task 1.1. "
@@ -383,8 +401,18 @@ add_para(doc,
     "objective at refresh; per PWS Subsection 1.2.1 item l, no laptop or desktop is issued without verified "
     "patch and BIOS compliance. Coordination with Task 8.1 Endpoint Management is treated as a single "
     "operating relationship — the same compliance baselines, the same change windows, the same drift-detection "
-    "feedback loop.",
-    bold_lead="Endpoint discipline.")
+    "feedback loop. AV support to non-Atlanta locations is built into the Tier-2 model rather than handled as "
+    "a side function: each non-Atlanta CSC has a named AV-trained technician with a documented escalation "
+    "path to the regional AV vendor, and quarterly tabletop drills validate readiness for high-visibility "
+    "events such as Director's Office briefings and CDC Connects all-hands sessions.",
+    bold_lead="Endpoint and AV practice.")
+
+add_para(doc,
+    "Refresh-cycle pile-ups historically concentrate at Roybal in Q4 fiscal close. Our zero-touch program "
+    "staggers refresh windows across campuses to absorb that pattern, and the SDLs surface the early "
+    "indicators (refresh-eligible-device count crossing threshold) two pay periods before the wave hits. "
+    "Throughput is sustained without overtime burn or PTO suppression on the deskside team.",
+    bold_lead="What this looks like in operation.")
 
 add_para(doc,
     "Three workstreams reduce deskside burden. "
@@ -413,7 +441,7 @@ add_para(doc,
     "Rate as an early indicator of premature closure; and we measure Image Compliance Pre-Issue rate at "
     "100% (no laptop or desktop is issued without verified patch and BIOS compliance — that is a binary "
     "metric for this contract).",
-    bold_lead="SLA performance posture.")
+    bold_lead="SLA performance.")
 
 add_para(doc,
     "(1) Refresh-cycle pile-up causing throughput strain — mitigated by zero-touch refresh and stagger-by-"
@@ -428,13 +456,14 @@ add_para(doc,
 add_h(doc, "1.3.3 Task 1.3 — Emergency Preparedness and Field Site Services (EPS/FSS)", 3)
 
 add_para(doc,
-    "EPS and FSS exist for the CDC scenarios that the rest of OCIO is not designed to absorb at peak: "
-    "outbreak response, Emergency Operations Center (EOC) activation, and field deployments to Port Health "
-    "Stations and other partner sites. We provide 24×7 on-call coverage, EOC shift coverage during "
-    "activations, exercise support, and Field Site Service technicians who can travel and remain on site for "
-    "the duration of an event. EPS/FSS handles approximately 400 tickets per month historically against ORR "
-    "and DEO service-level expectations that are distinct from the standard OCIO SLA.",
-    bold_lead="Mission posture.")
+    "When CDC activates the EOC, the IT support function cannot be the long pole. EPS and FSS exist for the "
+    "CDC scenarios that the rest of OCIO is not designed to absorb at peak: outbreak response, EOC "
+    "activation, and field deployments to Port Health Stations and other partner sites. We provide 24×7 "
+    "on-call coverage, EOC shift coverage during activations, exercise support, and Field Site Service "
+    "technicians who can travel and remain on site for the duration of an event. EPS/FSS handles "
+    "approximately 400 tickets per month historically against ORR and DEO service-level expectations that "
+    "are distinct from the standard OCIO SLA.",
+    bold_lead="Mission framing.")
 
 add_para(doc,
     "Three operating elements characterize this task. (1) On-call rotation: published schedules delivered to "
@@ -467,7 +496,7 @@ add_para(doc,
     "ORR/DEO SLA tracking in ServiceNow with a separate dashboard from the OCIO SLA. Monthly EPS/FSS performance "
     "report includes ticket volume by activation type, MTTR by priority, on-call response latency, and PCO "
     "inventory variance. Activation after-action reports filed within 14 days of activation closeout.",
-    bold_lead="SLA performance posture.")
+    bold_lead="SLA performance.")
 
 add_para(doc,
     "(1) Activation-induced surge — mitigated by Task 4.1 cross-task surge plan and by deflection-preserved "
@@ -506,6 +535,14 @@ add_para(doc,
     bold_lead="Engineer credentialing.")
 
 add_para(doc,
+    "The most common Priority 1 pattern at GHC sites is satellite degradation that masks as endpoint "
+    "failure. Our regional engineers are trained on the diagnostic order — link first, identity second, "
+    "endpoint third — to avoid the reverse-order mis-routing that consumes hours and produces false-positive "
+    "ticket reassignments. The Atlanta-based GA Engineering Lead audits a sample of P1 tickets monthly to "
+    "verify diagnostic discipline.",
+    bold_lead="What this looks like in operation.")
+
+add_para(doc,
     "Twenty-four-to-forty-eight-hour deployment windows in declared emergencies are met through pre-cleared "
     "travel readiness, pre-negotiated travel insurance and medical evacuation coverage per PWS Section 12, "
     "and runbooks for the most likely emergency deployment patterns (network restoration, infrastructure "
@@ -516,7 +553,7 @@ add_para(doc,
     bold_lead="Deployment readiness and OCONUS safety.")
 
 add_para(doc,
-    "Two non-disruptive automations apply at OCONUS scale. (1) SD-WAN posture monitoring with predictive "
+    "Two non-disruptive automations apply at OCONUS scale. (1) SD-WAN health monitoring with predictive "
     "alerts before degradation cascades to a P1 — runbook-linked from alert to incident to engineer, with "
     "ServiceNow tying the regional asset to the engineer's queue. (2) Image baseline drift detection on "
     "site servers and workstations through MECM and Intune coordination, surfaced to the regional engineer "
@@ -535,11 +572,11 @@ add_para(doc,
     "GA tickets are tracked against PWS Table 5 thresholds with regional rollup. Above the PWS, we measure "
     "Site Availability Percentage (target 99.0%), Mean Time to Site Restoration (P1, target 4 hours from "
     "engineer dispatch), and Quarterly Travel-Readiness Currency at 100% of GA roster.",
-    bold_lead="SLA performance posture.")
+    bold_lead="SLA performance.")
 
 add_para(doc,
     "(1) High-threat country deployment risk — mitigated by FACT training currency, safety POC engagement, "
-    "and pre-cleared travel posture. "
+    "and pre-cleared travel readiness. "
     "(2) Satellite / SD-WAN single-point dependencies at remote sites — mitigated by predictive monitoring, "
     "regional runbooks, and pre-positioned spare equipment where logistics permit. "
     "(3) CCNA shortage in U.S. labor market — mitigated by retention focus on incumbent GA engineers, "
@@ -579,7 +616,7 @@ add_para(doc,
     "Task 4.1 is activated by contract modification when triggered by a public health emergency, an "
     "unanticipated federal mandate, technology refresh, or building moves. We mobilize qualified surge "
     "personnel within 30 days of trigger, drawing from a designated bench inside the prime and subcontractor "
-    "team plus the Insight Global staffing channel. Surge personnel are pre-screened for clearance posture "
+    "team plus the Insight Global staffing channel. Surge personnel are pre-screened for clearance status "
     "and credential currency where applicable. The Task 4.1 bench is sized to the published Junior Computer "
     "User Support Specialist optional level of effort and is rebalanced quarterly against the active "
     "demand profile.",
@@ -592,6 +629,13 @@ add_para(doc,
     "Writers produce 508-compliant documentation aligned to MS365, EPLC, and OCIO PM standards. The optional "
     "PM and Technical Writer roster maps to the historical Senior IT Project Manager level of effort.",
     bold_lead="Task 4.2 — Project Management and Technical Writer Services (Optional).")
+
+add_para(doc,
+    "Primary risk: surge mobilization within the 30-day notice window for a category we have not pre-staged. "
+    "Mitigation: quarterly bench rebalancing against the active demand profile; named alternates inside the "
+    "primary teaming partner; pre-cleared LCAT inventory at Insight Global to fill any gap inside the "
+    "30-day window.",
+    bold_lead="Task-specific risks and mitigations.")
 
 # ---- 1.3.7 Task 5 -----------------------------------------------------
 add_h(doc, "1.3.7 Task 5 — DSO Operations Support Services", 3)
@@ -616,6 +660,12 @@ add_para(doc,
     "508-compliant and aligned to the OCIO communications voice and brand.",
     bold_lead="Task 5.3 — IT Communications Services (DSO, Optional).")
 
+add_para(doc,
+    "Primary risk for Task 5: schedule slip on EPLC stage-gate deliverables when scope expands mid-stream. "
+    "Mitigation: scope-change protocol routed through the Task 3.1 PMO governance cadence; documented "
+    "stage-gate exit criteria; weekly burn-down review with the DSO PMT.",
+    bold_lead="Task-specific risks and mitigations.")
+
 # ---- 1.3.8 Task 6.1 ---------------------------------------------------
 add_h(doc, "1.3.8 Task 6.1 — Application Web Development Services", 3)
 
@@ -636,6 +686,19 @@ add_para(doc,
     "Section 508 and security review.",
     bold_lead="Build-decision framework.")
 
+add_para(doc,
+    "An OCIO Tools service-portal widget rebuilt as a ServiceNow App Engine module replaces a custom .NET "
+    "component while preserving the customer experience. The rebuilt widget inherits ServiceNow's identity, "
+    "logging, and accessibility instrumentation by default and removes a recurring patch-and-test obligation "
+    "from the .NET maintenance backlog.",
+    bold_lead="Example.")
+
+add_para(doc,
+    "Primary risk: scope drift on application requests as the OCIO Tools backlog grows. Mitigation: a "
+    "documented build-decision-framework gate enforced by the Task 6.1 lead, with disposition recorded in "
+    "ServiceNow; quarterly backlog grooming with OCIO product owners.",
+    bold_lead="Task-specific risks and mitigations.")
+
 # ---- 1.3.9 Task 8 -----------------------------------------------------
 add_h(doc, "1.3.9 Task 8 — Identity and Access Management Support Services", 3)
 
@@ -651,17 +714,24 @@ add_para(doc,
     "Zero Trust architecture support across Microsoft Azure, Zscaler, multi-factor authentication, and virtual "
     "desktop infrastructure. Policy-based access enables remote and telework productivity for the CDC "
     "workforce, including the CITGO Virtual Desktop environment that appears in the historical incident "
-    "profile (~5.5% of incidents). Engineering posture is aligned to the OCIO Zero Trust roadmap; we do not "
+    "profile (~5.5% of incidents). Engineering set-up is aligned to the OCIO Zero Trust roadmap; we do not "
     "propose architectural change without OCIO direction.",
     bold_lead="Task 8.2 — Remote Access Services.")
 
 add_para(doc,
     "Identity lifecycle and brokering across Active Directory, Forefront Identity Manager, SQL, and PowerShell. "
     "Identity-automation patterns reduce manual provisioning load — the second-largest task category in the "
-    "historical demand profile (22.4%) — without compromising audit posture. The directory automation work "
-    "explicitly intersects with Task 1.1 deflection (UserID provisioning rules) so improvements compound "
+    "historical demand profile (22.4%) — without compromising audit position. The directory automation work "
+    "explicitly intersects with Task 1.1 deflection (UserID provisioning rules) so improvements ripple "
     "across both tasks.",
     bold_lead="Task 8.3 — Directory Services.")
+
+add_para(doc,
+    "Primary risks for Task 8: emergency-patch fatigue on the endpoint estate (8.1), and identity-automation "
+    "audit exception risk (8.3). Mitigations: documented CSPO patch-window calendar with rolling 30-day "
+    "outlook; quarterly audit of identity-automation rules with sign-off from the IAM Branch lead; named "
+    "rollback path for any automation that produces an exception.",
+    bold_lead="Task-specific risks and mitigations.")
 
 # ---- 1.3.10 Task 9 ----------------------------------------------------
 add_h(doc, "1.3.10 Task 9 — Infrastructure Support Services", 3)
@@ -684,6 +754,12 @@ add_para(doc,
     "Each optional task has a designated Task Lead pre-identified so option exercise translates to "
     "performance start without organizational realignment.",
     bold_lead="Tasks 9.2 – 9.7 (Optional).")
+
+add_para(doc,
+    "Primary risk: predictive-monitoring false-positive volume that erodes engineer confidence in alerts. "
+    "Mitigation: tuning cadence in the first 60 days; alert-to-incident conversion rate tracked as a "
+    "Beyond-PWS QCP metric; named alert owner per region.",
+    bold_lead="Task-specific risks and mitigations.")
 
 # ---- 1.3.11 Task 10 ---------------------------------------------------
 add_h(doc, "1.3.11 Task 10 — Workplace Productivity Support Services", 3)
@@ -717,10 +793,19 @@ add_para(doc,
 
 add_para(doc,
     "Reporting infrastructure and dashboards on ServiceNow with event-data integration, real-time alerting, "
-    "and connection to performance systems. The reporting platform is the channel through which our SLA "
-    "performance, deflection performance, and continuous-improvement results are made visible to the COR "
-    "and OCIO leadership. Dashboards are co-designed with the COR in the first 30 days post-award.",
+    "and connection to performance systems. We co-design six standing dashboards with the COR in the first "
+    "30 days post-award: (1) SLA performance against PWS Table 5; (2) Tier-1 deflection-rate dashboard "
+    "by category; (3) Knowledge Article Currency dashboard; (4) OCONUS site-availability dashboard; "
+    "(5) Surge-readiness / on-call dashboard; (6) GFE on-time-delivery and inventory-variance "
+    "dashboard. All six are accessible to the COR and Technical Monitors in real time — the COR does not "
+    "wait for a monthly report to know the SLA position.",
     bold_lead="Task 10.5 — Reporting Services.")
+
+add_para(doc,
+    "Primary risk for Task 10: M365 platform change cadence outpacing CDC SA&A documentation. "
+    "Mitigation: the Senior Computer Systems Engineer/Architect named M365 lead maintains a rolling 90-day "
+    "Microsoft roadmap watch and pre-files SA&A delta documentation ahead of in-production changes.",
+    bold_lead="Task-specific risks and mitigations.")
 
 # ---- 1.3.12 Task 11 ---------------------------------------------------
 add_h(doc, "1.3.12 Task 11.1 — OCIO Communications Services", 3)
@@ -733,101 +818,139 @@ add_para(doc,
     "communications backbone of the entire CITS service experience — including transition-period customer "
     "communications described in §3.7.")
 
+add_para(doc,
+    "Primary risk: communications volume during a public-health emergency outpaces the standing roster. "
+    "Mitigation: pre-staged crisis-communications templates aligned to OCIO voice; named alternates "
+    "trained on CDC Connects publishing; coordinated escalation to CDC Office of Communications.",
+    bold_lead="Task-specific risks and mitigations.")
+
 # 1.4 Cross-cutting and HCD ---------------------------------------------
-add_h(doc, "1.4 Cross-Cutting Service Disciplines (Including HCD as Operating Model)", 2)
+add_h(doc, "1.4 Cross-Cutting Service Practices (HCD as the Operating Model)", 2)
 
 add_para(doc,
-    "Seven cross-cutting disciplines run across every task. They are summarized here so we do not repeat them "
-    "in each task narrative.")
+    "Seven cross-cutting practices run across every task. We lead with Human-Centered Design because it is "
+    "how we operate, not a separate work product or section.")
+
+add_para(doc,
+    "We use named methods — journey mapping, contextual inquiry, service blueprinting, usability testing on "
+    "the ServiceNow self-service portal, and co-design with the CDC Customer Experience Office — and we tie "
+    "each to a specific operational outcome. We journey-map four CDC populations whose support needs are "
+    "distinct: laboratory and research scientists, public health field responders, program staff, and global "
+    "health partners. The journey maps directly inform the priority of KB articles, the design of "
+    "self-service flows in the Virtual Agent, the order of operations in OCONUS runbooks, and the choice "
+    "of automation candidates. Section 508 / WCAG 2.0 AA is treated as design input from the start, not a "
+    "remediation step at the end. Voice-of-customer measurement runs continuously through the Customer "
+    "Service Survey and a quarterly journey-specific deep-dive coordinated with the CXO team. HCD outcomes "
+    "are reported to the COR and OCIO leadership monthly.",
+    bold_lead="(1) Human-Centered Design (HCD) as the operating model.")
+
+add_para(doc,
+    "Worked example — laboratory and research scientists. Journey mapping with bench scientists at Roybal "
+    "surfaces an authentication friction pattern at shared lab workstations: MFA prompts time out during "
+    "instrument-protocol sessions and force re-authentication mid-experiment. Our HCD response is a service "
+    "blueprint that pairs MFA timing windows to lab-instrument session lengths, validated through usability "
+    "testing with bench scientists, and a knowledge article authored in plain laboratory language rather than "
+    "in IT vocabulary. The same journey-mapping discipline applies to public-health field responders (EOC "
+    "tempo, deployable kit reliability, OCONUS connectivity), program staff (M365 productivity, document "
+    "collaboration), and global health partners (low-bandwidth resilience, identity reach-back).",
+    bold_lead="HCD in practice.")
 
 add_para(doc,
     "All contractor personnel handle customer interactions with tact and diplomacy, demonstrate active "
     "listening, and accurately record information. The 96%-or-greater Customer Service Survey score is a "
     "managed metric, not a hopeful outcome — coaching, calibration sessions, and structured QA review of "
-    "recorded calls are weekly disciplines.",
-    bold_lead="(1) Customer service standard (PWS Subsection 3.2.1).")
+    "recorded calls are weekly practices.",
+    bold_lead="(2) Customer service standard (PWS Subsection 3.2.1).")
 
 add_para(doc,
-    "Quality is consistency, accuracy, and customer satisfaction. We staff a defined quality control function "
-    "inside Program Management, run weekly review of contact channels in Task 1.1, and document corrective "
-    "actions in the QCP we submit and maintain throughout the contract. The QCP is described in §3.6.",
-    bold_lead="(2) Quality control discipline (PWS Subsection 3.2.2 and Section 9).")
+    "Quality is consistency, accuracy, and customer satisfaction. We staff a defined quality control "
+    "function inside Program Management, run weekly review of contact channels in Task 1.1, and document "
+    "corrective actions in the QCP we submit and maintain throughout the contract. The QCP is described in "
+    "§3.6.",
+    bold_lead="(3) Quality control practice (PWS Subsection 3.2.2 and Section 9).")
 
 add_para(doc,
     "Knowledge articles in ServiceNow are owned, dated, indexed, and reviewed on a quarterly cadence. "
-    "Findability is measured. The objective is deflection — moving deterministic resolution from Tier 1 "
-    "capacity to customer self-service — and that requires the knowledge base to be useful, not merely present. "
-    "Article ownership maps to a named SME by topic family; the Knowledge Article Currency Rate (target 95%) "
-    "is reported monthly.",
-    bold_lead="(3) Knowledge management as a measured discipline (PWS Subsection 3.2.3).")
+    "Findability is measured. The objective is deflection — moving deterministic resolution from Tier-1 "
+    "capacity to customer self-service — and that requires the knowledge base to be useful, not merely "
+    "present. Article ownership maps to a named SME by topic family; the Knowledge Article Currency Rate "
+    "(target 95%) is reported monthly.",
+    bold_lead="(4) Knowledge management as a measured practice (PWS Subsection 3.2.3).")
 
 add_para(doc,
     "Every recurring report in PWS Table 12 is owned, calendared, and version-controlled. Reports are "
     "submitted on time and without gross errors, in compliance with the QASP performance requirement. The "
     "reporting platform under Task 10.5 surfaces report status proactively rather than retrospectively.",
-    bold_lead="(4) Reporting discipline (PWS Subsection 3.2.4 and Section 8).")
+    bold_lead="(5) Reporting practice (PWS Subsection 3.2.4 and Section 8).")
 
 add_para(doc,
     "CDC's PWS calls for innovative technology to improve operations and customer experience, naming RPA "
     "and ServiceNow automation as examples. Our innovation roadmap is built on those rails. RPA addresses "
     "repetitive workflow steps with deterministic logic — onboarding sub-tasks, ticket routing, status "
-    "communications. ServiceNow workflow expansion compounds the deflection program. Capabilities CDC "
-    "explicitly provides and approves are absorbed into the operating model on CDC's authority through our "
+    "communications. ServiceNow workflow expansion extends the deflection program. Capabilities CDC "
+    "explicitly provides and approves are absorbed into the way we work on CDC's authority through our "
     "continuous-improvement cadence; we do not introduce or use unapproved AI products in performance, in "
     "compliance with the Section E proposal preparation instruction.",
-    bold_lead="(5) Innovation in operations and customer experience (PWS Subsection 3.2.5).")
+    bold_lead="(6) Innovation in operations and customer experience (PWS Subsection 3.2.5).")
 
 add_para(doc,
-    "We monitor and analyze performance and customer experience, build the structure for incremental "
-    "improvement, and execute improvements that reduce TCO consistently over time. The change management "
-    "discipline is documented in the QCP. Year-over-year TCO reduction is a contract objective; we report "
-    "against it monthly.",
-    bold_lead="(6) Continuous improvement and total cost of ownership (PWS Subsection 3.2.6).")
-
-add_para(doc,
-    "HCD is how we operate, not a separate work product. We use named methods — journey mapping, contextual "
-    "inquiry, service blueprinting, usability testing on the ServiceNow self-service portal, and co-design "
-    "with the CDC Customer Experience Office — and we tie each to a specific operational outcome. We "
-    "journey-map four CDC populations whose support needs are distinct: laboratory and research scientists "
-    "(scientific computing, MFA friction, instrument network integration), public health field responders "
-    "(EOC tempo, deployable kit reliability, OCONUS connectivity), program staff (M365 productivity, document "
-    "collaboration), and global health partners (low-bandwidth resilience, identity reach-back). The journey "
-    "maps directly inform the priority of KB articles, the design of self-service flows in the Virtual Agent, "
-    "and the choice of automation candidates. Section 508 / WCAG 2.0 AA is treated as design input from day "
-    "one, not a remediation task. Voice-of-customer measurement runs continuously through the Customer "
-    "Service Survey and a quarterly journey-specific deep-dive coordinated with the CXO team. HCD outcomes "
-    "are reported to the COR and OCIO leadership monthly.",
-    bold_lead="(7) Human-Centered Design (HCD) as the operating model.")
+    "We do not pursue improvement opportunistically — we run a documented improvement engine. Performance "
+    "and customer experience data flow from the Task 10.5 dashboards into a quarterly Continuous Service "
+    "Improvement (CSI) review with the COR; improvements that pass the review move into the next "
+    "option-period operating plan. The change-management protocol is in the QCP. Year-over-year TCO "
+    "reduction is a contract objective; we report against it monthly.",
+    bold_lead="(7) Continuous improvement and total cost of ownership (PWS Subsection 3.2.6).")
 
 # 1.5 508 ---------------------------------------------------------------
 add_h(doc, "1.5 Section 508 Accessibility", 2)
 
 add_para(doc,
-    "Section 508 accessibility is treated as a delivery requirement, not an afterthought. The DHHS Section 508 "
-    "Product Assessment Template accompanies this volume per Section E; it does not count against the page "
-    "limit. All web content under Tasks 5.3 and 11.1, all reporting outputs under Task 10.5, and all "
-    "customer-facing artifacts (knowledge articles, self-service flows, training materials) are produced to "
-    "WCAG 2.0 Level A and AA standards. Remediation cost for any non-conformant deliverable is the "
-    "contractor's responsibility post-award, as required. The Task 5.3 / 11.1 communications leads carry "
-    "508-compliance accountability for their respective deliverables; the QC Lead carries enterprise "
-    "accountability across the contract.")
+    "Accessibility input from the start is part of our HCD operating model — not a separate compliance step "
+    "at the end. The DHHS Section 508 Product Assessment Template accompanies this volume per Section E; it "
+    "does not count against the page limit. All web content under Tasks 5.3 and 11.1, all reporting outputs "
+    "under Task 10.5, and all customer-facing artifacts (knowledge articles, self-service flows, training "
+    "materials) are produced to WCAG 2.0 Level A and AA standards. Remediation cost for any non-conformant "
+    "deliverable is the contractor's responsibility post-award, as required. The Task 5.3 / 11.1 "
+    "communications leads carry 508 accountability for their respective deliverables; the QC Lead carries "
+    "enterprise accountability across the contract.")
 
 # 1.6 Cyber -------------------------------------------------------------
-add_h(doc, "1.6 Cybersecurity and Compliance Posture", 2)
+add_h(doc, "1.6 Cybersecurity and Compliance Position", 2)
 
 add_para(doc,
-    "Our delivery posture meets PWS Section 12 in full: FISMA compliance; NIST SP 800-60 Volume II data "
-    "categorization; NIST SP 800-160 Volumes 1 and 2 systems-security-engineering principles; CSPO "
-    "coordination on patching and configuration baselines; immediate Cybersecurity Incident Response Team "
-    "(CSIRT) reporting of known, reported, or suspected security incidents; DoD 8570.01-m and 8140 "
-    "personnel certification posture; and Security Assessment and Authorization (SA&A) package alignment to "
-    "the CDC SA&A SOP. Personnel hold Public Trust Level 5 clearances where required (including the three "
-    "ServiceNow Analysts and the VCC Systems Administrator under Task 1.1). Foreign-equipment and product "
-    "prohibitions under Section 889, FAR 52.204-23 (Kaspersky), FAR 52.204-25, -26, and -27 (covered "
-    "telecommunications and ByteDance) are reflected in our supply chain and procurement controls. "
-    "Non-Disclosure Agreements are signed by every contractor employee per HHS instruction. Contractor "
-    "Information Security Awareness, Privacy, and Records Management training is completed at onboarding "
-    "and renewed annually.")
+    "We meet PWS Section 12 in full. Table 1.6-A maps each authority to how we comply.")
+
+add_para(doc, "Table 1.6-A. Cybersecurity and compliance authorities, mapped to our compliance approach.",
+    bold_lead="")
+add_table(doc,
+    header=["Authority / requirement", "How we comply"],
+    rows=[
+        ["FISMA compliance",
+         "Annual control assessment; SA&A maintained by Cyber Lead; documentation aligned to CDC SA&A SOP."],
+        ["NIST SP 800-60 Vol. II — data categorization",
+         "Information types and impact levels documented per system touchpoint; reviewed annually."],
+        ["NIST SP 800-160 Vol. 1 & 2 — systems security engineering",
+         "Engineering decisions tied to documented security principles; reviewed at change-control gates."],
+        ["CSPO coordination on patching / configuration",
+         "Calendared patch windows; rolling 30-day patch outlook; named CSPO interface (Cyber Lead)."],
+        ["CSIRT reporting of incidents",
+         "Immediate reporting of known, reported, or suspected incidents per PWS §12; documented playbook."],
+        ["DoD 8570.01-m and 8140 — personnel certification",
+         "Each role mapped to required certification family; renewal tracked; contractor-funded."],
+        ["Security Assessment and Authorization (SA&A)",
+         "Package maintained continuously; delta documentation pre-filed ahead of major M365 / SN changes."],
+        ["Public Trust Level 5",
+         "ServiceNow Analysts (3) and VCC Systems Administrator under Task 1.1; pre-cleared bench available."],
+        ["Section 889; FAR 52.204-23 (Kaspersky); FAR 52.204-25/-26/-27 (covered telecom / ByteDance)",
+         "Reflected in supply chain and procurement controls; vendor attestations on file."],
+        ["NDAs (HHS instruction)",
+         "Signed by every contractor employee at onboarding; annual reaffirmation."],
+        ["IS Awareness, Privacy, Records Management training",
+         "Completed at onboarding; renewed annually; attestations tracked."],
+        ["Privacy Act and PII handling (per OMB A-130)",
+         "Identified PII flagged in ServiceNow; access controls aligned; incident reporting per CSIRT."],
+    ],
+    col_widths=[2.6, 4.8])
 
 # 1.7 Pilots ------------------------------------------------------------
 add_h(doc, "1.7 Three Test-and-Learn Pilots", 2)
@@ -838,61 +961,72 @@ add_para(doc,
     "named exit-or-extend gate at end of pilot. Pilots are presented for COR concurrence in the first 30 "
     "days post-award.")
 
-add_para(doc, "Table 1.7-A. Three test-and-learn pilots.", bold_lead="")
+add_para(doc, "Table 1.7-A. Four test-and-learn pilots.", bold_lead="")
 add_table(doc,
-    header=["Pilot", "Hypothesis", "Baseline / target", "Duration", "Exit / extend gate"],
+    header=["Pilot", "Hypothesis", "Baseline / target", "What CDC sees in 30 days", "Exit / extend gate"],
     rows=[
         ["P1 — Virtual Agent password-reset deflection at Roybal",
          "ServiceNow Virtual Agent + audited identity verification deflects deterministic password reset traffic without compromising security or CSAT",
-         "Baseline: 0% deflection. Target: 20% deflection of Roybal-originating password resets in pilot window",
-         "90 days",
-         "Extend to enterprise if deflection ≥15% with CSAT ≥96% and zero security exceptions"],
+         "Baseline: 0% deflection. Target: 20% deflection of Roybal-originating password resets within 90 days",
+         "Pilot live; first deflection-rate trend; security-exception count (target zero); CSAT delta",
+         "Extend to enterprise if deflection ≥15%, CSAT ≥96%, zero security exceptions"],
         ["P2 — Zero-touch refresh for DSS Atlanta image deployments",
          "Pre-imaged, pre-patched, pre-encrypted devices reduce per-device refresh touch time and improve image-compliance pre-issue rate",
          "Baseline: ~30 minutes per refresh. Target: <8 minutes per refresh; 100% pre-issue compliance",
-         "60 days",
-         "Extend to all Atlanta campuses if compliance is 100% and per-device time meets target"],
+         "First refresh wave complete; per-device touch time; pre-issue compliance rate",
+         "Extend to all Atlanta campuses if compliance 100% and per-device time meets target"],
         ["P3 — RPA-based PIV exception fulfillment",
          "RPA on Power Automate Desktop fulfills the deterministic verification steps of PIV Card Exception Requests, freeing Tier-1 capacity",
-         "Baseline: 3,087 PIV exception tickets / 14 mo. Target: 40% of cycle time automated; FCR rate ≥85%",
-         "120 days",
+         "Baseline: 3,087 PIV exception tickets / 14 mo. Target: 40% cycle-time automated; FCR ≥85%",
+         "Bot in production for one verification step; cycle-time delta on automated subset; audit exceptions (target zero)",
          "Extend to enterprise if cycle-time reduction ≥30% and zero audit exceptions"],
+        ["P4 — HCD journey-mapping with the CDC Customer Experience Office",
+         "Co-scoped journey mapping for one CDC population (e.g., field responders) yields prioritized service improvements that cut tickets and lift CSAT",
+         "Baseline: anchor population CSAT and top-3 friction points captured at pilot start. Target: ≥1 prioritized service improvement deployed and measured",
+         "Population selected with CXO; journey map underway; top friction points published to COR",
+         "Extend to a second population if the first delivers a measurable CSAT lift or ticket-volume reduction"],
     ],
-    col_widths=[1.4, 1.7, 1.6, 0.7, 1.6])
+    col_widths=[1.2, 1.5, 1.4, 1.4, 1.4])
 
 add_para(doc,
-    "All three pilots are run inside CDC-provided platforms (ServiceNow, MECM, Power Automate Desktop). None "
-    "introduces a new tool, a new vendor, or a new data flow. None depends on AI products. Each pilot has a "
-    "named owner, a documented baseline pulled from the Task 10.5 reporting platform, a weekly read-out to "
-    "the COR, and an explicit decision gate at pilot end.")
+    "All four pilots run inside CDC-provided platforms (ServiceNow, MECM, Power Automate Desktop, the CDC "
+    "CXO collaboration channels). None introduces a new tool, a new vendor, or a new data flow. None "
+    "depends on AI products. Each pilot has a named owner, a documented baseline pulled from the Task 10.5 "
+    "reporting platform, a weekly read-out to the COR, and an explicit decision gate at pilot end.")
 
 # 1.8 Roadmap -----------------------------------------------------------
 add_h(doc, "1.8 Automation and Deflection Roadmap (Year-Over-Year Targets)", 2)
 
 add_para(doc,
-    "Cost discipline on CITS is delivered through three compounding levers — deflection, automation, and "
+    "Cost reduction on CITS is delivered through three reinforcing levers — deflection, automation, and "
     "delivery-center consolidation — under PWS Subsection 3.2.6 and contract objective 4. Table 1.8-A sets "
     "year-over-year targets we commit to as the operating envelope. Targets are adjusted in coordination with "
     "the COR at the start of each option period if material baseline shifts (e.g., a new application "
     "rollout or a major HHS reorganization) require recalibration.")
 
-add_para(doc, "Table 1.8-A. Automation and deflection targets across the period of performance.", bold_lead="")
+add_para(doc, "Table 1.8-A. Automation and deflection commitments across the period of performance.", bold_lead="")
 add_table(doc,
-    header=["Metric", "Base", "OP1", "OP2", "OP3", "OP4 (6 mo)"],
+    header=["Metric", "Base (5 mo)", "OP1", "OP2", "OP3", "OP4 (6 mo)"],
     rows=[
-        ["Tier-1 deflection rate (% of deterministic categories self-served)", "Baseline", "30%", "40%", "45%", "50%"],
+        ["Tier-1 deflection rate (% of deterministic categories self-served)", "0% → 15%", "≥30%", "≥40%", "≥45%", "≥50%"],
         ["Knowledge Article Currency Rate (% reviewed within 90 days)", "≥85%", "≥90%", "≥95%", "≥95%", "≥95%"],
-        ["First-Contact Resolution Rate (Tier 1)", "Baseline", "70%", "75%", "78%", "78%"],
-        ["Zero-touch refresh rate (DSS)", "Baseline", "80%", "90%", "95%", "95%"],
+        ["First-Contact Resolution Rate (Tier-1)", "60% baseline", "≥70%", "≥75%", "≥78%", "≥78%"],
+        ["Zero-touch refresh rate (DSS)", "0% → 50%", "≥80%", "≥90%", "≥95%", "≥95%"],
         ["RPA bots in production (count)", "1–2", "5", "8", "10", "10"],
         ["Customer Service Survey ≥96% (PWS §9 floor)", "≥96%", "≥96%", "≥97%", "≥97%", "≥97%"],
-        ["Year-over-year TCO trend (vs. prior FY)", "Baseline", "↓", "↓", "↓", "↓"],
+        ["YoY TCO reduction (vs. prior FY full-year baseline)", "—", "≥3%", "≥3%", "≥4%", "≥4%"],
+        ["Estimated cumulative cost avoidance from deflection / automation",
+         "$0.5–1.0M", "$3–4M", "$6–7M", "$8–9M", "$9–10M"],
     ],
     col_widths=[2.5, 0.9, 0.7, 0.7, 0.7, 0.9])
 
 add_para(doc,
-    "Targets are reported monthly to the COR through the Task 10.5 reporting platform. A target miss triggers "
-    "the QCP corrective-action protocol described in §3.6.")
+    "Every target in this table is reported monthly through the Task 10.5 dashboard. A miss against any "
+    "target triggers root-cause analysis within five business days under the QCP corrective-action protocol "
+    "described in §3.6. Targets are recalibrated with the COR at the start of each option period if a "
+    "material baseline shift occurs (e.g., a new application rollout, an HHS reorganization, or an "
+    "unexpected demand-profile change). Baseline values are validated in the first 30 days post-award using "
+    "the inherited ServiceNow data; commitments are reaffirmed at that point.")
 
 # =======================================================================
 # 2. STAFFING PLAN
@@ -900,15 +1034,13 @@ add_para(doc,
 add_h(doc, "2. Staffing Plan", 1)
 
 add_para(doc,
-    "Our staffing principle: stable people, stable service. CITS is a service-delivery contract before it is "
-    "a transformation contract. The single biggest predictor of service stability through transition and "
-    "across the period of performance is whether the people doing the work — at the service desk, at "
-    "deskside, on the field site teams, in OCONUS network engineering, in the OCIO PMO — are credentialed, "
-    "supported, and retained. Our staffing plan is built around that principle. We propose labor categories "
-    "sized to the historical level of effort published in Section E; we keep credentialing and clearance "
-    "posture aligned to the Minimum Qualifications; we name a Key Personnel cadre that is accountable to "
-    "CDC; and we hold a retention strategy that begins on day one of transition and runs across all four "
-    "option periods.")
+    "Our staffing principle: stable people, stable service. The single biggest predictor of service "
+    "stability through transition and across the period of performance is whether the people doing the "
+    "work — at the service desk, at deskside, on the field site teams, in OCONUS network engineering, in "
+    "the OCIO PMO — are credentialed, supported, and retained. We propose labor categories sized to the "
+    "historical level of effort published in Section E; credentialing and clearance set-up aligned to the "
+    "Minimum Qualifications; a named Key Personnel cadre accountable to CDC; and a retention strategy that "
+    "begins on Day 1 of transition and runs across all four option periods.")
 
 # 2.1 ---------------------------------------------------------------
 add_h(doc, "2.1 Staffing Strategy", 2)
@@ -930,7 +1062,7 @@ add_para(doc,
     "functions — supports a delivery-center-based model where eligible work is consolidated into U.S. "
     "delivery centers for cost discipline and service consistency. Our staffing matrix identifies the "
     "on-site, on-campus, and remote/delivery-center designation for each role.",
-    bold_lead="Geographic posture.")
+    bold_lead="Geographic delivery model.")
 
 add_para(doc,
     "We propose a teamed delivery model with a primary teaming partner and a staffing partner. "
@@ -952,7 +1084,7 @@ add_para(doc,
     "The staffing matrix in Appendix A of this volume identifies, for each proposed labor category and role: "
     "(1) the task and subtask supported, (2) the number of full-time equivalents and total proposed labor "
     "hours by period of performance, (3) skill set, (4) certifications and licenses required and held, "
-    "(5) security clearance posture, (6) professional experience requirement, (7) education, and (8) "
+    "(5) security clearance status, (6) professional experience requirement, (7) education, and (8) "
     "percent of time on the program. The matrix correlates directly to the hour build in Volume II and to "
     "the Section E Estimated Level of Effort table.")
 
@@ -992,24 +1124,28 @@ add_para(doc,
     "Personnel positions are summarized below; full resumes are provided in Appendix B and do not count "
     "against the 35-page limit.")
 
-add_para(doc, "Table 2.3-A. Named Key Personnel.", bold_lead="")
+add_para(doc, "Table 2.3-A. Named Key Personnel and CDC-relevant qualifications.", bold_lead="")
 add_table(doc,
-    header=["Role", "Primary accountability", "Minimum qualification posture"],
+    header=["Role", "Primary accountability", "Minimum qualifications (with CDC relevance)"],
     rows=[
         ["Program Manager (PM)",
          "Primary technical and managerial interface to the CO and COR; QASP alignment; PMO governance",
-         "PMP or equivalent; 10+ years federal IT services PM; Agile sprint delivery; Public Trust"],
+         "PMP or equivalent; 10+ years federal IT services PM; Agile sprint delivery; Public Trust; prior "
+         "federal health agency PM at scale ≥10K users preferred"],
         ["Deputy PM / Quality Control Lead",
          "QCP ownership; QASP performance reporting; corrective-action protocol; PM alternate per PWS 3.1",
-         "PMP or equivalent; 7+ years federal QA; ITIL Foundation"],
+         "PMP or equivalent; 7+ years federal QA; ITIL Foundation; experience operating a QCP under a "
+         "performance-incentive disincentive structure"],
         ["Service Desk Lead (Task 1.1)",
          "Tier-1 service operations; deflection program; KB & Virtual Agent ownership",
-         "ITIL Foundation; 7+ years federal Tier-1 leadership; experience with NICE VCC or equivalent"],
+         "ITIL Foundation; 7+ years federal Tier-1 leadership at scale ≥10K users; experience with NICE "
+         "VCC or equivalent; ServiceNow Virtual Agent deployment experience"],
         ["Global Activities Lead (Task 2.1)",
          "OCONUS engineering; deployment readiness; regional engineer accountability",
-         "Active CCNA; 8+ years OCONUS network engineering; FACT-current; international travel readiness"],
+         "Active CCNA; 8+ years OCONUS network engineering in a federal health, USAID, or DoS-adjacent "
+         "context; FACT-current; international travel readiness"],
     ],
-    col_widths=[1.4, 2.7, 2.7])
+    col_widths=[1.4, 2.4, 3.0])
 
 add_placeholder(doc,
     "Appendix B — Key Personnel Resumes. Capture lead to confirm named individuals; resumes inserted in the "
@@ -1027,7 +1163,7 @@ add_para(doc,
     "with named recruiting partners that targets ITIL-certified, CCNA-certified, and federal-experienced "
     "candidates; (3) for urgent or surge demand under Task 4.1, an Insight Global-led "
     "[PLACEHOLDER: confirm whether to name staffing partner in Volume I or treat generically as 'staffing "
-    "partner'] staffing channel that lets us scale by city, by labor category, and by clearance posture "
+    "partner'] staffing channel that lets us scale by city, by labor category, and by clearance status "
     "without ad hoc mobilization.",
     bold_lead="Recruit and hire.")
 
@@ -1056,7 +1192,10 @@ add_para(doc,
     "characterized as direct outreach for solicitation of incumbent staff. Where incumbent personnel are "
     "interested in continued CITS engagement under our team, we route those expressions of interest through "
     "the staffing channel rather than through prime-to-individual contact, in keeping with sound procurement-"
-    "integrity practice. This protocol is documented in §3.7 transition plan.",
+    "integrity practice. This protocol is documented in §3.7. We expect a meaningful share of our deployed "
+    "workforce on Day 1 to come from incumbent staff who choose to continue at CITS — through staffing-"
+    "partner channels, not direct outreach. That continuity is a feature of our offer, not an accident of "
+    "transition.",
     bold_lead="Continuity of trusted talent.")
 
 # 2.5 turnover ---------------------------------------------------------
@@ -1122,6 +1261,10 @@ add_table(doc,
          "Low", "Medium",
          "Subcontract Management Lead under PM; bi-weekly performance review; SLA flowdown identical to "
          "prime obligations; named escalation path to CO."],
+        ["Visa / work-authorization currency for OCONUS-traveling staff",
+         "Low", "Medium",
+         "Annual currency audit by GA Lead; named alternate for each high-threat-country deployment; "
+         "documented coordination with HR for renewal lead times before posting."],
     ],
     col_widths=[2.4, 0.9, 0.7, 2.7])
 
@@ -1149,14 +1292,29 @@ add_para(doc,
     "Communications, Application Development, and DSO Operations — together with the Quality Control Lead, "
     "the Cybersecurity and Compliance Lead, and the Subcontract Management Lead. Below the Task Leads are "
     "the Service Desk Liaisons, the Campus Leads, the engineering supervisors, and the operating teams. "
-    "The full org chart and decision-rights matrix is in Appendix C.")
+    "The full org chart and full RACI matrix are in Appendix C; the summary decision-rights matrix below "
+    "lets the evaluator see authority placement in-line.")
+
+add_para(doc, "Table 3.1-A. Decision-rights summary (R = recommends; A = approves; I = informed).",
+    bold_lead="")
+add_table(doc,
+    header=["Decision class", "CO", "COR", "PM", "Task Lead", "Operating team"],
+    rows=[
+        ["Operational (within published service standards)", "I", "I", "I", "A", "R"],
+        ["Service-level corrective action (within QCP)", "I", "I", "A", "R", "R"],
+        ["Change to KB / workflow / Virtual Agent within scope", "I", "I", "A", "R", "R"],
+        ["Scope-impact change (financial / schedule)", "A", "R", "R", "I", "I"],
+        ["Personnel — Key Personnel substitution", "A", "R", "R", "I", "—"],
+        ["Personnel — non-Key replacement / hire", "I", "I", "A", "R", "—"],
+        ["Subcontractor performance escalation", "I", "I", "A", "R", "I"],
+        ["Cybersecurity incident — initial CSIRT report", "I", "I", "I", "A", "R"],
+    ],
+    col_widths=[3.0, 0.5, 0.5, 0.5, 0.7, 1.0])
 
 add_placeholder(doc,
-    "Appendix C — Organizational Chart and Decision-Rights Matrix. Proposal graphics team to render the org "
-    "chart aligned to the technical approach in Section 1. Decision-rights matrix should specify, for each "
-    "decision class (operational, change, financial, personnel, escalation), whether authority sits with the "
-    "COR, the PM, the Task Lead, or the operating team — and the escalation path when authority is "
-    "exceeded.")
+    "Appendix C — Full Organizational Chart and RACI. Proposal graphics team to render the org chart aligned "
+    "to the technical approach in Section 1, and to extend Table 3.1-A into a full RACI across all decision "
+    "classes and escalation paths.")
 
 # 3.2 Performance ------------
 add_h(doc, "3.2 Performance Measurement and Metrics Monitoring", 2)
@@ -1185,6 +1343,12 @@ bullet_list = [
 for b in bullet_list:
     doc.add_paragraph(b, style="List Bullet")
 
+add_para(doc,
+    "All dashboards are accessible to the COR and Technical Monitors in real time. The COR does not wait "
+    "for a monthly report to know the SLA position. The dashboards explicitly support the PWS Section 9 "
+    "performance-incentive disincentive structure: where a metric trends toward a threshold breach, the "
+    "QCP corrective-action protocol engages early to prevent the deduction event rather than respond to it.")
+
 # 3.3 Risk -----------------
 add_h(doc, "3.3 Risk Management", 2)
 add_para(doc,
@@ -1202,50 +1366,61 @@ add_para(doc,
 
 add_para(doc, "Table 3.3-A. Program-level risk register at proposal time.", bold_lead="")
 add_table(doc,
-    header=["Risk", "L", "I", "Mitigation", "Owner"],
+    header=["Risk", "L", "I", "Trigger", "Mitigation", "Owner"],
     rows=[
+        ["Section E AI-products restriction (compliance position)",
+         "L", "M",
+         "Any solution narrative or post-award capability that could be characterized as a vendor-introduced "
+         "AI product",
+         "ServiceNow-native automation only; no vendor-introduced AI; CDC-approved capabilities absorbed "
+         "through CSI cadence on CDC's authority; documented change protocol prevents inadvertent "
+         "introduction; clarification submitted to CO May 12.",
+         "PM / Cyber Lead"],
         ["OCONUS network outage cascades during emergency deployment",
          "M", "H",
+         "Multi-hour SD-WAN degradation flagged by predictive monitor or simultaneous P1 from ≥2 sites",
          "Predictive SD-WAN monitoring; pre-positioned regional spares where logistics permit; CCNA-current "
-         "regional engineers; 24-48 hour deployment readiness; FACT currency.",
+         "regional engineers; 24–48 hour deployment readiness; FACT currency.",
          "GA Lead"],
         ["Public-health emergency surge exceeds Tier-1 capacity",
          "M", "H",
-         "Deflection program preserves Tier-1 human capacity; Task 4.1 surge bench; Insight Global rapid-deploy "
-         "channel; cross-task surge runbook activated through PMO.",
+         "Daily ticket volume exceeds 110% of trailing 90-day average for two consecutive days",
+         "Deflection program preserves Tier-1 human capacity; Task 4.1 surge bench; Insight Global rapid-"
+         "deploy channel; cross-task surge runbook activated through PMO.",
          "Service Desk Lead / PM"],
         ["Knowledge-base decay erodes deflection over time",
          "M", "M",
+         "Article Currency Rate <90% or deflection-rate trend down two consecutive months",
          "Named article ownership; quarterly review cadence; 95% Currency Rate metric; deflection-rate "
          "visibility surfaces decay early.",
          "QC Lead"],
-        ["Pricing pressure and TCO commitments require service-quality discipline",
+        ["Pricing pressure and TCO commitments require service-quality care",
          "H", "M",
-         "Year-over-year TCO targets in §1.8; deflection and zero-touch refresh as primary cost levers; "
-         "delivery-center consolidation for eligible work; transparent monthly financial reporting.",
+         "YoY TCO target miss or service-quality metric trending below threshold",
+         "YoY TCO targets in §1.8; deflection and zero-touch refresh as primary cost levers; delivery-"
+         "center consolidation for eligible work; transparent monthly financial reporting.",
          "PM"],
         ["HHS budget continuity / org disruption",
          "M", "M",
+         "HHS or CDC funding action that materially shifts scope or staffing",
          "Contractual flexibility (T&M structure absorbs scope shifts); strategic risk loop with COR; "
          "documented assumptions in §3.10 surface scope-impact items early.",
          "PM"],
         ["Protest defensibility — clean transition, named subs, named individuals",
          "L", "H",
+         "Any conduct or document that could be characterized as direct outreach to incumbent staff or "
+         "uncoordinated naming of subs",
          "Zero direct outreach to incumbent staff; staffing-partner-only channel; documented procurement-"
          "integrity protocol in §3.7; subcontractor naming approved before submission.",
          "PM / Subcontract Lead"],
-        ["AI-products restriction interpretation in performance",
-         "L", "M",
-         "ServiceNow-native automation only; no vendor-introduced AI; absorbed CDC-approved capabilities "
-         "via CSI cadence; documented change protocol prevents inadvertent introduction.",
-         "PM / Cyber Lead"],
         ["GFE reconciliation gap during transition",
          "L", "H",
-         "Continuous-discipline approach (§3.9); Property Custodial Officer coverage; signed walk-down at "
-         "transition; ServiceNow asset linkage; 95% on-time delivery metric.",
+         "Inventory variance >2% at any walk-down or audit",
+         "Continuous-discipline approach (§3.9); PCO coverage; signed walk-down at transition; ServiceNow "
+         "asset linkage; 95% on-time delivery metric.",
          "ITAM Lead / PM"],
     ],
-    col_widths=[2.6, 0.4, 0.4, 2.7, 1.0])
+    col_widths=[2.0, 0.3, 0.3, 1.6, 2.4, 0.8])
 
 add_para(doc,
     "Three additional risks are identified during the operational risk loop in PWS Subsection 3.2.6 "
@@ -1275,6 +1450,15 @@ add_para(doc,
     bold_lead="Telework oversight.")
 
 add_para(doc,
+    "Off-site task management — the work that supports CITS but is not delivered at a CDC location — runs "
+    "on the same governance cadence as on-site tasks. Tier-1 service desk operations consolidated into U.S. "
+    "delivery centers, application development, reporting, and several specialized functions are managed "
+    "through the same daily stand-up, weekly Task-Lead review, and ServiceNow-derived performance dashboards "
+    "as on-site work. Each off-site role has a named Task Lead, a documented escalation path, and the same "
+    "quality coaching and calibration discipline as on-site teams.",
+    bold_lead="Off-site task management.")
+
+add_para(doc,
     "Conflicts among team members, between subcontractors, or between the contractor team and CDC "
     "stakeholders are surfaced at the lowest appropriate level first. The Task Lead resolves operational "
     "disagreements; the PM resolves cross-task or subcontractor-prime disagreements; the CO and contractor "
@@ -1299,10 +1483,21 @@ add_para(doc,
     "and the Virtual Agent reduces inbound volume and supports right-sized Tier-1 staffing. (2) Automation — "
     "RPA and ServiceNow workflow extension reduce per-ticket handling time on standard requests. (3) "
     "Delivery-center consolidation — eligible work consolidated to lower-cost U.S. delivery centers improves "
-    "consistency and reduces per-hour cost without sacrificing service quality. Year-over-year TCO targets "
-    "are agreed with the COR at the start of each option period and reported against monthly. The targets "
-    "in §1.8 are the operating envelope.",
+    "consistency and reduces per-hour cost without sacrificing service quality. YoY TCO targets are agreed "
+    "with the COR at the start of each option period and reported against monthly. The targets in §1.8 are "
+    "the operating envelope.",
     bold_lead="Cost discipline drivers.")
+
+add_para(doc,
+    "Beyond the PWS-named tools and resources (ServiceNow, NICE VCC, M365, MECM/Intune, Power Platform, "
+    "Azure, Zscaler, AD/FIM), we identify three additional resources required to deliver the proposed "
+    "approach: (a) Power Automate Desktop for the RPA bot inventory; (b) a contractor-secure environment "
+    "for transition-period knowledge artifacts and ServiceNow configuration exports; (c) standard "
+    "Government-licensed productivity tooling for the PMO (MS Project, Visio). Each is contractor-funded or "
+    "sourced through CDC-approved channels; none introduces a new vendor relationship that would require "
+    "CDC procurement action. Any additional resource identified during performance is raised with the CO "
+    "before introduction.",
+    bold_lead="Additional resources beyond the PWS.")
 
 # 3.6 ---
 add_h(doc, "3.6 Draft Quality Control Plan (QCP)", 2)
@@ -1328,17 +1523,17 @@ add_table(doc,
          "Random sampling QA review", "Weekly"],
         ["IT Asset On-Time Delivery (PWS)", "% shipments on time", "≥95%",
          "100% inspection of shipment records", "Monthly"],
-        ["Tier-1 Deflection Rate (QCP +)", "% deterministic resolved without human", "30% OP1 → 50% OP4",
+        ["Tier-1 Deflection Rate (Beyond-PWS)", "% deterministic resolved without human", "30% OP1 → 50% OP4",
          "ServiceNow-derived report", "Monthly"],
-        ["First-Contact Resolution (QCP +)", "Tier-1 close-on-first-touch %", "70% OP1 → 78% OP3",
+        ["First-Contact Resolution (Beyond-PWS)", "Tier-1 close-on-first-touch %", "70% OP1 → 78% OP3",
          "ServiceNow-derived report", "Monthly"],
-        ["KB Currency Rate (QCP +)", "% articles reviewed within 90 days", "≥95%",
+        ["KB Currency Rate (Beyond-PWS)", "% articles reviewed within 90 days", "≥95%",
          "Periodic inspection", "Monthly"],
-        ["MTTR by Priority (QCP +)", "Mean time to resolution", "Trend ↓",
+        ["MTTR by Priority (Beyond-PWS)", "Mean time to resolution by P1/P2/P3/P4", "≥10% reduction by OP2 (P1/P2)",
          "ServiceNow-derived report", "Monthly"],
-        ["Image Compliance Pre-Issue (QCP +)", "% laptops/desktops issued with verified patch + BIOS",
+        ["Image Compliance Pre-Issue (Beyond-PWS)", "% laptops/desktops issued with verified patch + BIOS",
          "100%", "100% inspection", "Continuous"],
-        ["Reopen Rate (QCP +)", "% tickets reopened within 7 days", "<5%",
+        ["Reopen Rate (Beyond-PWS)", "% tickets reopened within 7 days", "<5%",
          "ServiceNow-derived report", "Monthly"],
     ],
     col_widths=[1.7, 1.7, 0.9, 1.6, 0.8])
@@ -1410,6 +1605,14 @@ add_para(doc,
     "expressions of interest are routed through staffing-partner channels rather than through prime-to-"
     "individual contact, in keeping with sound procurement-integrity practice.",
     bold_lead="Coordination with the incumbent.")
+
+add_para(doc,
+    "Equally important is what we will not do during transition. We will not introduce new tooling. We "
+    "will not change ServiceNow workflows, KB articles, or Virtual Agent flows during the transition month. "
+    "We will not solicit incumbent staff outside the staffing-partner channel. We will not present the "
+    "Government with surprise scope-impact decisions. Stability of the inherited service is the contractor's "
+    "first obligation; improvement begins after September 1.",
+    bold_lead="What we will not do during transition.")
 
 add_para(doc,
     "Three audiences receive structured transition communications. (1) CDC end users — the approximately "
@@ -1557,22 +1760,32 @@ add_para(doc,
 
 # 4.1 ---
 add_h(doc, "4.1 Reference 1 — Federal Health Agency Enterprise IT Service Desk", 2)
-add_para(doc, "Contract number, customer, and title.",
-    bold_lead="(a)")
-add_placeholder(doc,
-    "Capture lead to provide: contract number, customer/agency name, contract title.")
+add_para(doc, "Contract number, customer, and title.", bold_lead="(a)")
+add_placeholder(doc, "Capture lead to provide: contract number, customer/agency name, contract title.")
 add_para(doc,
     "Tiered ITSM service delivery to a federal health agency comparable in scale to CDC. Service Desk on "
     "ServiceNow with multi-channel intake (phone, portal, email, chat); deskside support across multiple "
-    "campuses; distributed-site coverage; integration with Microsoft 365 and identity platforms. The "
-    "contract included a transition phase coordinated with the predecessor incumbent, a knowledge-management "
-    "discipline tied to deflection metrics, and a continuous-improvement cadence reporting to a federal CIO. "
-    "Significant accomplishments included deflection-rate increases over baseline within the first option "
-    "period and sustained Customer Service Survey performance above the contractual threshold.",
+    "campuses; distributed-site coverage; integration with Microsoft 365 and identity platforms. Scope "
+    "included a transition phase coordinated with the predecessor incumbent, a knowledge-management practice "
+    "tied to deflection metrics, and a continuous-improvement cadence reporting to a federal CIO. "
+    "Significant accomplishments include achieving [PLACEHOLDER %] deflection within [PLACEHOLDER months] "
+    "using ServiceNow Virtual Agent on the contract, sustaining Customer Service Survey performance above "
+    "the contractual threshold, and reducing MTTR at Priority 1 by [PLACEHOLDER %] from baseline. Problems "
+    "encountered during the contract included [PLACEHOLDER — e.g., a knowledge-base coverage gap in the "
+    "first option period]; corrective action was [PLACEHOLDER — e.g., named SME ownership of article "
+    "families and a 90-day review cadence], with results documented in CPARS.",
     bold_lead="(b) Narrative of work.")
+add_para(doc,
+    "Three lessons from this engagement directly inform our CITS approach. (1) Deflection-rate visibility "
+    "must precede deflection-program investment — we will publish baseline rates in the first 30 days "
+    "post-award and track weekly. (2) Knowledge-article ownership is the highest-leverage retention "
+    "discipline for sustained deflection — we have built named-ownership into §1.4. (3) Customer "
+    "communications during transition are as important as operational continuity — see §3.7.",
+    bold_lead="Lessons learned applied to CITS.")
 add_placeholder(doc,
-    "Capture lead to add specifics on problems encountered, corrective actions, and significant "
-    "accomplishments — quantified where defensible (e.g., deflection % achieved, CSAT %, MTTR delta).")
+    "Capture lead to validate quantified claims with reference POCs and replace placeholders with defensible "
+    "numbers; remove any claim that cannot be sourced to a CPARS entry, an internal performance file, or a "
+    "POC who will speak to it.")
 add_para(doc, "Dollar value, contract type, period of performance, place of performance, personnel.",
     bold_lead="(c)")
 add_placeholder(doc,
@@ -1590,11 +1803,21 @@ add_placeholder(doc, "Capture lead to provide.")
 add_para(doc,
     "ServiceNow-based ITSM operations at federal civilian or DoD-health scale, including ServiceNow App "
     "Engine and workflow extension, knowledge management, change and release management, and reporting. "
-    "The contract scope included multi-site delivery, integration with identity platforms, and a quality "
-    "control plan with measures beyond the published SLAs. Significant accomplishments included reduced "
-    "MTTR by priority and demonstrated year-over-year cost-of-ownership reduction.",
+    "Scope included multi-site delivery, integration with identity platforms, and a quality control plan "
+    "with measures beyond the published SLAs. Significant accomplishments include MTTR reduction at "
+    "Priority 1 of [PLACEHOLDER %] from baseline, [PLACEHOLDER]% YoY cost-of-ownership reduction across "
+    "[PLACEHOLDER years], and [PLACEHOLDER count] RPA bots in production by end of [PLACEHOLDER period]. "
+    "Problems encountered included [PLACEHOLDER — e.g., a tooling-license gap during a fiscal-year "
+    "transition]; corrective action was [PLACEHOLDER — e.g., a renegotiated license schedule with the "
+    "platform vendor and a documented bridging plan], with results in CPARS.",
     bold_lead="(b) Narrative of work.")
-add_placeholder(doc, "Capture lead to add specifics — quantified where defensible.")
+add_para(doc,
+    "Three lessons applied to CITS. (1) ServiceNow workflow extension compounds when paired with named "
+    "process owners — we have named Task Leads with workflow accountability in §3.1. (2) Beyond-PWS "
+    "QCP measures are the surest path to sustained YoY cost reduction — see §3.6. (3) Predictive-monitoring "
+    "false-positive rate must be tuned actively or it erodes engineer confidence — see §1.3.10.",
+    bold_lead="Lessons learned applied to CITS.")
+add_placeholder(doc, "Capture lead to validate quantified claims with reference POCs.")
 add_para(doc, "Dollar value, contract type, period of performance, place of performance, personnel.",
     bold_lead="(c)")
 add_placeholder(doc, "Capture lead to provide.")
@@ -1608,11 +1831,21 @@ add_placeholder(doc, "Capture lead to provide.")
 add_para(doc,
     "Distributed-site or OCONUS service delivery comparable to CITS Global Activities. Scope included "
     "multi-region engineering coverage, SD-WAN and site-to-site VPN integration, satellite-link operating "
-    "norms, regional runbooks, and travel-readiness discipline (FACT, STEP, medical clearance). Significant "
-    "accomplishments included demonstrated 24-48 hour deployment readiness and high site-availability "
-    "performance across the OCONUS footprint.",
+    "norms, regional runbooks, and travel-readiness practice (FACT, STEP, medical clearance). Significant "
+    "accomplishments include sustained Site Availability Percentage of [PLACEHOLDER %] across the OCONUS "
+    "footprint, demonstrated 24–48 hour deployment readiness with [PLACEHOLDER count] real activations, "
+    "and zero high-threat-country safety incidents over [PLACEHOLDER years]. Problems encountered included "
+    "[PLACEHOLDER — e.g., visa renewal lead-time pressure during a regional crisis]; corrective action "
+    "was [PLACEHOLDER — e.g., an annual currency audit and a named alternate per high-threat country], "
+    "documented in CPARS.",
     bold_lead="(b) Narrative of work.")
-add_placeholder(doc, "Capture lead to add specifics — quantified where defensible.")
+add_para(doc,
+    "Three lessons applied to CITS. (1) Diagnostic-order discipline (link first, identity second, endpoint "
+    "third) prevents most reverse-routed P1s — see §1.3.4. (2) Travel-readiness audits must be calendared, "
+    "not opportunistic — see §2.7. (3) Pre-positioned spares change deployment economics where logistics "
+    "permit — built into our GA approach.",
+    bold_lead="Lessons learned applied to CITS.")
+add_placeholder(doc, "Capture lead to validate quantified claims with reference POCs.")
 add_para(doc, "Dollar value, contract type, period of performance, place of performance, personnel.",
     bold_lead="(c)")
 add_placeholder(doc, "Capture lead to provide.")
@@ -1630,12 +1863,13 @@ add_table(doc,
     header=["CITS task family", "Ref 1", "Ref 2", "Ref 3"],
     rows=[
         ["Task 1.1 ITSDS — Tier-1 multi-channel service desk on ServiceNow", "✔ primary", "✔ supporting", ""],
-        ["Task 1.2 DSS — Multi-campus deskside / endpoint discipline", "✔ primary", "", ""],
+        ["Task 1.2 DSS — Multi-campus deskside and endpoint practice", "✔ primary", "", ""],
         ["Task 1.3 EPS/FSS — Emergency response / field deployable", "✔ supporting", "", "✔ supporting"],
         ["Task 2.1 GA — OCONUS engineering and travel readiness", "", "", "✔ primary"],
         ["Task 3.1 PMS — Federal IT services PMO and QASP", "✔ supporting", "✔ primary", "✔ supporting"],
         ["Task 6.1 / 8.1–8.3 / 9.1 / 10.1–10.5 — Platform engineering & automation", "", "✔ primary", ""],
-        ["TCO discipline / deflection / continuous improvement", "✔ supporting", "✔ primary", "✔ supporting"],
+        ["TCO and deflection / continuous improvement", "✔ supporting", "✔ primary", "✔ supporting"],
+        ["HCD methods deployed at scale on a federal health agency contract", "✔ primary", "", ""],
     ],
     col_widths=[3.6, 1.0, 1.0, 1.1])
 
